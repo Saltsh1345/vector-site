@@ -151,7 +151,22 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
   .foot p{padding-left:0}
 }
 @media (max-width:420px){.call span{display:none}}
-/* В. Две пиалы: приглашение к разговору, петля пара */
+/* В. Вас выслушают: пост с психологом рядом с письмом, как в Instagram Vector */
+.open-c .text{padding-top:calc(140px + env(safe-area-inset-top));min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.open-c h1{margin:0;font:500 var(--f68)/1 var(--serif);letter-spacing:-.01em;color:var(--forest);text-wrap:balance}
+.open-c h1 em{font-style:italic;color:var(--teal)}
+.post{position:sticky;top:calc(50vh - 300px);width:min(100%,440px)}
+.post-pic{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--mint);box-shadow:0 30px 60px -34px rgba(21,61,54,.55)}
+.post-pic > img,.post-pic > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.post-pic::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(244,239,230,.96) 0%,rgba(244,239,230,.82) 26%,rgba(244,239,230,0) 52%)}
+.post-text{position:absolute;left:26px;right:26px;bottom:24px;z-index:2}
+.post-logo{width:62px;height:auto;margin-bottom:12px}
+.post-h{margin:0!important;font:500 34px/1 var(--serif)!important;letter-spacing:.02em;text-transform:uppercase;color:var(--forest)!important}
+.post-h em{font-style:normal;color:var(--teal)}
+.post-rule{display:block;width:40px;height:1px;background:var(--forest);opacity:.6;margin:12px 0 10px}
+.post-s{margin:0!important;font:500 14px/1.4 var(--sans)!important;color:var(--ink)!important;max-width:16em}
+.post .ribbon{left:-20%;width:150%;top:2%;z-index:1;opacity:.8}
+@media (max-width:1000px){.open-c .text{min-height:0;padding-top:var(--s27)}.open-c h1{font-size:var(--f42)}.post{position:relative;top:auto;margin-top:calc(96px + env(safe-area-inset-top))}}
 </style>
 </head>
 <body>
@@ -165,10 +180,8 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
 </div></header>
 
 <main class="sheet">
-  <div class="ribbon" aria-hidden="true"><svg><use href="#ribbon" width="100%" height="100%"/></svg></div>
-
   <!-- Приветствие -->
-  <section class="ch open" aria-labelledby="h1">
+  <section class="ch open-c" aria-labelledby="h1">
     <div class="text">
       <span class="label">Письмо тому, кто сейчас ищет выход</span>
       <h1 id="h1">Здравствуйте. <em>Выход есть.</em></h1>
@@ -176,9 +189,18 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
       <p>Если вы читаете это поздно вечером, потому что не знаете, как помочь близкому или себе, — вы уже сделали первый шаг.</p>
       <p>Мы — центр восстановления Vector в Самарканде. Помогаем людям с алкогольной, наркотической и игровой зависимостью и их семьям. <em>Мы поможем найти выход.</em></p>
     </div>
-    <figure class="frame arch">
-      <div class="surround"><div class="pic" id="scene"><img src="../../media/hero-c.jpg" alt="Две пиалы зелёного чая на льняной скатерти" fetchpriority="high"></div></div>
-      <figcaption>Сначала просто поговорим</figcaption>
+    <figure class="frame post">
+      <div class="post-pic">
+        <img id="hero-still" src="../../media/hC-p.jpg" alt="Психолог центра слушает и записывает" fetchpriority="high">
+        <div class="post-text" aria-hidden="true">
+          <img class="post-logo" src="../../brand/logo-dark.png" alt="">
+          <p class="post-h">У каждого<br><em>свой путь</em></p>
+          <span class="post-rule"></span>
+          <p class="post-s">Важно не проходить его в одиночку.</p>
+        </div>
+        <div class="ribbon" aria-hidden="true"><svg><use href="#ribbon" width="100%" height="100%"/></svg></div>
+      </div>
+      <figcaption>Психолог центра на встрече</figcaption>
     </figure>
   </section>
 
@@ -299,13 +321,16 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
   const $ = (s, r=document) => r.querySelector(s), $$ = (s, r=document) => [...r.querySelectorAll(s)];
   $('#year').textContent = new Date().getFullYear();
 
-  /* Первый экран: бесшовная петля; без видео при «меньше движения» и экономии трафика */
-  const still = $('#scene img');
+  /* Первый экран: настоящие кадры фильма; горизонталь или вертикаль по экрану; без видео при «меньше движения» */
+  const still = $('#hero-still');
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData);
-  if (!calm) {
+  const port = matchMedia('(max-aspect-ratio: 1/1)').matches;
+  const base = '../../media/hC-p';
+  if (calm) { still.src = base + '.jpg'; }
+  else {
     const v = document.createElement('video');
-    v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true; v.preload = 'auto'; v.poster = still.src; v.setAttribute('aria-hidden','true');
-    for (const [src, type] of [['../../media/hero-c.webm','video/webm'],['../../media/hero-c.mp4','video/mp4']]) { const x = document.createElement('source'); x.src = src; x.type = type; v.append(x); }
+    v.muted = true; v.playsInline = true; v.autoplay = true; v.loop = true; v.preload = 'auto'; v.poster = base + '.jpg'; v.setAttribute('aria-hidden','true');
+    for (const [k, type] of [['webm','video/webm'],['mp4','video/mp4']]) { const x = document.createElement('source'); x.src = base + '.' + k; x.type = type; v.append(x); }
     v.addEventListener('canplay', () => { if (!v.isConnected) { still.replaceWith(v); v.play().catch(()=>{}); } }, {once:true});
     v.load();
   }
