@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vector — первый экран: референсы</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../brand/mark-dark.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Рабочая страница выбора: узкая колонка текста, широкие ряды референсов; бренд Vector */
+:root{--forest:#153D36;--teal:#356F64;--sage:#A9C1B3;--mint:#DCE8DE;--cream:#F4EFE6;--paper:#FAF7F1;--line:#E2DBCD;--ink:#17302A;--ink-soft:#4E6159;
+--serif:"Cormorant Garamond","Times New Roman",serif;--sans:"Manrope","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:var(--teal)}
+.page{max-width:1180px;margin:0 auto;padding:48px max(16px,env(safe-area-inset-right)) 96px max(16px,env(safe-area-inset-left));display:grid;gap:72px}
+.read{max-width:44rem;display:grid;gap:14px}
+.caps{font:700 .72rem/1.2 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--teal);margin:0}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--forest);margin:0;text-wrap:balance}
+h1{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.02}
+h2{font-size:clamp(2rem,4vw,2.8rem);line-height:1.05}
+h2 em,h1 em{font-style:italic;color:var(--teal)}
+h3{font-size:1.35rem;line-height:1.2}
+p{margin:0}
+.lede{font-size:1.06rem;color:var(--ink-soft)}
+.concept{display:grid;gap:28px;padding-top:40px;border-top:1px solid var(--line)}
+.head{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;justify-content:space-between}
+.tag{font:700 .7rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;border-radius:999px;background:var(--forest);color:var(--paper)}
+.tag.alt{background:var(--mint);color:var(--forest)}
+.idea{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:14px}
+.idea div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;min-width:0}
+.idea b{display:block;font:700 .72rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.idea p{color:var(--ink-soft);font-size:.95rem}
+.refs{display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:18px}
+.ref{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
+.ref img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--mint)}
+.ref figcaption{padding:14px 16px 16px;display:grid;gap:6px;font-size:.9rem;color:var(--ink-soft)}
+.ref figcaption b{color:var(--ink);font-weight:600}
+.ref figcaption a{font-size:.8rem}
+.math{font-size:.9rem;color:var(--ink-soft);background:var(--cream);border-radius:14px;padding:14px 16px}
+.math code{font-family:ui-monospace,Menlo,monospace;font-size:.85rem;color:var(--forest)}
+.cost{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.cost li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:10px 0;font-size:.95rem}
+.cost li b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.no{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:14px}
+.no figure{margin:0;opacity:.85}
+.no img{border-radius:12px;aspect-ratio:4/3;object-fit:cover;filter:grayscale(.4)}
+.no figcaption{font-size:.85rem;color:var(--ink-soft);padding-top:8px}
+.next{display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:n}
+.next li{counter-increment:n;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px 14px 52px;position:relative;color:var(--ink-soft)}
+.next li::before{content:counter(n);position:absolute;left:18px;top:12px;font:italic 500 1.5rem/1 var(--serif);color:var(--sage)}
+.next b{color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="read">
+    <p class="caps">Vector · первый экран письма · 24 октября</p>
+    <h1>Первый экран: <em>референсы</em></h1>
+    <p class="lede">Дом с решётками с главной убираем. Ниже две идеи нового кадра. Первую придумал я. Вторую выбрал скилл emergence-math: колода ограничений, тяга по золотому сечению и проверка Скептиком. Под каждой идеей референсы и что из каждого берём. Кадр можно создать с нуля: он не выдаётся за фото центра, поэтому ничего не обещает.</p>
+    <p class="lede">Заголовок письма остаётся: «Здравствуйте. Выход есть.»</p>
+  </header>
+
+  <!-- ===== A ===== -->
+  <section class="concept" aria-labelledby="a">
+    <div class="head"><h2 id="a">А. Утро в&nbsp;саду: <em>тени листвы на письме</em></h2><span class="tag">Придумал я</span></div>
+    <div class="idea">
+      <div><b>Что в кадре</b><p>Кремовая стена или бумага, на неё падает утреннее солнце сквозь листву. Тени листьев медленно качаются, солнечное пятно чуть теплеет. Людей и предметов нет.</p></div>
+      <div><b>Как ляжет на страницу</b><p>Тени идут прямо по письму: по приветствию и первым строкам, будто письмо лежит на подоконнике в саду. Справа в арке вместо фасада наш сад с газоном и фонтаном, без здания.</p></div>
+      <div><b>Почему это</b><p>Цвета бренда сами: кремовый и зелёный. Покой без слов «покой». Сад — настоящий образ центра, а тень листвы его продолжает. Через месяц не надоест.</p></div>
+      <div><b>Движение</b><p>Бесшовная петля 5–6 с, листва колышется еле заметно. На телефоне тот же слой. При «меньше движения» неподвижный кадр.</p></div>
+    </div>
+    <div class="refs">
+      <figure class="ref"><img src="img/12599674.jpg" alt="Тень листвы на кремовом фоне первого экрана" loading="lazy"><figcaption><b>Тень листвы на кремовом поле</b>Берём главное: тень ветки поверх светлого фона и текста. Мягкая, расфокусированная, по краю кадра.<a href="https://dribbble.com/shots/12599674-Early-Shadow-Hero-Exploration" target="_blank" rel="noopener">Dribbble · Early Shadow Hero</a></figcaption></figure>
+      <figure class="ref"><img src="img/27427386.jpg" alt="Полосы солнечного света на лице" loading="lazy"><figcaption><b>Свет полосами</b>Берём тёплый контраст света и тени. Не берём лицо крупно: у нас кадр без людей.<a href="https://dribbble.com/shots/27427386-Botanical-Skincare-Hero-Website-Design" target="_blank" rel="noopener">Dribbble · Botanical Skincare Hero</a></figcaption></figure>
+      <figure class="ref"><img src="img/27613562.jpg" alt="Пиала чая в утреннем свете" loading="lazy"><figcaption><b>Тёплое утро без людей</b>Берём температуру света и фактуру. Можно поставить в кадр пиалу чая на подоконнике, местная деталь гостеприимства.<a href="https://dribbble.com/shots/27613562-SORA-Japanese-Tea" target="_blank" rel="noopener">Dribbble · SORA Japanese Tea</a></figcaption></figure>
+      <figure class="ref"><img src="img/25308879.jpg" alt="Арка с небом и протянутой рукой" loading="lazy"><figcaption><b>Арка рядом с текстом</b>Подтверждает композицию нашего письма: текст слева, арка справа. Берём спокойную паузу между ними.<a href="https://dribbble.com/shots/25308879-Serene-Minds-Website-Hero" target="_blank" rel="noopener">Dribbble · Serene Minds</a></figcaption></figure>
+      <figure class="ref"><img src="img/27707380.jpg" alt="Светлое утро у окна" loading="lazy"><figcaption><b>Белый утренний свет из окна</b>Берём воздух и светлоту. Не берём кровать и человека.<a href="https://dribbble.com/shots/27707380-WREN-Modern-medical-website" target="_blank" rel="noopener">Dribbble · WREN</a></figcaption></figure>
+    </div>
+    <ul class="cost" aria-label="Смета">
+      <li><span>Кадр тени листвы: серия из 4 вариантов (Kling Image 3.0)</span><b>8 кредитов</b></li>
+      <li><span>После вашего «да» — петля 5 с из выбранного кадра (Kling Video 3.0)</span><b>40 кредитов</b></li>
+      <li><span>Арка: сад с газоном у фонтана — уже есть, без здания</span><b>0</b></li>
+    </ul>
+  </section>
+
+  <!-- ===== B ===== -->
+  <section class="concept" aria-labelledby="b">
+    <div class="head"><h2 id="b">Б. От ночи <em>к&nbsp;утру</em></h2><span class="tag alt">Скилл emergence-math</span></div>
+    <p class="math">Тяга: зерно <code>1672769147</code>, колода <code>abb25969</code>. Выпало: сюжет «звёздное небо, которое светлеет до утра» [8/8] · движение «кадр идёт по прокрутке» [6/7] · запрет «без людей в кадре» [2/7]. Новизна D₀ = 0,758, Скептик: <code>E = 1 · 0,85^0,618 · 0,758^0,382 = 0,81</code>, порог 0,618 пройден. Дистанция до второй тяги 0,476.</p>
+    <div class="idea">
+      <div><b>Что в кадре</b><p>Ночное небо над горами под Самаркандом. Небо не синее, а глубокое зелёное, как цвет бренда. Звёзды, тонкий силуэт гор. Людей нет.</p></div>
+      <div><b>Как ляжет на страницу</b><p>Первый экран ночной: приветствие светлыми буквами на тёмном. Посетитель листает вниз, и небо светлеет: звёзды гаснут, над горами мятный, потом кремовый рассвет. Письмо продолжается уже на утренней бумаге.</p></div>
+      <div><b>Почему это</b><p>Это прямо первая фраза письма: «Если вы читаете это поздно вечером…». Человек сам листанием приводит ночь к утру. Сайт показывает выход, а не обещает его.</p></div>
+      <div><b>Движение</b><p>Видео рассвета идёт за прокруткой, вверх и вниз. Кульминация, восход над горами, на φ⁻¹ ≈ 62 % пути. На телефоне вертикальный кадр. При «меньше движения» неподвижный рассвет.</p></div>
+    </div>
+    <div class="refs">
+      <figure class="ref"><img src="img/27769690.jpg" alt="Ночное звёздное небо и засечный заголовок" loading="lazy"><figcaption><b>Ночь и тихий засечный заголовок</b>Берём ночное небо под крупным заголовком с засечками. У нас небо зелёное и без людей.<a href="https://dribbble.com/shots/27769690-Dreams-night-sky-hero-with-cinematic-video" target="_blank" rel="noopener">Dribbble · Dreams night sky hero</a></figcaption></figure>
+      <figure class="ref"><img src="img/27813513.jpg" alt="Сайт, где свет меняется по часам суток" loading="lazy"><figcaption><b>Свет меняется со временем суток</b>Главный приём: время суток ведёт страницу. У них по часам, у нас по прокрутке.<a href="https://dribbble.com/shots/27813513-ORA-Luxury-Real-Estate-Website-Lit-by-the-Hour" target="_blank" rel="noopener">Dribbble · ORA, Lit by the Hour</a></figcaption></figure>
+      <figure class="ref"><img src="img/firewatch.jpg" alt="Слои гор с солнцем на сайте игры Firewatch" loading="lazy"><figcaption><b>Горы слоями</b>Берём силуэты гор, которые расходятся при прокрутке. Классика parallax, проверена годами.<a href="https://www.firewatchgame.com/" target="_blank" rel="noopener">firewatchgame.com</a></figcaption></figure>
+      <figure class="ref"><img src="img/27423707.jpg" alt="Рассвет над горами в тёплой дымке" loading="lazy"><figcaption><b>Рассвет в дымке</b>Берём финальную точку: тёплая дымка над хребтом, мягкий свет. Не берём фигуру на скале.<a href="https://dribbble.com/shots/27423707-Wellness-Website-Design-Holistic-Health-Yoga-Landing" target="_blank" rel="noopener">Dribbble · Synapse</a></figcaption></figure>
+      <figure class="ref"><img src="img/25327744.jpg" alt="Светлое утреннее небо с облаками" loading="lazy"><figcaption><b>Утро растворяется в бумаге</b>Берём переход неба в светлый фон страницы: низ кадра незаметно становится бумагой письма.<a href="https://dribbble.com/shots/25327744-Landing-Page-Hero-Exploration" target="_blank" rel="noopener">Dribbble · Landing Page Hero</a></figcaption></figure>
+    </div>
+    <ul class="cost" aria-label="Смета">
+      <li><span>Два кадра, ночь и рассвет: по серии из 4 вариантов (Kling Image 3.0)</span><b>16 кредитов</b></li>
+      <li><span>После вашего «да» — переход ночь → утро между ними, 5 с (Kling Video 3.0)</span><b>40 кредитов</b></li>
+      <li><span>Или без генерации: звёзды, горы и рассвет нарисую кодом. Беднее фото, зато без кредитов</span><b>0</b></li>
+    </ul>
+  </section>
+
+  <!-- ===== Запас ===== -->
+  <section class="concept" aria-labelledby="c">
+    <div class="head"><h2 id="c">Запас: <em>вода крупно</em></h2><span class="tag alt">Вторая тяга, E = 0,67</span></div>
+    <div class="refs" style="grid-template-columns:repeat(auto-fill,minmax(17rem,22rem))">
+      <figure class="ref"><img src="img/27818370.jpg" alt="Капля и круги на воде" loading="lazy"><figcaption><b>Капля и круги на воде</b>Фонтан сада крупно: падает капля, расходятся круги, медленный наезд. Текст рядом с кадром, не поверх. Тише и проще первых двух.<a href="https://dribbble.com/shots/27818370-Product-Video-Ad-Skincare-Serum-16-9" target="_blank" rel="noopener">Dribbble · Serum, water</a></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ===== Не берём ===== -->
+  <section class="concept" aria-labelledby="d">
+    <div class="head"><h2 id="d">Чего <em>не&nbsp;берём</em></h2></div>
+    <div class="no">
+      <figure><img src="img/26441482.jpg" alt="Сайт со стоковыми улыбающимися людьми" loading="lazy"><figcaption>Стоковые улыбающиеся лица. Ниша полна ими, доверия они не дают.</figcaption></figure>
+      <figure><img src="img/26658857.jpg" alt="Сайт медитации с яркой фиолетовой заливкой" loading="lazy"><figcaption>Яркие заливки и медитирующая модель — чужая палитра и штамп.</figcaption></figure>
+      <figure><img src="img/now-arch.jpg" alt="Нынешний финал арки: фасад с решётками" loading="lazy"><figcaption>Финал ролика на фасаде с решётками — убираем с главной.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="read" aria-labelledby="n">
+    <h2 id="n">Что <em>дальше</em></h2>
+    <ul class="next">
+      <li><b>Вы выбираете А, Б или обе</b>, можно с правками. Например, Б кодом без кредитов.</li>
+      <li><b>Я делаю неподвижные кадры</b> и ставлю их на первый экран письма, чтобы вы увидели вживую до видео. Серия — 8 кредитов. У вас на Kling 351.</li>
+      <li><b>После вашего «да» по кадру</b> делаю видео и ставлю на сайт. Без «да» видео не делаю: в прошлый раз 40 кредитов ушло на ленту, которую сняли.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
