@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vector — центр восстановления в Самарканде</title>
-<meta name="description" content="Центр восстановления Vector — первый реабилитационный центр в Самарканде с лицензией Минздрава на стационарное лечение: помощь при алкогольной, наркотической и игровой зависимости и поддержка семьи. Бесплатная консультация, анонимно, на учёт не ставим. Лицензия Минздрава РУз №1857962.">
+<meta name="description" content="Центр восстановления Vector — первый реабилитационный центр в Самарканде с лицензией Минздрава на стационарное лечение: помощь при алкогольной, наркотической и игровой зависимости и поддержка семьи. Бесплатная консультация, анонимно, на учёт не ставим.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FAF7F1">
 <link rel="icon" href="../../brand/mark-dark.png" type="image/png">
@@ -14,6 +14,7 @@
 <!-- движок scroll-craft (MIT, vendor/scrollcraft/LICENSE): сначала его основа, потом стиль бренда -->
 <link rel="stylesheet" href="../../vendor/scrollcraft/scrollcraft.css">
 <style>
+
 /* Vector · письмо, первый экран А + страница в стиле Instagram бренда.
    Цвета и шрифты — брендбук Vector; рамки-окна заменены мягкими формами (капля, лист, капсула) с фоном шалфея.
    Движение — scroll-craft: панорама шагов, шторка дома, счётчики, появление блоков. */
@@ -109,204 +110,63 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 .open .text p{max-width:22em}
 .scene-tag{position:absolute;right:max(24px,env(safe-area-inset-right));bottom:28px;padding:8px 14px;border-radius:999px;background:rgba(250,247,241,.9);font:600 var(--f13)/1 var(--sans);color:var(--forest)}
 
-/* ============ ОБЩЕЕ ДЛЯ РАЗДЕЛОВ ============ */
-.sec{position:relative;padding:clamp(80px,9vw,140px) 0;overflow-x:clip}
-.h2{margin:0;font:500 clamp(2.3rem,1.45rem + 2.7vw,3.7rem)/1.04 var(--serif);letter-spacing:-.01em;color:var(--forest);text-wrap:balance}
-.h2 em,.h3 em,.lead em{font-style:italic;color:var(--teal)}
-.h3{margin:0;font:500 clamp(1.75rem,1.4rem + 1vw,2.3rem)/1.1 var(--serif);color:var(--forest);text-wrap:balance}
-.lead{margin:var(--s21) 0 0;max-width:30em;font:500 clamp(1.3rem,1.12rem + .6vw,1.62rem)/1.45 var(--serif);color:var(--ink)}
-.body{margin:var(--s16) 0 0;max-width:36em;font-size:17px;line-height:1.65;color:var(--ink-soft)}
-.more{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:600 15px/1 var(--sans);color:var(--forest);text-decoration:none}
-.more svg{width:18px;height:18px;transition:transform .16s var(--ease)}
-@media (hover:hover) and (pointer:fine){.more:hover svg{transform:translateX(3px)}}
-
-/* мягкие формы вместо оконных рам: капля, лист, капсула; позади — шалфей и тонкий контур */
-.shape{position:relative;margin:0;isolation:isolate}
-.shape .ph{position:relative;overflow:hidden;background:var(--mint)}
-.shape .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.shape .back{position:absolute;z-index:-1;pointer-events:none}
-.shape .ring{position:absolute;z-index:-1;pointer-events:none;border:1px solid var(--sage)}
-.blob .ph{aspect-ratio:4/5;border-radius:58% 42% 46% 54% / 52% 44% 56% 48%}
-.blob .back{inset:6% -7% -4% 8%;border-radius:44% 56% 60% 40% / 48% 58% 42% 52%;background:var(--sage);opacity:.5;animation:sway 14s ease-in-out infinite alternate}
-.blob .ring{inset:-5% 5% 6% -6%;border-radius:52% 48% 40% 60% / 58% 46% 54% 42%}
-.leaf .ph{aspect-ratio:5/4;border-radius:46% 26px 46% 26px / 40% 26px 40% 26px}
-.leaf .back{inset:-6% 9% 8% -5%;border-radius:26px 46% 26px 46% / 26px 40% 26px 40%;background:var(--mint)}
-.pill .ph{aspect-ratio:3/4.3;border-radius:999px}
-.pill .back{inset:8% -9% -3% 9%;border-radius:999px;background:var(--sage);opacity:.45;animation:sway 16s ease-in-out infinite alternate}
-.pill .ring{inset:-4% 7% 9% -7%;border-radius:999px}
-@keyframes sway{from{transform:rotate(-2.5deg) translate3d(-1%,0,0)}to{transform:rotate(2.5deg) translate3d(1%,-1%,0)}}
-
-/* ============ УЗНАЁТЕ СЕБЯ: рубрики-вопросы ============ */
-.ask{padding-bottom:clamp(64px,7vw,110px)}
-.ask .h2{max-width:14em}
-.ask-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:clamp(40px,5vw,64px) 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
-.ask-cols li{display:flex;flex-direction:column;padding:28px 26px 8px;border-left:1px solid var(--line)}
-.ask-cols li:first-child{border-left:0;padding-left:0}
-.ask-cols small{font:600 11px/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--teal)}
-.ask-cols q{display:block;margin:14px 0 0;font:500 clamp(1.45rem,1.2rem + .7vw,1.8rem)/1.2 var(--serif);color:var(--forest);quotes:"«" "»"}
-.ask-cols p{margin:14px 0 0;font-size:15.5px;line-height:1.6;color:var(--ink-soft);flex:1}
-.ask-cols .more{margin-top:14px}
-
-/* ============ ВЫХОД ЗДЕСЬ, В САМАРКАНДЕ ============ */
-.here{background:linear-gradient(180deg,var(--paper) 0%,var(--cream) 100%);overflow:clip}
-.here .ribbon{left:-12%;width:70%;top:2%;opacity:.55;z-index:0}
-.here-grid{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:center}
-.here .shape{width:min(100%,440px);justify-self:center}
-.facts{margin:var(--s27) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
-.facts li{padding:18px 0 16px;border-top:1px solid var(--line)}
-.facts b{display:block;font:600 1.5rem/1.15 var(--serif);color:var(--forest)}
-.facts b .n{font-variant-numeric:lining-nums tabular-nums}
-.facts li > span{display:block;margin-top:6px;font-size:15px;line-height:1.55;color:var(--ink-soft)}
-.facts a{color:var(--teal);text-underline-offset:4px}
-.now{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;margin-top:clamp(48px,6vw,80px);padding:28px 32px;border-radius:28px;background:var(--mint)}
-.now p{margin:0;max-width:30em;font:500 clamp(1.35rem,1.1rem + .7vw,1.75rem)/1.3 var(--serif);color:var(--forest)}
-.now p em{font-style:italic;color:var(--teal)}
-
-/* ============ ШАГИ: горизонтальная панорама scroll-craft ============ */
-.steps{background:var(--forest);color:var(--cream)}
-.steps-stage{display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,4vh,44px);background:var(--forest)}
-.steps-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
-.steps .h2{color:var(--cream)}
-.steps .h2 em{color:var(--sage)}
-.steps-meter{flex:none;width:min(240px,32vw);height:2px;margin-bottom:12px;background:rgba(169,193,179,.25);border-radius:2px;overflow:hidden}
-.steps-meter i{display:block;height:100%;background:var(--sage);transform-origin:left center;transform:scaleX(var(--sc-p,0))}
-.rail{display:flex;align-items:stretch;gap:24px;width:max-content;margin:0;padding:0 max(24px,calc((100vw - 1132px) / 2));list-style:none}
-.step{flex:none;display:flex;flex-direction:column;width:clamp(282px,29vw,392px);padding:12px 12px 26px;border-radius:28px;background:var(--paper);color:var(--ink)}
-.step .ph{position:relative;overflow:hidden;aspect-ratio:16/10;border-radius:110px 18px 18px 18px;background:var(--mint)}
-.step:nth-child(3) .ph{border-radius:18px 110px 18px 18px}
-.step:nth-child(4) .ph{border-radius:18px 18px 110px 18px}
-.step .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.step-body{padding:18px 14px 0}
-.step .no{font:italic 500 34px/1 var(--serif);color:var(--teal)}
-.step h3{margin:8px 0 0;font:600 1.7rem/1.12 var(--serif);color:var(--forest)}
-.step p{margin:10px 0 0;font-size:15px;line-height:1.58;color:var(--ink-soft)}
-.step .ph.call{display:flex;flex-direction:column;justify-content:center;gap:12px;padding:0 26px;background:linear-gradient(135deg,var(--mint),#EEF3EE)}
-.step .ph.call svg{width:30px;height:30px;color:var(--teal)}
-.step .ph.call a{font:600 clamp(1.5rem,1.2rem + .8vw,2rem)/1 var(--serif);color:var(--forest);text-decoration:none;font-variant-numeric:lining-nums}
-.step .ph.call a.tg{font:600 15px/1 var(--sans);color:var(--teal);text-decoration:underline;text-underline-offset:4px}
-.step-final{justify-content:center;gap:22px;padding:34px 30px;background:transparent;border:1px solid rgba(169,193,179,.4);color:var(--cream)}
-.step-final h3{color:var(--cream);font-size:clamp(2rem,1.6rem + 1vw,2.6rem)}
-.step-final h3 em{font-style:italic;color:var(--sage)}
-.step-final p{color:var(--sage);margin:0}
-
-/* ============ БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ ============ */
-.consult-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,96px);align-items:center}
-.ticks{margin:var(--s27) 0 0;padding:0;list-style:none;display:grid;gap:14px;max-width:36em}
-.ticks li{position:relative;padding-left:34px;font-size:16.5px;line-height:1.55;color:var(--ink-soft)}
-.ticks li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6 10.4l2.6 2.6L14 7.6' fill='none' stroke='%23356F64' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/20px no-repeat}
-.ticks b{color:var(--forest);font-weight:600}
-.ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:var(--s27);max-width:640px}
-.way{min-height:84px;justify-content:flex-start;gap:14px;padding:14px 22px 14px 14px;border-radius:26px;white-space:normal;text-align:left}
-.way .ic{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;flex:none;background:rgba(244,239,230,.14)}
-.btn-line.way .ic{background:var(--mint)}
-.way .ic svg{width:22px;height:22px}
-.way b{display:block;font:600 16px/1.2 var(--sans)}
-.way small{display:block;margin-top:4px;font:500 13px/1.35 var(--sans);opacity:.82}
-.consult .shape{width:min(100%,470px);justify-self:center}
-
-/* ============ ДОМ ============ */
-.home{background:var(--cream)}
-.home .h2{max-width:12em}
-.home-wide{position:relative;margin:clamp(36px,4vw,56px) 0 0;border-radius:28px;overflow:hidden;aspect-ratio:16/8;background:var(--mint)}
-.home-wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;transform:scale(calc(1.14 - var(--sc-p,0) * .14));transform-origin:50% 60%}
-.home-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:16px 0 0;padding:0;list-style:none}
-.home-grid figure{margin:0}
-.home-grid .ph{position:relative;overflow:hidden;aspect-ratio:3/3.6;border-radius:22px;background:var(--mint)}
-.home-grid li:nth-child(4n+1) .ph{border-radius:22px 22px 22px 90px}
-.home-grid li:nth-child(4n) .ph{border-radius:22px 90px 22px 22px}
-.home-grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
-.home-grid figcaption{padding:10px 4px 0;font:600 12px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
-@media (hover:hover) and (pointer:fine){.home-grid li:hover img{transform:scale(1.04)}}
-
-/* ============ ЛЮДИ РЯДОМ ============ */
-.people-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(48px,7vw,120px);margin-top:clamp(40px,5vw,64px)}
-.person .shape{width:min(100%,380px);margin:0 0 36px 4%}
-.person .label{margin-bottom:12px}
-.person .meta{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:10px 16px;border-radius:999px;background:var(--mint);font:600 14px/1.2 var(--sans);color:var(--forest)}
-.person .meta svg{width:18px;height:18px;color:var(--teal)}
-.person .btn{margin-top:22px}
-.doc-inline{appearance:none;border:0;background:none;padding:0;font:inherit;color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;cursor:zoom-in}
-
-/* ============ ЛИЦЕНЗИЯ И ДОКУМЕНТЫ ============ */
-.docs{background:var(--paper);border-top:1px solid var(--line)}
-.docs-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center}
-.reg{margin:var(--s27) 0 0;display:grid;grid-template-columns:auto 1fr;gap:0;max-width:520px}
-.reg dt,.reg dd{margin:0;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
-.reg dt{padding-right:24px;color:var(--ink-soft)}
-.reg dd{font-weight:600;color:var(--forest);font-variant-numeric:tabular-nums}
-.reg .ok{display:inline-block;margin-left:8px;padding:3px 10px;border-radius:999px;background:var(--mint);font:600 12px/1.3 var(--sans);color:var(--teal)}
-.docs .small{margin:16px 0 0;font-size:14px;color:var(--ink-soft);max-width:34em}
-.pile{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
-.paper{appearance:none;display:block;width:100%;margin:0;padding:10px;border:0;border-radius:18px;background:#fff;box-shadow:0 30px 50px -34px rgba(21,61,54,.55),0 0 0 1px var(--line);cursor:zoom-in;text-align:left;font:inherit;color:inherit;transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
-.paper img{width:100%;height:auto;border-radius:10px}
-.paper span{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 4px 2px;font:600 13px/1.3 var(--sans);color:var(--forest)}
-.paper span svg{width:18px;height:18px;color:var(--teal);flex:none}
-.paper.p1{transform:rotate(-2deg)}
-.paper.p2{transform:rotate(1.6deg) translateY(28px)}
-.paper.p3{grid-column:1 / -1;width:82%;justify-self:center;transform:rotate(-.8deg);margin-top:18px}
-@media (hover:hover) and (pointer:fine){.paper:hover{transform:rotate(0) translateY(-4px);box-shadow:0 36px 56px -32px rgba(21,61,54,.6),0 0 0 1px var(--sage)}}
-.paper:active{transform:scale(.98)}
-
-/* ============ ВОПРОСЫ ============ */
-.faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(40px,6vw,96px);align-items:start}
-.faq-side{position:sticky;top:48px}
-.faq-list{border-top:1px solid var(--line)}
-.faq-list details{border-bottom:1px solid var(--line)}
-.faq-list summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;cursor:pointer;list-style:none;font:600 clamp(1.3rem,1.1rem + .5vw,1.6rem)/1.25 var(--serif);color:var(--forest)}
-.faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary i{position:relative;flex:none;width:36px;height:36px;border-radius:50%;background:var(--mint);transition:transform .2s var(--ease),background-color .16s}
-.faq-list summary i::before,.faq-list summary i::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:1.6px;margin:-.8px 0 0 -6.5px;background:var(--forest);border-radius:2px}
-.faq-list summary i::after{transform:rotate(90deg)}
-.faq-list details[open] summary i{transform:rotate(45deg);background:var(--sage)}
-.faq-list details p{margin:0;padding:0 56px 24px 0;font-size:16px;line-height:1.65;color:var(--ink-soft)}
-
-/* ============ НУЖНО ПОГОВОРИТЬ ============ */
-.talk{position:relative;overflow:clip;background:var(--forest);color:var(--cream);padding:clamp(88px,10vw,150px) 0}
-.talk .ribbon{right:-18%;width:78%;top:-6%;opacity:.35}
-.talk-grid{position:relative;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,96px);align-items:end}
-.talk .h2{color:var(--cream)}
-.talk .h2 em{color:var(--sage)}
-.talk .body{color:rgba(244,239,230,.78)}
-.talk-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--s27)}
-.regards{margin:clamp(36px,4vw,56px) 0 0;font:italic 500 var(--f33)/1.25 var(--serif);color:var(--sage)}
-.logo-full{width:132px;height:auto;margin-top:22px}
-.contacts{margin:0;padding:0;list-style:none;display:grid;gap:0}
-.contacts li{padding:18px 0;border-top:1px solid rgba(169,193,179,.25)}
-.contacts small{display:block;font:600 11px/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin-bottom:6px}
-.contacts a,.contacts b{font:600 18px/1.4 var(--sans);text-decoration:none;color:var(--cream)}
-.contacts a{text-decoration:underline;text-decoration-color:rgba(169,193,179,.45);text-underline-offset:5px}
-.contacts span{display:block;font-size:14px;color:rgba(244,239,230,.66)}
-.foot{background:var(--forest-2);color:var(--sage);font-size:var(--f13);padding:var(--s27) 0 calc(110px + env(safe-area-inset-bottom))}
+/* ============ ПИСЬМО ПО ОКНАМ: глава = большое фото, текст главы лежит в этом окне ============ */
+.label{display:block}
+.win{position:relative;isolation:isolate;overflow:hidden;display:flex;min-height:calc(100vh - 24px);min-height:calc(100svh - 24px);margin:12px;border-radius:28px;background:var(--forest);color:var(--cream)}
+.win .bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.win .bg picture,.win .bg img{display:block;width:100%;height:100%}
+.win .bg img{object-fit:cover;transform:scale(calc(1.07 - var(--sc-p,0) * .07));transform-origin:50% 50%;will-change:transform}
+.win .bg.split{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--forest)}
+.win::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.t-left::before{background:linear-gradient(90deg,rgba(12,38,33,.9) 0%,rgba(12,38,33,.8) 30%,rgba(12,38,33,.42) 50%,rgba(12,38,33,0) 68%)}
+.t-right::before{background:linear-gradient(270deg,rgba(12,38,33,.9) 0%,rgba(12,38,33,.8) 30%,rgba(12,38,33,.42) 50%,rgba(12,38,33,0) 68%)}
+.t-bottom::before{background:linear-gradient(0deg,rgba(12,38,33,.94) 0%,rgba(12,38,33,.8) 26%,rgba(12,38,33,.3) 48%,rgba(12,38,33,0) 64%)}
+.copy{position:relative;width:min(100%,640px);padding:clamp(40px,5.5vw,84px);align-self:center}
+.t-right .copy{margin-left:auto}
+.t-bottom .copy{align-self:flex-end;width:min(100%,860px)}
+.copy .num{display:block;margin-bottom:12px;font:italic 500 34px/1 var(--serif);color:var(--sage);font-variant-numeric:lining-nums}
+.copy .label{font:600 var(--f13)/1.2 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:16px}
+.copy h2{margin:0 0 20px;font:500 clamp(2.4rem,1.5rem + 2.8vw,3.9rem)/1.03 var(--serif);letter-spacing:-.01em;color:var(--cream);text-wrap:balance}
+.copy h2 em,.copy p em{font-style:italic;color:var(--sage)}
+.copy p{margin:0;max-width:30em;font:500 clamp(1.2rem,1.04rem + .5vw,1.55rem)/1.5 var(--serif);color:rgba(244,239,230,.95);text-shadow:0 1px 18px rgba(8,26,22,.35)}
+.copy p + p{margin-top:14px}
+.copy .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.docrow{display:flex;gap:12px;margin-top:24px;align-items:flex-end}
+.doc{appearance:none;display:block;margin:0;padding:6px 6px 0;border:0;border-radius:14px;background:#fff;cursor:zoom-in;font:inherit;color:var(--forest);box-shadow:0 18px 30px -18px rgba(0,0,0,.6);transition:transform .16s var(--ease)}
+.doc img{width:96px;height:auto;border-radius:8px}
+.doc.wide img{width:170px}
+.doc span{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 2px 8px;font:600 12px/1.2 var(--sans)}
+.doc span svg{width:15px;height:15px;color:var(--teal);flex:none}
+.doc:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.doc:hover{transform:translateY(-3px)}}
+.sign .regards{margin-top:30px;font:italic 500 var(--f33)/1.25 var(--serif);color:var(--sage)}
+.sign .ps{margin-top:14px;font-size:1.1rem;color:rgba(244,239,230,.8)}
+.sign .ps b{margin-right:8px;font:600 12px/1 var(--sans);letter-spacing:.2em;color:var(--sage)}
+.contacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 28px;margin:30px 0 0;padding:20px 0 0;list-style:none;border-top:1px solid rgba(169,193,179,.3);max-width:560px}
+.contacts small{display:block;margin-bottom:4px;font:600 11px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+.contacts a,.contacts b{font:600 16px/1.4 var(--sans);color:var(--cream);text-decoration:none}
+.contacts a{text-decoration:underline;text-decoration-color:rgba(169,193,179,.5);text-underline-offset:5px}
+.foot{margin-top:12px;background:var(--forest-2);color:var(--sage);font-size:var(--f13);padding:var(--s27) 0 calc(110px + env(safe-area-inset-bottom))}
 .foot p{margin:0}
+.wrap{width:var(--wrap);margin-inline:auto}
 
-/* ============ ПИСЬМО ИДЁТ ЧЕРЕЗ ВСЮ СТРАНИЦУ: главы I–XI, подпись, P.S. ============ */
-.chap{position:relative}
-.num{display:block;margin-bottom:10px;font:italic 500 var(--f33)/1 var(--serif);color:var(--sage);font-variant-numeric:lining-nums}
-@media (min-width:1320px){.chap .num{position:absolute;left:-92px;top:.18em;margin:0;width:72px;text-align:right}}
-.letter{margin-top:var(--s21);max-width:29em}
-.letter p{margin:0;font:500 clamp(1.25rem,1.06rem + .6vw,1.62rem)/1.5 var(--serif);color:var(--ink)}
-.letter p + p{margin-top:var(--s16)}
-.letter em{font-style:italic;color:var(--teal)}
-.letters{padding-bottom:clamp(40px,5vw,80px)}
-.lrow{display:grid;grid-template-columns:minmax(0,61.8fr) minmax(0,38.2fr);gap:clamp(40px,6vw,96px);align-items:center}
-.lrow + .lrow{margin-top:clamp(72px,8vw,128px);padding-top:clamp(72px,8vw,128px);border-top:1px solid var(--line)}
-.lside{width:min(100%,340px);justify-self:center}
-.leaf.tall .ph{aspect-ratio:4/5}
-.steps-intro{background:var(--forest);color:var(--cream);padding-bottom:0}
-.steps-intro .h2{color:var(--cream)}
-.steps-intro .h2 em,.steps-intro .num{color:var(--sage)}
-.steps-intro .letter p{color:rgba(244,239,230,.92)}
-.steps-intro .letter em{color:var(--sage)}
-.person .chap{margin-top:4px}
-.person .letter{margin-top:14px}
-.person .letter p{font-size:clamp(1.2rem,1.05rem + .45vw,1.45rem)}
-.talk .label{color:var(--sage)}
-.talk .letter p{color:rgba(244,239,230,.92)}
-.talk .letter em{color:var(--sage)}
-.ps{margin:22px 0 0;max-width:30em;font:500 1.15rem/1.5 var(--serif);color:rgba(244,239,230,.78)}
-.ps b{margin-right:8px;font:600 12px/1 var(--sans);letter-spacing:.2em;color:var(--sage)}
-@media (max-width:1000px){.lrow{grid-template-columns:1fr}.lside{order:-1;width:min(80%,320px)}}
-
+/* телефон: фото окна сверху во весь размер, текст главы под ним в том же окне */
+@media (max-width:760px){
+  .win{display:block;min-height:0;margin:8px;border-radius:22px}
+  .win::before{display:none}
+  .win .bg{position:relative;inset:auto;aspect-ratio:4/5}
+  .win .bg::after{content:"";position:absolute;inset:auto 0 0;height:28%;background:linear-gradient(0deg,var(--forest),rgba(21,61,54,0))}
+  .win .bg.split{aspect-ratio:8/5}
+  .copy,.t-bottom .copy{width:auto;padding:6px 22px 30px;margin:0}
+  .copy h2{font-size:2.3rem;margin-bottom:14px}
+  .copy p{font-size:1.2rem;text-shadow:none}
+  .copy .row .btn{flex:1 1 100%}
+  .docrow{flex-wrap:wrap}
+  .doc img{width:84px}
+  .doc.wide img{width:150px}
+  .contacts{grid-template-columns:1fr}
+  .foot{margin-top:8px}
+}
 /* ============ ПАНЕЛЬ СВЯЗИ: появляется после первого экрана ============ */
 .dock{position:fixed;z-index:30;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));display:flex;gap:8px;padding:6px;border-radius:999px;background:rgba(250,247,241,.96);box-shadow:0 18px 40px -18px rgba(15,46,40,.55),0 0 0 1px rgba(21,61,54,.08);transform:translate(-50%,140%);opacity:0;transition:transform .32s var(--ease),opacity .2s var(--ease)}
 .dock.show{transform:translate(-50%,0);opacity:1}
@@ -323,7 +183,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 .modal-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;cursor:pointer;color:var(--ink)}
 .modal-close svg{width:18px;height:18px}
 
-/* ============ ПЛАНШЕТ И ТЕЛЕФОН ============ */
+/* первый экран на планшете и телефоне */
 @media (max-width:1000px){
   :root{--air:24px}
   .top .in{padding-left:0}
@@ -332,15 +192,6 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   .text p{font-size:var(--f20);max-width:none}
   .open .text{min-height:0;padding-top:var(--s27)}
   .open h1{font-size:var(--f42)}
-  .ask-cols{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .ask-cols li:nth-child(3){border-left:0;padding-left:0}
-  .ask-cols li:nth-child(n+3){border-top:1px solid var(--line);margin-top:20px}
-  .here-grid,.consult-grid,.docs-grid,.faq-grid,.talk-grid{grid-template-columns:1fr}
-  .here .shape{width:min(82%,380px)}
-  .consult .shape{order:-1;width:min(100%,520px)}
-  .faq-side{position:static}
-  .home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .people-grid{grid-template-columns:1fr}
 }
 @media (max-width:640px){
   .top-nav .tn-tel span,.top-nav .tn-tg span{display:none}
@@ -349,24 +200,6 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   .hero-cta .btn{flex:1 1 100%}
   .hero-cta .btn-line{flex:1 1 0}
   .hero-cta .btn-ic{flex:0 0 56px}
-  .ask-cols{grid-template-columns:1fr}
-  .ask-cols li{border-left:0!important;padding:22px 0 6px!important;margin-top:0!important}
-  .ask-cols li + li{border-top:1px solid var(--line)}
-  .facts{grid-template-columns:1fr}
-  .now{padding:24px 22px}
-  .now .btn{width:100%}
-  .ways{grid-template-columns:1fr}
-  .home-wide{aspect-ratio:4/3.4}
-  .home-grid{gap:10px}
-  .home-grid figcaption{font-size:10.5px;letter-spacing:.14em}
-  .reg{grid-template-columns:1fr}
-  .reg dt{padding-bottom:0}
-  .reg dd{border-top:0;padding-top:4px}
-  .faq-list details p{padding-right:0}
-  .talk-cta .btn{flex:1 1 100%}
-  .step-final .btn{width:100%;padding:0 14px;font-size:14px}
-  .steps-head{flex-direction:column;align-items:flex-start;gap:14px}
-  .steps-meter{width:120px;margin-bottom:0}
   .dock{width:calc(100% - 24px)}
   .dock .btn{flex:1;padding:0 12px}
 }
@@ -391,11 +224,12 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   .scene-tag{bottom:auto;top:calc(56svh - 52px);right:16px}
 }
 @media (prefers-reduced-motion:reduce){
-  .btn-main,.btn-line,.btn-main::after,.shape .back{animation:none}
+  .btn-main,.btn-line,.btn-main::after{animation:none}
   .btn-main::after{display:none}
-  .home-wide img{transform:none}
+  .win .bg img{transform:none}
   .dock{transition:opacity .2s}
 }
+
 </style>
 </head>
 <body>
@@ -438,266 +272,132 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     <span class="scene-tag" id="scene-tag">Люди рядом</span>
   </section>
 
-  <!-- I. С чем к нам приходят -->
-  <section class="sec ask" aria-labelledby="ask-h">
-    <div class="wrap">
-      <div class="chap" data-sc-in><span class="num" aria-hidden="true">I</span><h2 class="h2" id="ask-h">Узнаёте <em>себя или близкого?</em></h2></div>
-      <div class="letter" data-sc-in>
-        <p>Вы не первый, кто оказался там, где вы сейчас, и в этом нет вашей вины. К нам приходят мамы и жёны, сёстры и взрослые дети. Приходят и сами люди с зависимостью, те, кто устал обещать себе и начинать снова.</p>
-        <p>Вот что мы слышим чаще всего и что отвечаем.</p>
-      </div>
-      <ul class="ask-cols" data-sc-in data-sc-stagger="70">
-        <li><small>Если вы близкий</small><q>Он пьёт, а я не знаю, как начать разговор</q><p>Начните с нас. На консультации подскажем, что говорить и чего не делать. Можно прийти без него.</p><a class="more" href="#consult">Поговорить со специалистом<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li><small>Если вы близкий</small><q>Он не признаёт, что есть проблема</q><p>Отрицание — частый симптом болезни, а не упрямство. Специалист может приехать домой и поговорить так, чтобы человек сам согласился на помощь.</p><a class="more" href="#consult">Пригласить специалиста<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li><small>Если это про вас</small><q>Хочу бросить, но каждый раз начинаю снова</q><p>Это не слабость характера, а болезнь, и с ней работают: программа «12 шагов», психологи, поддержка группы.</p><a class="more" href="#steps">Как проходит программа<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li><small>Если это про вас</small><q>Боюсь, что поставят на учёт</q><p>На наркологический учёт мы не ставим. Имя при звонке можно не называть, данные никому не передаём.</p><a class="more" href="https://t.me/vectorrecovery" target="_blank" rel="noopener">Спросить анонимно<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-      </ul>
+  <section class="win t-left" id="listen" data-sc-act="flow" aria-labelledby="listen-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/f-notes-p.jpg"><img src="../../img/w/f-notes-l.jpg" alt="Психолог центра слушает и записывает" loading="lazy" style="object-position:60% 50%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">I</span>
+      <h2 id="listen-h">Вас <em>выслушают</em></h2>
+      <p>Всё начинается с разговора. Вы звоните или пишете, и вас выслушает дежурный консультант: спокойно, не перебивая и не осуждая. Он подскажет, что делать дальше.</p><p>Наверное, вы боитесь, что поставят на учёт. Нет, на наркологический учёт мы не ставим. Имя можно не называть, данные мы никому не передаём.</p>
+      
+    </div>
+  </section>
+  <section class="win t-bottom" id="consult" data-sc-act="flow" aria-labelledby="consult-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/f-lecture-p.jpg"><img src="../../img/w/f-lecture-l.jpg" alt="Кабинет центра: специалист у доски, люди слушают" loading="lazy" style="object-position:50% 40%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">II</span>
+      <h2 id="consult-h">Бесплатная <em>консультация</em></h2>
+      <p>Это наш кабинет: здесь проходят консультации и встречи. Консультация бесплатная и ни к чему не обязывает. На ней мы обсуждаем программу, распорядок и стоимость. Они зависят от состояния человека, поэтому называем их только лично.</p><p>Можно прийти без близкого. Часто первой приходит семья.</p>
+      <div class="row"><a class="btn btn-main on-dark" href="tel:+998918110333"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>Записаться по телефону</a><a class="btn btn-line on-dark" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Написать в Telegram</a></div>
+    </div>
+  </section>
+  <section class="win t-left" id="against" data-sc-act="flow" aria-labelledby="against-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/f-interview-p.jpg"><img src="../../img/w/f-interview-l.jpg" alt="Специалист центра" loading="lazy" style="object-position:70% 40%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">III</span>
+      <h2 id="against-h">Если близкий <em>против</em></h2>
+      <p>Если он не признаёт проблему, не вините ни его, ни себя. Отрицание — частый симптом болезни, а не упрямство.</p><p>Наш специалист может приехать к вам домой и поговорить так, чтобы человек сам согласился на помощь. <em>Силой никого не увозят:</em> лечение начинается только с письменного согласия, так требует и закон Узбекистана.</p>
+      
+    </div>
+  </section>
+  <section class="win t-left" id="home" data-sc-act="flow" aria-labelledby="home-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/i-room-b-p.jpg"><img src="../../img/w/i-room-b-l.jpg" alt="Комната центра на несколько человек" loading="lazy" style="object-position:50% 50%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">IV</span>
+      <h2 id="home-h">Дом, <em>а не больница</em></h2>
+      <p>Это одна из комнат, где человек живёт во время программы. Мы устроили центр как дом, а не как больницу, потому что выздоравливать легче там, где спокойно.</p><p>Комнаты на 3–4 человека, в каждой свой санузел и кондиционер. Трёхразовое питание.</p>
+      
+    </div>
+  </section>
+  <section class="win t-bottom" id="program" data-sc-act="flow" aria-labelledby="program-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/f-group2-p.jpg"><img src="../../img/w/f-group2-l.jpg" alt="Групповая встреча за столом в светлом зале" loading="lazy" style="object-position:50% 45%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">V</span>
+      <h2 id="program-h"><em>Программа</em></h2>
+      <p>Каждый день — группы и индивидуальная работа с психологом по программе «12 шагов». В группе человек слышит других и понимает, что он не один.</p><p>Программу ведут приглашённые специалисты из Казахстана: клинические психологи, наркологи и аддиктологи.</p>
+      
+    </div>
+  </section>
+  <section class="win t-left" id="gym" data-sc-act="flow" aria-labelledby="gym-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/i-gym-p.jpg"><img src="../../img/w/i-gym-l.jpg" alt="Спортзал центра" loading="lazy" style="object-position:60% 50%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">VI</span>
+      <h2 id="gym-h"><em>Спортзал</em></h2>
+      <p>Зависимость бьёт и по телу, поэтому в распорядке есть спорт. В спортзале можно выпустить напряжение, а не держать его в себе.</p>
+      
+    </div>
+  </section>
+  <section class="win t-bottom" id="bath" data-sc-act="flow" aria-labelledby="bath-h">
+    <div class="bg split" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/i-sauna-p.jpg"><img src="../../img/w/i-sauna-l.jpg" alt="Баня" loading="lazy" style="object-position:50% 50%"></picture><picture><source media="(max-width:760px)" srcset="../../img/w/i-tub-p.jpg"><img src="../../img/w/i-tub-l.jpg" alt="Купель" loading="lazy" style="object-position:50% 60%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">VII</span>
+      <h2 id="bath-h">Баня <em>и купель</em></h2>
+      <p>Тепло, вода и отдых — простые вещи, которые помогают восстановиться.</p>
+      
+    </div>
+  </section>
+  <section class="win t-left" id="prayer" data-sc-act="flow" aria-labelledby="prayer-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/i-prayer-p.jpg"><img src="../../img/w/i-prayer-l.jpg" alt="Молельная комната с ковриком" loading="lazy" style="object-position:60% 50%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">VIII</span>
+      <h2 id="prayer-h">Молельная <em>комната</em></h2>
+      <p>Для тех, кому это важно, есть тихая молельная комната. Здесь можно побыть наедине с собой.</p>
+      
+    </div>
+  </section>
+  <section class="win t-left" id="family" data-sc-act="flow" aria-labelledby="family-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/f-woman-p.jpg"><img src="../../img/w/f-woman-l.jpg" alt="Женщина у окна" loading="lazy" style="object-position:75% 40%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">IX</span>
+      <h2 id="family-h">Вам тоже нужна <em>поддержка</em></h2>
+      <p>Зависимость близкого выматывает всю семью. Пока он в безопасности, вы тоже можете получить помощь.</p><p><em>Каждую субботу в 11:00</em> в нашем офисе психологи проводят встречи для родственников. Звонки и встречи с семьёй мы организуем по рекомендации специалистов, когда это полезно для восстановления.</p>
+      <div class="row"><a class="btn btn-line on-dark" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Записаться на встречу</a></div>
+    </div>
+  </section>
+  <section class="win t-right" id="after" data-sc-act="flow" aria-labelledby="after-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/f-garden-p.jpg"><img src="../../img/w/f-garden-l.jpg" alt="Разговор во дворе центра у фонтана" loading="lazy" style="object-position:35% 50%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">X</span>
+      <h2 id="after-h">После <em>курса</em></h2>
+      <p>Во дворе центра — сад и фонтан. Здесь можно поговорить спокойно, без спешки.</p><p>После курса мы не прощаемся: сопровождаем, чтобы трезвость удержалась дома.</p>
+      
+    </div>
+  </section>
+  <section class="win t-left" id="team" data-sc-act="flow" aria-labelledby="team-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/f-founder-p.jpg"><img src="../../img/w/f-founder-l.jpg" alt="Темирхан Нуржан Кадирханович, основатель центра" loading="lazy" style="object-position:70% 40%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">XI</span>
+      <h2 id="team-h">Кто <em>мы</em></h2>
+      <p>Основатель центра и координатор программы — Темирхан Нуржан Кадирханович, у него больше 10 лет опыта.</p><p>Мы показываем лица команды, потому что важно знать, кому вы доверяете близкого.</p>
+      
+    </div>
+  </section>
+  <section class="win t-left" id="docs" data-sc-act="flow" aria-labelledby="docs-h">
+    <div class="bg" aria-hidden="false"><picture><source media="(max-width:760px)" srcset="../../img/w/f-certs-p.jpg"><img src="../../img/w/f-certs-l.jpg" alt="Сертификаты на стене центра" loading="lazy" style="object-position:50% 50%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="num" aria-hidden="true">XII</span>
+      <h2 id="docs-h">Лицензия <em>и документы</em></h2>
+      <p>Доверять на слово трудно, поэтому показываем документы.</p><p>Центр работает по лицензии Минздрава Республики Узбекистан №1857962 на медицинскую деятельность: психиатрия, диагностика, консультация и лечение в стационаре. Лицензия действует до 17.09.2031. <em>Мы — первый реабилитационный центр Самарканда с такой лицензией.</em> На ней есть QR-код для проверки, адрес на копиях скрыт.</p>
+      <div class="docrow"><button class="doc" type="button" data-doc="../../docs/license-1.jpg" data-cap="Лицензия Минздрава Республики Узбекистан №1857962, стр. 1. Адрес скрыт."><img src="../../docs/license-1-thumb.jpg" alt="" width="332" height="520" loading="lazy"><span>Лицензия, стр. 1<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button><button class="doc" type="button" data-doc="../../docs/license-2.jpg" data-cap="Лицензия №1857962, стр. 2: вид деятельности. Адрес скрыт."><img src="../../docs/license-2-thumb.jpg" alt="" width="332" height="520" loading="lazy"><span>Стр. 2<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button><button class="doc wide" type="button" data-doc="../../docs/cert-amanat.jpg" data-cap="Сертификат консультанта по зависимости, Amanat Rehab, Алматы, 2023, 59 часов."><img src="../../docs/cert-amanat-thumb.jpg" alt="" width="900" height="650" loading="lazy"><span>Сертификат консультанта<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button></div>
     </div>
   </section>
 
-  <!-- II–III. Страхи и близкий, который против: текст письма слева, фото справа -->
-  <section class="sec letters" aria-label="О страхах и о близком, который против">
-    <div class="wrap">
-      <div class="lrow">
-        <div>
-          <div class="chap" data-sc-in><span class="num" aria-hidden="true">II</span><h2 class="h2">О том, <em>чего вы боитесь</em></h2></div>
-          <div class="letter" data-sc-in>
-            <p>Наверное, первое, о чём вы думаете: <em>«Поставят на учёт?»</em> Нет. На наркологический учёт мы не ставим.</p>
-            <p>Имя при звонке можно не называть. Лица резидентов мы не публикуем, данные никому не передаём. Всё, что вы расскажете, останется между вами и специалистом.</p>
-          </div>
-        </div>
-        <figure class="shape pill lside" data-sc-in><span class="back"></span><span class="ring"></span><div class="ph"><img src="../../img/room-b.jpg" alt="Светлая комната центра" loading="lazy"></div></figure>
+  <section class="win t-left sign" id="contact" data-sc-act="flow" aria-labelledby="contact-h">
+    <div class="bg"><picture><source media="(max-width:760px)" srcset="../../img/w/call-p.jpg"><img src="../../img/w/call-l.jpg" alt="Женщина звонит по телефону у резного окна, за ней сюзане" loading="lazy" style="object-position:62% 40%"></picture></div>
+    <div class="copy" data-sc-in>
+      <span class="label">Когда будете готовы</span>
+      <h2 id="contact-h">Позвоните <em>или напишите</em></h2>
+      <p>Консультация бесплатная, без осуждения и без обязательств. <em>Мы просто выслушаем.</em></p>
+      <div class="row">
+        <a class="btn btn-main on-dark" href="tel:+998918110333"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>Позвонить</a>
+        <a class="btn btn-line on-dark" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Написать в Telegram</a>
       </div>
-      <div class="lrow">
-        <div>
-          <div class="chap" data-sc-in><span class="num" aria-hidden="true">III</span><h2 class="h2">Если близкий <em>против</em></h2></div>
-          <div class="letter" data-sc-in>
-            <p>Если он не признаёт проблему, не вините ни его, ни себя. Отрицание — частый симптом болезни, а не упрямство.</p>
-            <p>Специалист может приехать к вам домой и поговорить так, чтобы человек сам согласился на помощь. <em>Силой никого не увозят:</em> лечение начинается только с письменного согласия, так требует и закон Узбекистана.</p>
-          </div>
-        </div>
-        <figure class="shape leaf tall lside" data-sc-in><span class="back"></span><div class="ph"><img src="../../img/notes.jpg" alt="Психолог центра во время беседы" loading="lazy"></div></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- IV. Выход здесь, в Самарканде -->
-  <section class="sec here" id="why" aria-labelledby="why-h">
-    <div class="ribbon" aria-hidden="true"><svg><use href="#ribbon" width="100%" height="100%"/></svg></div>
-    <div class="wrap">
-      <div class="here-grid">
-        <figure class="shape blob" data-sc-in><span class="back"></span><span class="ring"></span><div class="ph"><img src="../../img/over-v.jpg" alt="Светлый атриум центра, вид сверху: специалисты и родственники у стола" loading="lazy"></div></figure>
-        <div>
-          <div class="chap" data-sc-in><span class="num" aria-hidden="true">IV</span><h2 class="h2" id="why-h">Выход — <em>здесь, в Самарканде</em></h2></div>
-          <div class="letter" data-sc-in>
-            <p>Многие думают, что за настоящей помощью нужно везти близкого в другой город или в другую страну. Не нужно. Здесь, в Самарканде, человек проходит весь путь, от первого разговора до жизни после курса, а семья остаётся рядом и тоже получает поддержку.</p>
-            <p>Мы — первый реабилитационный центр в Самарканде с лицензией Минздрава на стационарное лечение. Словам трудно верить, поэтому пишем только то, что можно проверить.</p>
-          </div>
-          <ul class="facts" data-sc-in data-sc-stagger="60">
-            <li><b>Первые с такой лицензией</b><span>Первый реабилитационный центр Самарканда с лицензией Минздрава на стационарное лечение: №1857962, до 17.09.2031. <a href="#docs">Документы</a></span></li>
-            <li><b>Анонимно</b><span>На наркологический учёт не ставим, данные никому не передаём.</span></li>
-            <li><b><span class="n" data-sc-count="0 12">12</span> шагов</b><span>Программа, по которой человек живёт в центре: группы, психолог, спорт, баня.</span></li>
-            <li><b>Специалисты из Казахстана</b><span>Клинические психологи, наркологи и аддиктологи.</span></li>
-            <li><b>Суббота, 11:00</b><span>Встречи психологов с родственниками в нашем офисе.</span></li>
-            <li><b>После курса</b><span>Сопровождаем, чтобы трезвость удержалась дома.</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="now" data-sc-in>
-        <p>Ждать «дна» не нужно. <em>Чем раньше разговор, тем легче путь.</em></p>
-        <a class="btn btn-main" href="#consult">Записаться на консультацию<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- V. Как всё будет: письмо, потом шаги панорамой -->
-  <section class="sec steps-intro" aria-labelledby="st-l">
-    <div class="wrap">
-      <div class="chap" data-sc-in><span class="num" aria-hidden="true">V</span><h2 class="h2" id="st-l">Как <em>всё будет</em></h2></div>
-      <div class="letter" data-sc-in>
-        <p>Расскажем по порядку, чтобы не осталось неизвестности.</p>
-        <p>Вы звоните, и отвечает дежурный консультант. Он выслушает и подскажет следующий шаг. Потом — личная консультация: на ней мы обсуждаем программу, распорядок и стоимость. Консультация бесплатная и ни к чему не обязывает.</p>
-        <p>Дальше человек живёт в центре и проходит программу «12 шагов»: группы, индивидуальная работа, спорт, баня. <em>После курса мы не прощаемся:</em> сопровождаем, чтобы трезвость удержалась дома.</p>
-      </div>
-    </div>
-  </section>
-  <section class="steps" id="steps" data-sc-act="pan" data-sc-span="2.8" aria-labelledby="st-h">
-    <div class="sc-stage steps-stage">
-      <div class="wrap steps-head">
-        <h2 class="h2" id="st-h">Четыре шага <em>к выходу</em></h2>
-        <div class="steps-meter" aria-hidden="true"><i></i></div>
-      </div>
-      <ol class="rail" data-sc-pan="0">
-        <li class="step">
-          <div class="ph call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg><a href="tel:+998918110333">+998 91 811 03 33</a><a class="tg" href="https://t.me/vectorrecovery" target="_blank" rel="noopener">или @vectorrecovery в Telegram</a></div>
-          <div class="step-body"><span class="no">01</span><h3>Звонок или сообщение</h3><p>Отвечает дежурный консультант. Выслушает и подскажет следующий шаг. Имя можно не называть.</p></div>
-        </li>
-        <li class="step">
-          <div class="ph"><img src="../../img/door.jpg" alt="Дверь кабинета с табличкой «Консультация»" loading="lazy"></div>
-          <div class="step-body"><span class="no">02</span><h3>Бесплатная консультация</h3><p>В нашем офисе или дома, если специалист приедет к вам. Обсуждаем программу, распорядок и стоимость.</p></div>
-        </li>
-        <li class="step">
-          <div class="ph"><img src="../../img/group-w.jpg" alt="Групповая встреча в светлом холле центра" loading="lazy"></div>
-          <div class="step-body"><span class="no">03</span><h3>Программа в центре</h3><p>Человек живёт в центре и проходит «12 шагов»: группы, работа с психологом, спорт, баня. Только с письменного согласия.</p></div>
-        </li>
-        <li class="step">
-          <div class="ph"><img src="../../img/garden.jpg" alt="Двор центра с садом и фонтаном" loading="lazy"></div>
-          <div class="step-body"><span class="no">04</span><h3>После курса</h3><p>Мы не прощаемся: сопровождаем, чтобы трезвость удержалась дома. Семья всё это время получает поддержку.</p></div>
-        </li>
-        <li class="step step-final">
-          <h3>Первый шаг можно сделать <em>сегодня</em></h3>
-          <p>Консультация бесплатная и ни к чему не обязывает.</p>
-          <a class="btn btn-main on-dark" href="#consult">Записаться на консультацию</a>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- VI. Бесплатная консультация -->
-  <section class="sec consult" id="consult" aria-labelledby="co-h">
-    <div class="wrap consult-grid">
-      <div>
-        <div class="chap" data-sc-in><span class="num" aria-hidden="true">VI</span><h2 class="h2" id="co-h">Первый шаг — <em>бесплатная консультация</em></h2></div>
-        <div class="letter" data-sc-in>
-          <p>Мы знаем, как трудно решиться на этот звонок. Поэтому первый шаг у нас — просто разговор со специалистом, без осуждения и без давления. После него становится понятно, что делать дальше.</p>
-          <p>Что важно знать о консультации:</p>
-        </div>
-        <ul class="ticks" data-sc-in data-sc-stagger="50">
-          <li><b>Бесплатно,</b> без осуждения и без обязательств.</li>
-          <li><b>Стоимость и распорядок</b> обсуждаем лично, на консультации: они зависят от состояния человека и программы.</li>
-          <li><b>Специалист может приехать к вам домой,</b> если человеку трудно прийти или он пока против.</li>
-          <li><b>Можно прийти без близкого.</b> Часто первой приходит семья.</li>
-          <li><b>Имя можно не называть.</b> На учёт не ставим.</li>
-        </ul>
-        <div class="ways">
-          <a class="btn btn-main way" href="tel:+998918110333"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg></span><span><b>Позвонить</b><small>+998 91 811 03 33, ответит дежурный консультант</small></span></a>
-          <a class="btn btn-line way" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg></span><span><b>Написать в Telegram</b><small>@vectorrecovery, если трудно говорить вслух</small></span></a>
-        </div>
-      </div>
-      <figure class="shape leaf" data-sc-in><span class="back"></span><div class="ph"><img src="../../img/consult.jpg" alt="Специалист центра проводит беседу" loading="lazy" style="object-position:40% 50%"></div></figure>
-    </div>
-  </section>
-
-  <!-- VII. Дом -->
-  <section class="sec home" id="home" data-sc-act="flow" aria-labelledby="home-h">
-    <div class="wrap">
-      <div class="chap" data-sc-in><span class="num" aria-hidden="true">VII</span><h2 class="h2" id="home-h">Дом, <em>а не больница</em></h2></div>
-      <div class="letter" data-sc-in>
-        <p>Мы устроили центр как дом, а не как больницу, потому что выздоравливать легче там, где спокойно.</p>
-        <p>Светлые комнаты на 3–4 человека, в каждой свой санузел и кондиционер. Трёхразовое питание, спортзал, баня и купель, тихая молельная комната, двор с садом и фонтаном. <em>Прикладываем несколько фотографий.</em></p>
-      </div>
-      <figure class="home-wide" data-sc-reveal="up" data-sc-reveal-at="0.1 0.36"><img src="../../img/atrium-w.jpg" alt="Светлый атриум центра с галереей второго этажа" loading="lazy"></figure>
-      <ul class="home-grid" data-sc-in data-sc-stagger="50">
-        <li><figure><div class="ph"><img src="../../img/room-a.jpg" alt="Комната на несколько человек" loading="lazy"></div><figcaption>Комната</figcaption></figure></li>
-        <li><figure><div class="ph"><img src="../../img/bath.jpg" alt="Санузел в комнате" loading="lazy"></div><figcaption>Санузел</figcaption></figure></li>
-        <li><figure><div class="ph"><img src="../../img/dining.jpg" alt="Столовая" loading="lazy"></div><figcaption>Столовая</figcaption></figure></li>
-        <li><figure><div class="ph"><img src="../../img/gym.jpg" alt="Спортзал" loading="lazy"></div><figcaption>Спортзал</figcaption></figure></li>
-        <li><figure><div class="ph"><img src="../../img/sauna.jpg" alt="Баня" loading="lazy"></div><figcaption>Баня</figcaption></figure></li>
-        <li><figure><div class="ph"><img src="../../img/tub.jpg" alt="Купель" loading="lazy"></div><figcaption>Купель</figcaption></figure></li>
-        <li><figure><div class="ph"><img src="../../img/prayer.jpg" alt="Молельная комната" loading="lazy"></div><figcaption>Молельная</figcaption></figure></li>
-        <li><figure><div class="ph"><img src="../../img/hall.jpg" alt="Холл" loading="lazy"></div><figcaption>Холл</figcaption></figure></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- VIII–IX. Семья и команда -->
-  <section class="sec people" id="people" aria-labelledby="pe-h">
-    <div class="wrap">
-      <h2 class="h2" id="pe-h" data-sc-in>Люди <em>рядом</em></h2>
-      <div class="people-grid">
-        <article class="person" data-sc-in>
-          <figure class="shape blob"><span class="back"></span><span class="ring"></span><div class="ph"><img src="../../img/woman.jpg" alt="Женщина на встрече для родственников" loading="lazy" style="object-position:62% 50%"></div></figure>
-          <div class="chap"><span class="num" aria-hidden="true">VIII</span><h3 class="h3">Вам тоже нужна <em>поддержка</em></h3></div>
-          <div class="letter">
-            <p>Зависимость близкого выматывает всю семью. Пока он в безопасности, вы тоже можете получить помощь.</p>
-            <p><em>Каждую субботу в 11:00</em> в нашем офисе психологи проводят встречи для родственников. Звонки и встречи с семьёй мы организуем по рекомендации специалистов, когда это полезно для восстановления.</p>
-          </div>
-          <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Суббота, 11:00, в нашем офисе</span><br>
-          <a class="btn btn-line" href="https://t.me/vectorrecovery" target="_blank" rel="noopener">Записаться на встречу</a>
-        </article>
-        <article class="person" data-sc-in>
-          <figure class="shape pill"><span class="back"></span><span class="ring"></span><div class="ph"><img src="../../img/founder-l.jpg" alt="Темирхан Нуржан Кадирханович, основатель центра" loading="lazy" style="object-position:50% 30%"></div></figure>
-          <div class="chap"><span class="num" aria-hidden="true">IX</span><h3 class="h3">Кто <em>мы</em></h3></div>
-          <div class="letter">
-            <p>Основатель центра и координатор программы — Темирхан Нуржан Кадирханович, у него больше 10 лет опыта.</p>
-            <p>Программу ведут приглашённые специалисты из Казахстана: клинические психологи, наркологи и аддиктологи.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- X. Лицензия и документы -->
-  <section class="sec docs" id="docs" aria-labelledby="dc-h">
-    <div class="wrap docs-grid">
-      <div>
-        <div class="chap" data-sc-in><span class="num" aria-hidden="true">X</span><h2 class="h2" id="dc-h">Лицензия <em>и документы</em></h2></div>
-        <div class="letter" data-sc-in>
-          <p>Доверять на слово трудно, особенно когда речь о близком человеке. Поэтому прикладываем документы.</p>
-          <p>Центр работает по лицензии Министерства здравоохранения Республики Узбекистан на медицинскую деятельность: психиатрия, диагностика, консультация и консервативное лечение в стационарных условиях. Мы — первый реабилитационный центр Самарканда, получивший такую лицензию.</p>
-          <p>Адрес на копиях мы скрыли, а на самой лицензии есть QR-код для проверки. Нажмите на документ, чтобы рассмотреть его.</p>
-        </div>
-        <dl class="reg" data-sc-in>
-          <dt>Организация</dt><dd>ООО «VECTOR-CLINIC»</dd>
-          <dt>Лицензия</dt><dd>№1857962 <span class="ok">Активная</span></dd>
-          <dt>Номер в реестре</dt><dd>L-2908517164385</dd>
-          <dt>Вид деятельности</dt><dd>Психиатрия: диагностика, консультация и лечение в стационаре</dd>
-          <dt>Срок действия</dt><dd>до 17.09.2031</dd>
-          <dt>Выдал</dt><dd>Минздрав Республики Узбекистан</dd>
-        </dl>
-      </div>
-      <div class="pile" data-sc-in data-sc-stagger="80">
-        <button class="paper p1" type="button" data-doc="../../docs/license-1.jpg" data-cap="Лицензия Минздрава Республики Узбекистан №1857962, стр. 1. Адрес скрыт."><img src="../../docs/license-1-thumb.jpg" alt="Лицензия №1857962, страница 1" width="332" height="520" loading="lazy"><span>Лицензия, стр. 1<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button>
-        <button class="paper p2" type="button" data-doc="../../docs/license-2.jpg" data-cap="Лицензия №1857962, стр. 2: вид деятельности. Адрес скрыт."><img src="../../docs/license-2-thumb.jpg" alt="Лицензия №1857962, страница 2" width="332" height="520" loading="lazy"><span>Лицензия, стр. 2<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button>
-        <button class="paper p3" type="button" data-doc="../../docs/cert-amanat.jpg" data-cap="Сертификат консультанта по зависимости, Amanat Rehab, Алматы, 2023, 59 часов."><img src="../../docs/cert-amanat-thumb.jpg" alt="Сертификат консультанта по зависимости" width="900" height="650" loading="lazy"><span>Сертификат консультанта по зависимости<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- XI. Вопросы -->
-  <section class="sec faq" id="faq" aria-labelledby="fq-h">
-    <div class="wrap faq-grid">
-      <div class="faq-side">
-        <div class="chap" data-sc-in><span class="num" aria-hidden="true">XI</span><h2 class="h2" id="fq-h">Частые <em>вопросы</em></h2></div>
-        <div class="letter">
-          <p>Напоследок — ответы на вопросы, которые нам задают чаще всего. Если вашего вопроса здесь нет, спросите в Telegram, можно анонимно.</p>
-        </div>
-        <a class="more" href="https://t.me/vectorrecovery" target="_blank" rel="noopener">Написать в Telegram<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <div class="faq-list">
-        <details><summary>Поставят ли на учёт?<i aria-hidden="true"></i></summary><p>Нет. На наркологический учёт мы не ставим. Имя при звонке можно не называть, данные никому не передаём, лица резидентов не публикуем.</p></details>
-        <details><summary>Сколько стоит лечение?<i aria-hidden="true"></i></summary><p>Стоимость зависит от программы и состояния человека, поэтому мы обсуждаем её лично, на бесплатной консультации.</p></details>
-        <details><summary>Что делать, если близкий против?<i aria-hidden="true"></i></summary><p>Силой никого не увозят: лечение начинается только с письменного согласия, так требует и закон Узбекистана. Специалист может приехать к вам домой и поговорить так, чтобы человек сам согласился на помощь.</p></details>
-        <details><summary>Как проходит день в центре?<i aria-hidden="true"></i></summary><p>Группы по программе «12 шагов», работа с психологом, спорт, баня, трёхразовое питание. Подробный распорядок расскажем на консультации.</p></details>
-        <details><summary>Можно ли общаться с семьёй?<i aria-hidden="true"></i></summary><p>Звонки и встречи с семьёй мы организуем по рекомендации специалистов, когда это полезно для восстановления. Для родственников каждую субботу в 11:00 проходят встречи с психологами.</p></details>
-        <details><summary>Где вы находитесь?<i aria-hidden="true"></i></summary><p>В Самарканде. Точный адрес офиса сообщим при записи на консультацию.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Подпись письма -->
-  <section class="talk" id="contact" aria-labelledby="tk-h">
-    <div class="ribbon" aria-hidden="true"><svg><use href="#ribbon" width="100%" height="100%"/></svg></div>
-    <div class="wrap talk-grid">
-      <div>
-        <span class="label">Когда будете готовы</span>
-        <h2 class="h2" id="tk-h" data-sc-in>Нужно поговорить? <em>Мы рядом.</em></h2>
-        <div class="letter" data-sc-in>
-          <p>Позвоните или напишите. Консультация бесплатная, без осуждения и без обязательств. <em>Мы просто выслушаем.</em></p>
-        </div>
-        <div class="talk-cta">
-          <a class="btn btn-main on-dark" href="tel:+998918110333"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>Позвонить</a>
-          <a class="btn btn-line on-dark" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Написать в Telegram</a>
-        </div>
-        <p class="regards">С уважением,<br>команда центра Vector</p>
-        <img class="logo-full" src="../../brand/logo-light.png" alt="Vector — выбери свой вектор" width="132" height="103" loading="lazy">
-        <p class="ps"><b>P.S.</b>Звонок ни к чему не обязывает. Мы не ставим на учёт и не передаём данные.</p>
-      </div>
+      <p class="regards">С уважением,<br>команда центра Vector</p>
+      <p class="ps"><b>P.S.</b>Звонок ни к чему не обязывает. Мы не ставим на учёт и не передаём данные.</p>
       <ul class="contacts">
-        <li><small>Дежурная линия 24/7</small><a href="tel:+998918110333">+998 91 811 03 33</a><span>Можно не называть имя</span></li>
-        <li><small>Telegram</small><a href="https://t.me/vectorrecovery" target="_blank" rel="noopener">@vectorrecovery</a><span>Если пока трудно говорить вслух</span></li>
-        <li><small>Instagram</small><a href="https://instagram.com/vector.recovery" target="_blank" rel="noopener">vector.recovery</a><span>Истории и новости центра</span></li>
-        <li><small>Офис для консультаций</small><b>г. Самарканд</b><span>Точный адрес сообщим при записи</span></li>
+        <li><small>Дежурная линия, круглосуточно</small><a href="tel:+998918110333">+998 91 811 03 33</a></li>
+        <li><small>Telegram</small><a href="https://t.me/vectorrecovery" target="_blank" rel="noopener">@vectorrecovery</a></li>
+        <li><small>Instagram</small><a href="https://instagram.com/vector.recovery" target="_blank" rel="noopener">vector.recovery</a></li>
+        <li><small>Офис в Самарканде</small><b>Адрес сообщим при записи</b></li>
       </ul>
     </div>
   </section>
@@ -742,10 +442,10 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     v.addEventListener('timeupdate', () => { let t = marks[0][1]; for (const [at, l] of marks) if (v.currentTime >= at) t = l; if (tag.textContent !== t) tag.textContent = t; });
   }
 
-  /* scroll-craft: панорама шагов, шторка дома, счётчики, появление блоков */
+  /* scroll-craft: окна мягко приближаются при прокрутке, текст глав появляется */
   if (window.ScrollCraft) ScrollCraft.mount(document); else document.documentElement.classList.remove('sc-on');
 
-  /* Панель связи: после первого экрана, прячется у блока контактов */
+  /* Панель связи: после первого экрана, прячется в окне подписи */
   const dock = $('#dock'), seen = {hero: true, talk: false};
   const sync = () => dock.classList.toggle('show', !seen.hero && !seen.talk);
   new IntersectionObserver(es => { es.forEach(e => { seen.hero = e.isIntersecting; }); sync(); }, {threshold: 0.12}).observe($('.open'));
