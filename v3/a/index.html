@@ -279,6 +279,34 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 .foot{background:var(--forest-2);color:var(--sage);font-size:var(--f13);padding:var(--s27) 0 calc(110px + env(safe-area-inset-bottom))}
 .foot p{margin:0}
 
+/* ============ ПИСЬМО ИДЁТ ЧЕРЕЗ ВСЮ СТРАНИЦУ: главы I–XI, подпись, P.S. ============ */
+.chap{position:relative}
+.num{display:block;margin-bottom:10px;font:italic 500 var(--f33)/1 var(--serif);color:var(--sage);font-variant-numeric:lining-nums}
+@media (min-width:1320px){.chap .num{position:absolute;left:-92px;top:.18em;margin:0;width:72px;text-align:right}}
+.letter{margin-top:var(--s21);max-width:29em}
+.letter p{margin:0;font:500 clamp(1.25rem,1.06rem + .6vw,1.62rem)/1.5 var(--serif);color:var(--ink)}
+.letter p + p{margin-top:var(--s16)}
+.letter em{font-style:italic;color:var(--teal)}
+.letters{padding-bottom:clamp(40px,5vw,80px)}
+.lrow{display:grid;grid-template-columns:minmax(0,61.8fr) minmax(0,38.2fr);gap:clamp(40px,6vw,96px);align-items:center}
+.lrow + .lrow{margin-top:clamp(72px,8vw,128px);padding-top:clamp(72px,8vw,128px);border-top:1px solid var(--line)}
+.lside{width:min(100%,340px);justify-self:center}
+.leaf.tall .ph{aspect-ratio:4/5}
+.steps-intro{background:var(--forest);color:var(--cream);padding-bottom:0}
+.steps-intro .h2{color:var(--cream)}
+.steps-intro .h2 em,.steps-intro .num{color:var(--sage)}
+.steps-intro .letter p{color:rgba(244,239,230,.92)}
+.steps-intro .letter em{color:var(--sage)}
+.person .chap{margin-top:4px}
+.person .letter{margin-top:14px}
+.person .letter p{font-size:clamp(1.2rem,1.05rem + .45vw,1.45rem)}
+.talk .label{color:var(--sage)}
+.talk .letter p{color:rgba(244,239,230,.92)}
+.talk .letter em{color:var(--sage)}
+.ps{margin:22px 0 0;max-width:30em;font:500 1.15rem/1.5 var(--serif);color:rgba(244,239,230,.78)}
+.ps b{margin-right:8px;font:600 12px/1 var(--sans);letter-spacing:.2em;color:var(--sage)}
+@media (max-width:1000px){.lrow{grid-template-columns:1fr}.lside{order:-1;width:min(80%,320px)}}
+
 /* ============ ПАНЕЛЬ СВЯЗИ: появляется после первого экрана ============ */
 .dock{position:fixed;z-index:30;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));display:flex;gap:8px;padding:6px;border-radius:999px;background:rgba(250,247,241,.96);box-shadow:0 18px 40px -18px rgba(15,46,40,.55),0 0 0 1px rgba(21,61,54,.08);transform:translate(-50%,140%);opacity:0;transition:transform .32s var(--ease),opacity .2s var(--ease)}
 .dock.show{transform:translate(-50%,0);opacity:1}
@@ -400,28 +428,61 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     <span class="scene-tag" id="scene-tag">Люди рядом</span>
   </section>
 
-  <!-- Узнаёте себя: рубрики-вопросы -->
+  <!-- I. С чем к нам приходят -->
   <section class="sec ask" aria-labelledby="ask-h">
     <div class="wrap">
-      <h2 class="h2" id="ask-h" data-sc-in>Узнаёте <em>себя или близкого?</em></h2>
+      <div class="chap" data-sc-in><span class="num" aria-hidden="true">I</span><h2 class="h2" id="ask-h">Узнаёте <em>себя или близкого?</em></h2></div>
+      <div class="letter" data-sc-in>
+        <p>Вы не первый, кто оказался там, где вы сейчас, и в этом нет вашей вины. К нам приходят мамы и жёны, сёстры и взрослые дети. Приходят и сами люди с зависимостью, те, кто устал обещать себе и начинать снова.</p>
+        <p>Вот что мы слышим чаще всего и что отвечаем.</p>
+      </div>
       <ul class="ask-cols" data-sc-in data-sc-stagger="70">
         <li><small>Если вы близкий</small><q>Он пьёт, а я не знаю, как начать разговор</q><p>Начните с нас. На консультации подскажем, что говорить и чего не делать. Можно прийти без него.</p><a class="more" href="#consult">Поговорить со специалистом<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
         <li><small>Если вы близкий</small><q>Он не признаёт, что есть проблема</q><p>Отрицание — частый симптом болезни, а не упрямство. Специалист может приехать домой и поговорить так, чтобы человек сам согласился на помощь.</p><a class="more" href="#consult">Пригласить специалиста<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-        <li><small>Если это про вас</small><q>Хочу бросить, но снова срываюсь</q><p>Это не слабость характера, а болезнь, и с ней работают: программа «12 шагов», психологи, поддержка группы.</p><a class="more" href="#steps">Как проходит программа<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+        <li><small>Если это про вас</small><q>Хочу бросить, но каждый раз начинаю снова</q><p>Это не слабость характера, а болезнь, и с ней работают: программа «12 шагов», психологи, поддержка группы.</p><a class="more" href="#steps">Как проходит программа<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
         <li><small>Если это про вас</small><q>Боюсь, что поставят на учёт</q><p>На наркологический учёт мы не ставим. Имя при звонке можно не называть, данные никому не передаём.</p><a class="more" href="https://t.me/vectorrecovery" target="_blank" rel="noopener">Спросить анонимно<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
       </ul>
     </div>
   </section>
 
-  <!-- Выход здесь, в Самарканде -->
+  <!-- II–III. Страхи и близкий, который против: текст письма слева, фото справа -->
+  <section class="sec letters" aria-label="О страхах и о близком, который против">
+    <div class="wrap">
+      <div class="lrow">
+        <div>
+          <div class="chap" data-sc-in><span class="num" aria-hidden="true">II</span><h2 class="h2">О том, <em>чего вы боитесь</em></h2></div>
+          <div class="letter" data-sc-in>
+            <p>Наверное, первое, о чём вы думаете: <em>«Поставят на учёт?»</em> Нет. На наркологический учёт мы не ставим.</p>
+            <p>Имя при звонке можно не называть. Лица резидентов мы не публикуем, данные никому не передаём. Всё, что вы расскажете, останется между вами и специалистом.</p>
+          </div>
+        </div>
+        <figure class="shape pill lside" data-sc-in><span class="back"></span><span class="ring"></span><div class="ph"><img src="../../img/room-b.jpg" alt="Светлая комната центра" loading="lazy"></div></figure>
+      </div>
+      <div class="lrow">
+        <div>
+          <div class="chap" data-sc-in><span class="num" aria-hidden="true">III</span><h2 class="h2">Если близкий <em>против</em></h2></div>
+          <div class="letter" data-sc-in>
+            <p>Если он не признаёт проблему, не вините ни его, ни себя. Отрицание — частый симптом болезни, а не упрямство.</p>
+            <p>Специалист может приехать к вам домой и поговорить так, чтобы человек сам согласился на помощь. <em>Силой никого не увозят:</em> лечение начинается только с письменного согласия, так требует и закон Узбекистана.</p>
+          </div>
+        </div>
+        <figure class="shape leaf tall lside" data-sc-in><span class="back"></span><div class="ph"><img src="../../img/notes.jpg" alt="Психолог центра во время беседы" loading="lazy"></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- IV. Выход здесь, в Самарканде -->
   <section class="sec here" id="why" aria-labelledby="why-h">
     <div class="ribbon" aria-hidden="true"><svg><use href="#ribbon" width="100%" height="100%"/></svg></div>
     <div class="wrap">
       <div class="here-grid">
         <figure class="shape blob" data-sc-in><span class="back"></span><span class="ring"></span><div class="ph"><img src="../../img/over-v.jpg" alt="Светлый атриум центра, вид сверху: специалисты и родственники у стола" loading="lazy"></div></figure>
         <div>
-          <h2 class="h2" id="why-h" data-sc-in>Выход — <em>здесь, в Самарканде</em></h2>
-          <p class="lead" data-sc-in>Не нужно искать помощь в другом городе или другой стране. Здесь, в Самарканде, человек проходит весь путь, от первого разговора до жизни после курса, а семья получает поддержку рядом.</p>
+          <div class="chap" data-sc-in><span class="num" aria-hidden="true">IV</span><h2 class="h2" id="why-h">Выход — <em>здесь, в Самарканде</em></h2></div>
+          <div class="letter" data-sc-in>
+            <p>Многие думают, что за настоящей помощью нужно везти близкого в другой город или в другую страну. Не нужно. Здесь, в Самарканде, человек проходит весь путь, от первого разговора до жизни после курса, а семья остаётся рядом и тоже получает поддержку.</p>
+            <p>Словам трудно верить, поэтому пишем только то, что можно проверить.</p>
+          </div>
           <ul class="facts" data-sc-in data-sc-stagger="60">
             <li><b>Лицензия Минздрава</b><span>№1857962 на медицинскую деятельность, действует до 17.09.2031. <a href="#docs">Документы</a></span></li>
             <li><b>Анонимно</b><span>На наркологический учёт не ставим, данные никому не передаём.</span></li>
@@ -439,11 +500,21 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
 
-  <!-- Шаги: горизонтальная панорама -->
+  <!-- V. Как всё будет: письмо, потом шаги панорамой -->
+  <section class="sec steps-intro" aria-labelledby="st-l">
+    <div class="wrap">
+      <div class="chap" data-sc-in><span class="num" aria-hidden="true">V</span><h2 class="h2" id="st-l">Как <em>всё будет</em></h2></div>
+      <div class="letter" data-sc-in>
+        <p>Расскажем по порядку, чтобы не осталось неизвестности.</p>
+        <p>Вы звоните, и отвечает дежурный консультант. Он выслушает и подскажет следующий шаг. Потом — личная консультация: на ней мы обсуждаем программу, распорядок и стоимость. Консультация бесплатная и ни к чему не обязывает.</p>
+        <p>Дальше человек живёт в центре и проходит программу «12 шагов»: группы, индивидуальная работа, спорт, баня. <em>После курса мы не прощаемся:</em> сопровождаем, чтобы трезвость удержалась дома.</p>
+      </div>
+    </div>
+  </section>
   <section class="steps" id="steps" data-sc-act="pan" data-sc-span="2.8" aria-labelledby="st-h">
     <div class="sc-stage steps-stage">
       <div class="wrap steps-head">
-        <h2 class="h2" id="st-h">Как всё будет: <em>четыре шага</em></h2>
+        <h2 class="h2" id="st-h">Четыре шага <em>к выходу</em></h2>
         <div class="steps-meter" aria-hidden="true"><i></i></div>
       </div>
       <ol class="rail" data-sc-pan="0">
@@ -472,12 +543,15 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
 
-  <!-- Бесплатная консультация -->
+  <!-- VI. Бесплатная консультация -->
   <section class="sec consult" id="consult" aria-labelledby="co-h">
     <div class="wrap consult-grid">
       <div>
-        <h2 class="h2" id="co-h" data-sc-in>Первый шаг — <em>бесплатная консультация</em></h2>
-        <p class="lead" data-sc-in>Это разговор со специалистом. Он ни к чему не обязывает, а после него становится понятно, что делать дальше.</p>
+        <div class="chap" data-sc-in><span class="num" aria-hidden="true">VI</span><h2 class="h2" id="co-h">Первый шаг — <em>бесплатная консультация</em></h2></div>
+        <div class="letter" data-sc-in>
+          <p>Мы знаем, как трудно решиться на этот звонок. Поэтому первый шаг у нас — просто разговор со специалистом, без осуждения и без давления. После него становится понятно, что делать дальше.</p>
+          <p>Что важно знать о консультации:</p>
+        </div>
         <ul class="ticks" data-sc-in data-sc-stagger="50">
           <li><b>Бесплатно,</b> без осуждения и без обязательств.</li>
           <li><b>Стоимость и распорядок</b> обсуждаем лично, на консультации: они зависят от состояния человека и программы.</li>
@@ -494,14 +568,17 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
 
-  <!-- Дом -->
+  <!-- VII. Дом -->
   <section class="sec home" id="home" data-sc-act="flow" aria-labelledby="home-h">
     <div class="wrap">
-      <h2 class="h2" id="home-h" data-sc-in>Дом, <em>а не больница</em></h2>
-      <p class="body" data-sc-in>Мы устроили центр как дом, потому что выздоравливать легче там, где спокойно. Светлые комнаты на 3–4 человека, в каждой свой санузел и кондиционер. Трёхразовое питание, спортзал, баня и купель, молельная комната, двор с садом и фонтаном.</p>
+      <div class="chap" data-sc-in><span class="num" aria-hidden="true">VII</span><h2 class="h2" id="home-h">Дом, <em>а не больница</em></h2></div>
+      <div class="letter" data-sc-in>
+        <p>Мы устроили центр как дом, а не как больницу, потому что выздоравливать легче там, где спокойно.</p>
+        <p>Светлые комнаты на 3–4 человека, в каждой свой санузел и кондиционер. Трёхразовое питание, спортзал, баня и купель, тихая молельная комната, двор с садом и фонтаном. <em>Прикладываем несколько фотографий.</em></p>
+      </div>
       <figure class="home-wide" data-sc-reveal="up" data-sc-reveal-at="0.1 0.36"><img src="../../img/atrium-w.jpg" alt="Светлый атриум центра с галереей второго этажа" loading="lazy"></figure>
       <ul class="home-grid" data-sc-in data-sc-stagger="50">
-        <li><figure><div class="ph"><img src="../../img/room-b.jpg" alt="Комната на несколько человек" loading="lazy"></div><figcaption>Комната</figcaption></figure></li>
+        <li><figure><div class="ph"><img src="../../img/room-a.jpg" alt="Комната на несколько человек" loading="lazy"></div><figcaption>Комната</figcaption></figure></li>
         <li><figure><div class="ph"><img src="../../img/bath.jpg" alt="Санузел в комнате" loading="lazy"></div><figcaption>Санузел</figcaption></figure></li>
         <li><figure><div class="ph"><img src="../../img/dining.jpg" alt="Столовая" loading="lazy"></div><figcaption>Столовая</figcaption></figure></li>
         <li><figure><div class="ph"><img src="../../img/gym.jpg" alt="Спортзал" loading="lazy"></div><figcaption>Спортзал</figcaption></figure></li>
@@ -513,35 +590,42 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
 
-  <!-- Люди рядом -->
+  <!-- VIII–IX. Семья и команда -->
   <section class="sec people" id="people" aria-labelledby="pe-h">
     <div class="wrap">
       <h2 class="h2" id="pe-h" data-sc-in>Люди <em>рядом</em></h2>
       <div class="people-grid">
         <article class="person" data-sc-in>
           <figure class="shape blob"><span class="back"></span><span class="ring"></span><div class="ph"><img src="../../img/woman.jpg" alt="Женщина на встрече для родственников" loading="lazy" style="object-position:62% 50%"></div></figure>
-          <span class="label">Для семьи</span>
-          <h3 class="h3">Вам тоже нужна <em>поддержка</em></h3>
-          <p class="body">Зависимость близкого выматывает всю семью. Пока он в безопасности, вы тоже можете получить помощь. Психологи проводят встречи для родственников. Звонки и встречи с семьёй мы организуем по рекомендации специалистов, когда это полезно для восстановления.</p>
-          <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Каждую субботу в 11:00, в нашем офисе</span><br>
+          <div class="chap"><span class="num" aria-hidden="true">VIII</span><h3 class="h3">Вам тоже нужна <em>поддержка</em></h3></div>
+          <div class="letter">
+            <p>Зависимость близкого выматывает всю семью. Пока он в безопасности, вы тоже можете получить помощь.</p>
+            <p><em>Каждую субботу в 11:00</em> в нашем офисе психологи проводят встречи для родственников. Звонки и встречи с семьёй мы организуем по рекомендации специалистов, когда это полезно для восстановления.</p>
+          </div>
+          <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Суббота, 11:00, в нашем офисе</span><br>
           <a class="btn btn-line" href="https://t.me/vectorrecovery" target="_blank" rel="noopener">Записаться на встречу</a>
         </article>
         <article class="person" data-sc-in>
           <figure class="shape pill"><span class="back"></span><span class="ring"></span><div class="ph"><img src="../../img/founder-l.jpg" alt="Темирхан Нуржан Кадирханович, основатель центра" loading="lazy" style="object-position:50% 30%"></div></figure>
-          <span class="label">Кто мы</span>
-          <h3 class="h3">Темирхан Нуржан Кадирханович</h3>
-          <p class="body">Основатель центра и координатор программы, опыт больше <span data-sc-count="0 10">10</span> лет. Программу ведут приглашённые специалисты из Казахстана: клинические психологи, наркологи и аддиктологи. Лицензия центра и сертификат консультанта открыты: <a href="#docs">документы</a>.</p>
+          <div class="chap"><span class="num" aria-hidden="true">IX</span><h3 class="h3">Кто <em>мы</em></h3></div>
+          <div class="letter">
+            <p>Основатель центра и координатор программы — Темирхан Нуржан Кадирханович, у него больше 10 лет опыта.</p>
+            <p>Программу ведут приглашённые специалисты из Казахстана: клинические психологи, наркологи и аддиктологи.</p>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Лицензия и документы -->
+  <!-- X. Лицензия и документы -->
   <section class="sec docs" id="docs" aria-labelledby="dc-h">
     <div class="wrap docs-grid">
       <div>
-        <h2 class="h2" id="dc-h" data-sc-in>Лицензия <em>и документы</em></h2>
-        <p class="lead" data-sc-in>Центр работает по лицензии Министерства здравоохранения Республики Узбекистан на медицинскую деятельность. Документы мы показываем открыто.</p>
+        <div class="chap" data-sc-in><span class="num" aria-hidden="true">X</span><h2 class="h2" id="dc-h">Лицензия <em>и документы</em></h2></div>
+        <div class="letter" data-sc-in>
+          <p>Доверять на слово трудно, особенно когда речь о близком человеке. Поэтому прикладываем документы.</p>
+          <p>Центр работает по лицензии Министерства здравоохранения Республики Узбекистан на медицинскую деятельность. Адрес на копиях мы скрыли, а на самой лицензии есть QR-код для проверки. Нажмите на документ, чтобы рассмотреть его.</p>
+        </div>
         <dl class="reg" data-sc-in>
           <dt>Организация</dt><dd>ООО «VECTOR-CLINIC»</dd>
           <dt>Лицензия</dt><dd>№1857962 <span class="ok">Активная</span></dd>
@@ -549,7 +633,6 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
           <dt>Срок действия</dt><dd>до 17.09.2031</dd>
           <dt>Выдал</dt><dd>Минздрав Республики Узбекистан</dd>
         </dl>
-        <p class="small">Адрес на копиях скрыт. На лицензии есть QR-код для проверки. Нажмите на документ, чтобы рассмотреть его.</p>
       </div>
       <div class="pile" data-sc-in data-sc-stagger="80">
         <button class="paper p1" type="button" data-doc="../../docs/license-1.jpg" data-cap="Лицензия Минздрава Республики Узбекистан №1857962, стр. 1. Адрес скрыт."><img src="../../docs/license-1-thumb.jpg" alt="Лицензия №1857962, страница 1" width="332" height="520" loading="lazy"><span>Лицензия, стр. 1<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button>
@@ -559,12 +642,14 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
 
-  <!-- Вопросы -->
+  <!-- XI. Вопросы -->
   <section class="sec faq" id="faq" aria-labelledby="fq-h">
     <div class="wrap faq-grid">
       <div class="faq-side">
-        <h2 class="h2" id="fq-h" data-sc-in>Частые <em>вопросы</em></h2>
-        <p class="body">Не нашли ответ? Спросите в Telegram, можно анонимно.</p>
+        <div class="chap" data-sc-in><span class="num" aria-hidden="true">XI</span><h2 class="h2" id="fq-h">Частые <em>вопросы</em></h2></div>
+        <div class="letter">
+          <p>Напоследок — ответы на вопросы, которые нам задают чаще всего. Если вашего вопроса здесь нет, спросите в Telegram, можно анонимно.</p>
+        </div>
         <a class="more" href="https://t.me/vectorrecovery" target="_blank" rel="noopener">Написать в Telegram<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="faq-list">
@@ -578,19 +663,23 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
 
-  <!-- Нужно поговорить -->
+  <!-- Подпись письма -->
   <section class="talk" id="contact" aria-labelledby="tk-h">
     <div class="ribbon" aria-hidden="true"><svg><use href="#ribbon" width="100%" height="100%"/></svg></div>
     <div class="wrap talk-grid">
       <div>
+        <span class="label">Когда будете готовы</span>
         <h2 class="h2" id="tk-h" data-sc-in>Нужно поговорить? <em>Мы рядом.</em></h2>
-        <p class="body">Звонок ни к чему не обязывает. Консультация бесплатная, без осуждения. Мы не ставим на учёт и не передаём данные.</p>
+        <div class="letter" data-sc-in>
+          <p>Позвоните или напишите. Консультация бесплатная, без осуждения и без обязательств. <em>Мы просто выслушаем.</em></p>
+        </div>
         <div class="talk-cta">
           <a class="btn btn-main on-dark" href="tel:+998918110333"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>Позвонить</a>
           <a class="btn btn-line on-dark" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Написать в Telegram</a>
         </div>
         <p class="regards">С уважением,<br>команда центра Vector</p>
         <img class="logo-full" src="../../brand/logo-light.png" alt="Vector — выбери свой вектор" width="132" height="103" loading="lazy">
+        <p class="ps"><b>P.S.</b>Звонок ни к чему не обязывает. Мы не ставим на учёт и не передаём данные.</p>
       </div>
       <ul class="contacts">
         <li><small>Дежурная линия 24/7</small><a href="tel:+998918110333">+998 91 811 03 33</a><span>Можно не называть имя</span></li>
