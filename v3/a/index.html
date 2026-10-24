@@ -151,7 +151,7 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
   .foot p{padding-left:0}
 }
 @media (max-width:420px){.call span{display:none}}
-/* А. Первый шаг → люди → дом → источник → будущее: петля 14,8 с из кадров фильмов центра */
+/* А. Люди → дом → источник → будущее → первый шаг: петля 15 с из кадров фильмов центра */
 .open{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;overflow:hidden}
 .open .bg{position:absolute;inset:0;z-index:-2;background:var(--cream)}
 .open .bg img,.open .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -199,7 +199,7 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
       <p>Если вы читаете это поздно вечером, потому что не знаете, как помочь близкому или себе, — вы уже сделали первый шаг.</p>
       <p>Мы — центр восстановления Vector в Самарканде. Помогаем людям с алкогольной, наркотической и игровой зависимостью и их семьям. <em>Мы поможем найти выход.</em></p>
     </div>
-    <span class="scene-tag" id="scene-tag">Первый шаг</span>
+    <span class="scene-tag" id="scene-tag">Люди рядом</span>
   </section>
 
   <!-- I -->
@@ -331,8 +331,8 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
     for (const [k, type] of [['webm','video/webm'],['mp4','video/mp4']]) { const x = document.createElement('source'); x.src = base + '.' + k; x.type = type; v.append(x); }
     v.addEventListener('canplay', () => { if (!v.isConnected) { still.replaceWith(v); v.play().catch(()=>{}); } }, {once:true});
     v.load();
-    /* смысл ролика: первый шаг → люди → дом → источник → будущее; подпись меняется посередине склейки */
-    const tag = $('#scene-tag'), marks = [[0,'Первый шаг'],[1.74,'Люди рядом'],[6.58,'Дом'],[9.5,'Источник'],[12.1,'Будущее'],[14.54,'Первый шаг']];
+    /* смысл ролика: люди → дом → источник → будущее → первый шаг (дверь консультации); подпись меняется посередине склейки */
+    const tag = $('#scene-tag'), marks = [[0,'Люди рядом'],[4.54,'Дом'],[7.14,'Источник'],[9.74,'Будущее'],[12.18,'Первый шаг: консультация'],[14.78,'Люди рядом']];
     v.addEventListener('timeupdate', () => { let t = marks[0][1]; for (const [at, l] of marks) if (v.currentTime >= at) t = l; if (tag.textContent !== t) tag.textContent = t; });
   }
 
