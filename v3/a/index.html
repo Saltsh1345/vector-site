@@ -196,7 +196,7 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
       <span class="label">Письмо тому, кто сейчас ищет выход</span>
       <h1 id="h1">Здравствуйте. <em>Выход есть.</em></h1>
       <span class="rule" aria-hidden="true"></span>
-      <p>Если вы читаете это поздно вечером, потому что не знаете, как помочь близкому или себе, — вы уже сделали первый шаг.</p>
+      <p>Если вы читаете это письмо, потому что не знаете, как помочь близкому или себе, — вы уже сделали первый шаг.</p>
       <p>Мы — центр восстановления Vector в Самарканде. Помогаем людям с алкогольной, наркотической и игровой зависимостью и их семьям. <em>Мы поможем найти выход.</em></p>
     </div>
     <span class="scene-tag" id="scene-tag">Люди рядом</span>
@@ -331,8 +331,8 @@ h1,.num,.text p,.regards{font-variant-numeric:lining-nums}
     for (const [k, type] of [['webm','video/webm'],['mp4','video/mp4']]) { const x = document.createElement('source'); x.src = base + '.' + k; x.type = type; v.append(x); }
     v.addEventListener('canplay', () => { if (!v.isConnected) { still.replaceWith(v); v.play().catch(()=>{}); } }, {once:true});
     v.load();
-    /* смысл ролика: люди → дом → источник → будущее → первый шаг (дверь консультации); подпись меняется посередине склейки */
-    const tag = $('#scene-tag'), marks = [[0,'Люди рядом'],[4.54,'Дом'],[7.14,'Источник'],[9.74,'Будущее'],[12.18,'Первый шаг: консультация'],[14.78,'Люди рядом']];
+    /* смысл ролика: люди → дом → источник → будущее → первый шаг (дверь консультации); переходы вверх, подпись меняется посередине склейки */
+    const tag = $('#scene-tag'), marks = [[0, "Люди рядом"], [1.32, "Дом"], [4.04, "Источник"], [6.76, "Будущее"], [9.0, "Первый шаг: консультация"], [13.24, "Люди рядом"]];
     v.addEventListener('timeupdate', () => { let t = marks[0][1]; for (const [at, l] of marks) if (v.currentTime >= at) t = l; if (tag.textContent !== t) tag.textContent = t; });
   }
 
