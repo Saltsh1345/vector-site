@@ -1,7 +1,7 @@
 # Узбекская и таджикская версии /v3/a/ из собранной русской страницы: таблица фрагментов + проверка, что русского текста не осталось.
 import re, sys
 from html.parser import HTMLParser
-SP = '/tmp/claude-0/-home-user/e583a4a9-489a-5595-ba5a-8bc3c3de4f3a/scratchpad'
+import os; SP = os.path.dirname(os.path.abspath(__file__))  # таблица переводов лежит рядом
 exec(open(SP + '/i18n_table.py', encoding='utf-8').read())   # T
 root = sys.argv[1]                                             # .../vector-site/v3/a
 ru = open(root + '/index.html', encoding='utf-8').read()

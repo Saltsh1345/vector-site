@@ -4,7 +4,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
-SP = '/tmp/claude-0/-home-user/e583a4a9-489a-5595-ba5a-8bc3c3de4f3a/scratchpad'
+import os; SP = os.path.dirname(os.path.abspath(__file__))  # таблица переводов лежит рядом
 OUT = sys.argv[1]
 src = open(SP + '/i18n_table.py', encoding='utf-8').read()
 exec(src)  # T
