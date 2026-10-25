@@ -7,15 +7,23 @@
 <meta name="description" content="Центр восстановления Vector — первый реабилитационный центр в Самарканде с лицензией Минздрава на стационарное лечение: помощь при алкогольной, наркотической и игровой зависимости и поддержка семьи. Бесплатная консультация, анонимно, на учёт не ставим.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FAF7F1">
+<link rel="alternate" hreflang="ru" href="./">
+<link rel="alternate" hreflang="uz" href="uz/">
+<link rel="alternate" hreflang="tg" href="tg/">
 <link rel="icon" href="../../brand/mark-dark.png" type="image/png">
 <link rel="preload" as="image" href="../../media/hA-l.webp" media="(min-aspect-ratio: 1/1)">
 <link rel="preload" as="image" href="../../media/hA-p.webp" media="(max-aspect-ratio: 1/1)">
+<link rel="preload" as="font" type="font/woff2" href="../../brand/fonts/ManropeVector-600.woff2" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 <!-- движок scroll-craft (MIT, vendor/scrollcraft/LICENSE): сначала его основа, потом стиль бренда -->
 <link rel="stylesheet" href="../../vendor/scrollcraft/scrollcraft.css">
 <style>
+@font-face{font-family:"Manrope Vector";font-style:normal;font-weight:400;font-display:swap;src:url(../../brand/fonts/ManropeVector-400.woff2) format("woff2")}
+@font-face{font-family:"Manrope Vector";font-style:normal;font-weight:500;font-display:swap;src:url(../../brand/fonts/ManropeVector-500.woff2) format("woff2")}
+@font-face{font-family:"Manrope Vector";font-style:normal;font-weight:600;font-display:swap;src:url(../../brand/fonts/ManropeVector-600.woff2) format("woff2")}
+@font-face{font-family:"Manrope Vector";font-style:normal;font-weight:700;font-display:swap;src:url(../../brand/fonts/ManropeVector-700.woff2) format("woff2")}
 
 /* Vector · письмо, первый экран А + страница в стиле Instagram бренда.
    Цвета и шрифты — брендбук Vector; рамки-окна заменены мягкими формами (капля, лист, капсула) с фоном шалфея.
@@ -23,14 +31,14 @@
 :root{
   --forest:#153D36; --forest-2:#0F2E28; --forest-3:#245A4F; --teal:#356F64; --sage:#A9C1B3; --mint:#DCE8DE;
   --cream:#F4EFE6; --paper:#FAF7F1; --line:#E2DBCD; --ink:#17302A; --ink-soft:#4E6159;
-  --serif:"Cormorant Garamond","Times New Roman",serif; --sans:"Manrope","Segoe UI",system-ui,sans-serif;
+  --serif:"Cormorant Garamond","Times New Roman",serif; --sans:"Manrope Vector","Manrope","Segoe UI",system-ui,sans-serif;
   --f10:10px; --f13:13px; --f16:16px; --f20:20px; --f26:26px; --f33:33px; --f42:42px; --f53:53px; --f68:68px;
   --s6:6px; --s8:8px; --s10:10px; --s13:13px; --s16:16px; --s21:21px; --s27:27px;
   --air:130px; --ease:cubic-bezier(.23,1,.32,1);
   --wrap:min(100% - 48px,1132px);
   /* токены движка → бренд */
   --sc-canvas:#FAF7F1; --sc-surface:#F4EFE6; --sc-ink:#17302A; --sc-ink-soft:#4E6159; --sc-accent:#356F64; --sc-accent-ink:#F4EFE6;
-  --sc-font-display:"Cormorant Garamond",serif; --sc-font-text:"Manrope",system-ui,sans-serif; --sc-shadow-color:168 49% 12%;
+  --sc-font-display:"Cormorant Garamond",serif; --sc-font-text:"Manrope Vector",system-ui,sans-serif; --sc-shadow-color:168 49% 12%;
 }
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -168,6 +176,25 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 .foot p{margin:0}
 
 
+
+/* ============ ЯЗЫКИ: RU · UZ · TJ ============ */
+.top .in > .lang{margin-left:auto}
+.lang{display:inline-flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(250,247,241,.9);box-shadow:0 0 0 1px rgba(21,61,54,.1)}
+.lang a{display:grid;place-items:center;min-width:40px;min-height:36px;padding:0 8px;border-radius:999px;font:600 12.5px/1 var(--sans);letter-spacing:.06em;color:var(--forest);text-decoration:none;transition:background-color .16s var(--ease)}
+.lang a[aria-current="page"]{background:var(--forest);color:var(--cream)}
+@media (hover:hover) and (pointer:fine){.lang a:not([aria-current]):hover{background:var(--mint)}}
+@media (max-width:520px){
+  .top .in{gap:8px}
+  .top-nav .tn-ig,.top-nav .tn-tg{display:none}
+  .logo{gap:8px}
+  .logo .mk{height:28px}
+  .logo .wm{height:12px}
+  .logo small{display:none}
+  .lang{padding:3px}
+  .lang a{min-width:32px;min-height:34px;padding:0 4px;font-size:12px}
+  .top-nav .tn-tel{width:40px;min-height:40px}
+}
+
 /* ============ ФИРМЕННЫЕ ЛЕНТЫ: проходят между главами и мягко плывут при прокрутке ============ */
 .chess,.trip{overflow-x:clip}
 .rib{position:absolute;z-index:0;pointer-events:none;height:auto;max-width:none;opacity:.9}
@@ -304,6 +331,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     <img class="mk" src="../../brand/mark-dark.png" alt="" width="66" height="40">
     <span><img class="wm" src="../../brand/wordmark-dark.png" alt="Vector" width="180" height="17"><small>recovery center</small></span>
   </a>
+  <div class="lang" role="navigation" aria-label="Язык"><a href="./" hreflang="ru" lang="ru" aria-current="page">RU</a><a href="uz/" hreflang="uz" lang="uz">UZ</a><a href="tg/" hreflang="tg" lang="tg">TJ</a></div>
   <nav class="top-nav" aria-label="Связь с центром">
     <a class="tn-ig" href="https://instagram.com/vector.recovery" target="_blank" rel="noopener" aria-label="Instagram vector.recovery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></a>
     <a class="tn-tg" href="https://t.me/vectorrecovery" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg><span>Написать</span></a>

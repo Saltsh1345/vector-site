@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="tg" class="sc-on">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vector — маркази барқарорсозӣ дар Самарқанд</title>
+<meta name="description" content="Маркази барқарорсозии Vector — аввалин маркази тавонбахшӣ дар Самарқанд бо иҷозатномаи Вазорати тандурустӣ барои табобати статсионарӣ: кӯмак ҳангоми вобастагӣ аз машрубот, маводи мухаддир ва қимор ва дастгирии оила. Машварати ройгон, беном, ба қайд намегирем.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FAF7F1">
+<link rel="alternate" hreflang="ru" href="../">
+<link rel="alternate" hreflang="uz" href="../uz/">
+<link rel="alternate" hreflang="tg" href="../tg/">
+<link rel="icon" href="../../../brand/mark-dark.png" type="image/png">
+<link rel="preload" as="image" href="../../../media/hA-l.webp" media="(min-aspect-ratio: 1/1)">
+<link rel="preload" as="image" href="../../../media/hA-p.webp" media="(max-aspect-ratio: 1/1)">
+<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/ManropeVector-600.woff2" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<!-- движок scroll-craft (MIT, vendor/scrollcraft/LICENSE): сначала его основа, потом стиль бренда -->
+<link rel="stylesheet" href="../../../vendor/scrollcraft/scrollcraft.css">
+<style>
+@font-face{font-family:"Manrope Vector";font-style:normal;font-weight:400;font-display:swap;src:url(../../../brand/fonts/ManropeVector-400.woff2) format("woff2")}
+@font-face{font-family:"Manrope Vector";font-style:normal;font-weight:500;font-display:swap;src:url(../../../brand/fonts/ManropeVector-500.woff2) format("woff2")}
+@font-face{font-family:"Manrope Vector";font-style:normal;font-weight:600;font-display:swap;src:url(../../../brand/fonts/ManropeVector-600.woff2) format("woff2")}
+@font-face{font-family:"Manrope Vector";font-style:normal;font-weight:700;font-display:swap;src:url(../../../brand/fonts/ManropeVector-700.woff2) format("woff2")}
+
+/* Vector · письмо, первый экран А + страница в стиле Instagram бренда.
+   Цвета и шрифты — брендбук Vector; рамки-окна заменены мягкими формами (капля, лист, капсула) с фоном шалфея.
+   Движение — scroll-craft: панорама шагов, шторка дома, счётчики, появление блоков. */
+:root{
+  --forest:#153D36; --forest-2:#0F2E28; --forest-3:#245A4F; --teal:#356F64; --sage:#A9C1B3; --mint:#DCE8DE;
+  --cream:#F4EFE6; --paper:#FAF7F1; --line:#E2DBCD; --ink:#17302A; --ink-soft:#4E6159;
+  --serif:"Cormorant Garamond","Times New Roman",serif; --sans:"Manrope Vector","Manrope","Segoe UI",system-ui,sans-serif;
+  --f10:10px; --f13:13px; --f16:16px; --f20:20px; --f26:26px; --f33:33px; --f42:42px; --f53:53px; --f68:68px;
+  --s6:6px; --s8:8px; --s10:10px; --s13:13px; --s16:16px; --s21:21px; --s27:27px;
+  --air:130px; --ease:cubic-bezier(.23,1,.32,1);
+  --wrap:min(100% - 48px,1132px);
+  /* токены движка → бренд */
+  --sc-canvas:#FAF7F1; --sc-surface:#F4EFE6; --sc-ink:#17302A; --sc-ink-soft:#4E6159; --sc-accent:#356F64; --sc-accent-ink:#F4EFE6;
+  --sc-font-display:"Cormorant Garamond",serif; --sc-font-text:"Manrope Vector",system-ui,sans-serif; --sc-shadow-color:168 49% 12%;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:var(--f16)/1.6 var(--sans);letter-spacing:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg,video{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:8px}
+::selection{background:var(--mint);color:var(--forest)}
+h1,h2,h3,.num,.lead,.regards{font-variant-numeric:lining-nums}
+.ribbon{position:absolute;pointer-events:none;aspect-ratio:5/3}
+.ribbon svg{width:100%;height:100%;overflow:visible}
+.wrap{width:var(--wrap);margin-inline:auto}
+/* без движка блоки не прячем */
+html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;transform:none}
+
+/* ============ ШАПКА ============ */
+.top{position:absolute;inset:0 0 auto;z-index:5;padding:calc(var(--s27) + env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) 0 max(24px,env(safe-area-inset-left))}
+.top .in{max-width:1440px;margin:0 auto;padding-left:var(--air);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
+.logo .mk{height:40px;width:auto}
+.logo span{display:grid;gap:5px}
+.logo .wm{height:17px;width:auto}
+.logo small{font:600 .58rem/1 var(--sans);letter-spacing:.36em;text-transform:uppercase;color:var(--teal);padding-left:2px}
+.top-nav{display:flex;align-items:center;gap:8px}
+.top-nav a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;background:rgba(250,247,241,.9);color:var(--forest);text-decoration:none;font:600 14px/1 var(--sans);box-shadow:0 0 0 1px rgba(21,61,54,.1);transition:background-color .16s var(--ease),transform .14s var(--ease)}
+.top-nav a:active{transform:scale(.97)}
+.top-nav svg{width:18px;height:18px;flex:none}
+.top-nav .tn-ig{width:44px;padding:0;justify-content:center}
+@media (hover:hover) and (pointer:fine){.top-nav a:hover{background:var(--mint)}}
+
+/* ============ КНОПКИ: не яркие, но переливаются ============ */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border:0;border-radius:999px;font:600 15px/1.1 var(--sans);letter-spacing:.01em;text-decoration:none;white-space:nowrap;cursor:pointer;transition:transform .14s var(--ease),box-shadow .18s var(--ease)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn:active{transform:scale(.97)}
+/* главная: тёмный лес → бирюза → лес, медленный перелив + блик раз в несколько секунд */
+.btn-main{color:#F7F3EA;background:linear-gradient(115deg,#123630 0%,#1B4A41 20%,#2C6559 38%,#4A8676 50%,#2C6559 62%,#1B4A41 80%,#123630 100%);background-size:280% 100%;animation:flow 8s ease-in-out infinite alternate;box-shadow:0 16px 30px -18px rgba(15,46,40,.85),inset 0 1px 0 rgba(255,255,255,.16)}
+.btn-main::after{content:"";position:absolute;z-index:-1;top:-30%;bottom:-30%;left:-45%;width:36%;background:linear-gradient(100deg,transparent 0%,rgba(226,240,231,.30) 50%,transparent 100%);transform:skewX(-20deg);animation:sheen 5.6s var(--ease) infinite}
+/* вторая: светлая, перелив идёт по контуру */
+.btn-line{color:var(--forest);border:1.5px solid transparent;background:linear-gradient(rgba(250,247,241,.94),rgba(250,247,241,.94)) padding-box,linear-gradient(115deg,#A9C1B3 0%,#356F64 30%,#DCE8DE 50%,#356F64 70%,#A9C1B3 100%) border-box;background-size:100% 100%,280% 100%;animation:flow-line 8s ease-in-out infinite alternate}
+/* на тёмном */
+.btn-main.on-dark{color:var(--forest);background:linear-gradient(115deg,#E9F0EA 0%,#DCE8DE 25%,#F7F3EA 45%,#C9DCCF 60%,#DCE8DE 80%,#E9F0EA 100%);background-size:280% 100%;box-shadow:0 16px 30px -18px rgba(0,0,0,.6)}
+.btn-main.on-dark::after{background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent)}
+.btn-line.on-dark{color:var(--cream);background:linear-gradient(var(--forest),var(--forest)) padding-box,linear-gradient(115deg,#356F64 0%,#A9C1B3 30%,#F4EFE6 50%,#A9C1B3 70%,#356F64 100%) border-box;background-size:100% 100%,280% 100%}
+@keyframes flow{from{background-position:0% 50%}to{background-position:100% 50%}}
+@keyframes flow-line{from{background-position:0 0,0% 50%}to{background-position:0 0,100% 50%}}
+@keyframes sheen{0%{transform:translateX(0) skewX(-20deg)}55%,100%{transform:translateX(560%) skewX(-20deg)}}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{transform:translateY(-1px)}
+  .btn-main:hover{box-shadow:0 20px 34px -18px rgba(15,46,40,.95),inset 0 1px 0 rgba(255,255,255,.2)}
+  .btn-main:hover::after{animation-duration:2.2s}
+}
+
+/* ============ ПЕРВЫЙ ЭКРАН: письмо (утверждён) ============ */
+.ch{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:minmax(0,61.8fr) minmax(0,38.2fr);padding:0 max(24px,env(safe-area-inset-right)) 0 max(24px,env(safe-area-inset-left))}
+.text{position:relative;padding:calc(var(--s27) * 4) var(--s27) calc(var(--s27) * 4) var(--air);min-width:0}
+.text p{margin:0;max-width:24em;font:500 var(--f26)/1.5 var(--serif);color:var(--ink)}
+.text p + p{margin-top:var(--s21)}
+.text em{font-style:italic;color:var(--teal)}
+.label{display:block;font:600 var(--f13)/1.2 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--teal);margin-bottom:var(--s21)}
+.open .text{padding-top:calc(140px + env(safe-area-inset-top));padding-bottom:var(--s27);min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.open h1{margin:0;font:500 var(--f68)/1 var(--serif);letter-spacing:-.01em;color:var(--forest);text-wrap:balance}
+.open h1 em{font-style:italic;color:var(--teal)}
+.rule{display:block;width:48px;height:1px;background:var(--forest);opacity:.55;margin:var(--s27) 0}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--s27)}
+.btn-ic{width:56px;padding:0}
+.btn-ic svg{width:20px;height:20px}
+.hero-note{display:flex;flex-wrap:wrap;gap:6px 18px;margin:var(--s16) 0 0;padding:0;list-style:none;font:500 14px/1.4 var(--sans);color:var(--ink-soft)}
+.hero-note li{display:inline-flex;align-items:center;gap:7px}
+.hero-note svg{width:15px;height:15px;color:var(--teal);flex:none}
+.hero-note a{color:var(--forest);text-decoration:underline;text-decoration-color:var(--sage);text-underline-offset:4px}
+/* А. Люди → дом → источник → будущее → первый шаг: петля из кадров фильмов центра */
+.open{position:relative;isolation:isolate;min-height:100vh;min-height:100svh;overflow:hidden}
+.open .bg{position:absolute;inset:0;z-index:-2;background:var(--cream)}
+.open .bg img,.open .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.open::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(250,247,241,.72) 0%,rgba(250,247,241,0) 18%),linear-gradient(90deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.9) 32%,rgba(250,247,241,.45) 50%,rgba(250,247,241,0) 64%)}
+.open .ribbon{left:38%;width:72%;top:34%;z-index:-1;opacity:.9}
+.open .text{grid-column:1}
+.open .text p{max-width:22em}
+.scene-tag{position:absolute;right:max(24px,env(safe-area-inset-right));bottom:28px;padding:8px 14px;border-radius:999px;background:rgba(250,247,241,.9);font:600 var(--f13)/1 var(--sans);color:var(--forest)}
+
+/* ============ ПИСЬМО «ШАХМАТАМИ»: текст главы с одной стороны, фото в скруглённом окне с другой ============ */
+.wrap{width:var(--wrap);margin-inline:auto}
+.chess{position:relative;padding:clamp(56px,7vw,104px) 0}
+.chess-row{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:center}
+.chess-row.rev .ph{order:-1}
+.txt{max-width:560px}
+.chess-row.rev .txt{justify-self:end}
+.txt .label{display:flex;align-items:center;gap:12px;margin-bottom:18px;font:600 var(--f13)/1.2 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--teal)}
+.txt .label b{font:italic 500 26px/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--sage)}
+.txt h2{margin:0 0 22px;font:500 clamp(2.3rem,1.5rem + 2.5vw,3.6rem)/1.04 var(--serif);letter-spacing:-.01em;color:var(--forest);text-wrap:balance}
+.txt h2 em,.txt p em{font-style:italic;color:var(--teal)}
+.txt p{margin:0;font:500 clamp(1.18rem,1.04rem + .42vw,1.45rem)/1.55 var(--serif);color:var(--ink)}
+.txt p + p{margin-top:14px}
+.txt p.q{margin-top:20px}
+.txt p.q + p{margin-top:20px}
+.txt .quote{display:block;font:italic 500 clamp(1.8rem,1.4rem + 1.2vw,2.6rem)/1.15 var(--serif);color:var(--teal);text-wrap:balance}
+.txt .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.ph{position:relative;margin:0;background-size:cover;background-position:center;width:100%;max-width:540px;justify-self:start;border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--mint);box-shadow:0 40px 70px -46px rgba(21,61,54,.6)}
+.chess-row.rev .ph{justify-self:end}
+.chess-row:not(.rev) .ph{justify-self:end}
+.chess-row.rev .ph{justify-self:start}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.06 - var(--sc-p,0) * .06))}
+.pcard{position:absolute;left:14px;right:14px;bottom:14px;margin:0;padding:6px 18px;list-style:none;border-radius:18px;background:rgba(21,61,54,.94);color:var(--cream)}
+.pcard.top{top:14px;bottom:auto}
+.pcard li{display:flex;align-items:center;gap:14px;padding:12px 0}
+.pcard li + li{border-top:1px solid rgba(169,193,179,.22)}
+.pcard i{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;border:1px solid rgba(169,193,179,.55);color:var(--sage)}
+.pcard i svg{width:16px;height:16px}
+.pcard b{display:block;font:500 1.15rem/1.2 var(--serif);color:var(--cream)}
+.pcard small{display:block;margin-top:2px;font:500 12.5px/1.35 var(--sans);color:var(--sage)}
+.docrow{display:flex;gap:12px;margin-top:26px;align-items:flex-end;flex-wrap:wrap}
+.doc{appearance:none;display:block;margin:0;padding:6px 6px 0;border:0;border-radius:14px;background:#fff;cursor:zoom-in;font:inherit;color:var(--forest);box-shadow:0 16px 30px -18px rgba(21,61,54,.55),0 0 0 1px var(--line);transition:transform .16s var(--ease)}
+.doc img{width:96px;height:auto;border-radius:8px}
+.doc.wide img{width:170px}
+.doc span{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 2px;font:600 12px/1.2 var(--sans)}
+.doc span svg{width:15px;height:15px;color:var(--teal);flex:none}
+.doc:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.doc:hover{transform:translateY(-3px)}}
+/* подпись письма — тёмная полоса */
+.sign{background:var(--forest);color:var(--cream);border-top:0!important}
+.sign .label{color:var(--sage)}
+.sign h2{color:var(--cream)}
+.sign h2 em,.sign p em{color:var(--sage)}
+.sign p{color:rgba(244,239,230,.94)}
+.sign .regards{margin-top:30px;font:italic 500 var(--f33)/1.25 var(--serif);color:var(--sage)}
+.sign .ps{margin-top:14px;font-size:1.1rem;color:rgba(244,239,230,.8)}
+.sign .ps b{margin-right:8px;font:600 12px/1 var(--sans);letter-spacing:.2em;color:var(--sage)}
+.sign .ph{box-shadow:0 40px 70px -40px rgba(0,0,0,.6)}
+.contacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 28px;margin:30px 0 0;padding:20px 0 0;list-style:none;border-top:1px solid rgba(169,193,179,.3)}
+.contacts small{display:block;margin-bottom:4px;font:600 11px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}
+.contacts a,.contacts b{font:600 16px/1.4 var(--sans);color:var(--cream);text-decoration:none}
+.contacts a{text-decoration:underline;text-decoration-color:rgba(169,193,179,.5);text-underline-offset:5px}
+.foot{background:var(--forest-2);color:var(--sage);font-size:var(--f13);padding:var(--s27) 0 calc(110px + env(safe-area-inset-bottom))}
+.foot p{margin:0}
+
+
+
+/* ============ ЯЗЫКИ: RU · UZ · TJ ============ */
+.top .in > .lang{margin-left:auto}
+.lang{display:inline-flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:rgba(250,247,241,.9);box-shadow:0 0 0 1px rgba(21,61,54,.1)}
+.lang a{display:grid;place-items:center;min-width:40px;min-height:36px;padding:0 8px;border-radius:999px;font:600 12.5px/1 var(--sans);letter-spacing:.06em;color:var(--forest);text-decoration:none;transition:background-color .16s var(--ease)}
+.lang a[aria-current="page"]{background:var(--forest);color:var(--cream)}
+@media (hover:hover) and (pointer:fine){.lang a:not([aria-current]):hover{background:var(--mint)}}
+@media (max-width:520px){
+  .top .in{gap:8px}
+  .top-nav .tn-ig,.top-nav .tn-tg{display:none}
+  .logo{gap:8px}
+  .logo .mk{height:28px}
+  .logo .wm{height:12px}
+  .logo small{display:none}
+  .lang{padding:3px}
+  .lang a{min-width:32px;min-height:34px;padding:0 4px;font-size:12px}
+  .top-nav .tn-tel{width:40px;min-height:40px}
+}
+
+/* ============ ФИРМЕННЫЕ ЛЕНТЫ: проходят между главами и мягко плывут при прокрутке ============ */
+.chess,.trip{overflow-x:clip}
+.rib{position:absolute;z-index:0;pointer-events:none;height:auto;max-width:none;opacity:.9}
+.r1{width:min(800px,58vw);left:30%;bottom:-170px;rotate:-6deg;opacity:.6}
+.r2{width:250px;left:calc(50% - 125px);bottom:-230px;opacity:.75}
+.r3{width:280px;left:calc(50% - 150px);bottom:-250px;rotate:-8deg;opacity:.6}
+.r4{width:min(900px,70vw);left:6%;bottom:-120px;rotate:-4deg;opacity:.55}
+.r5{width:min(1100px,86vw);left:-4%;top:110px;rotate:4deg;opacity:.42}
+.r6{width:280px;right:6%;top:-80px;rotate:-18deg;opacity:.75}
+.r7{width:300px;left:calc(50% - 150px);top:90px;opacity:.5}
+.r8{width:min(820px,60vw);left:-4%;bottom:-150px;rotate:8deg;opacity:.55}
+.r9{width:300px;left:calc(50% - 150px);bottom:-220px;rotate:-12deg;opacity:.6}
+.r10{width:380px;left:calc(50% - 300px);top:-10px;rotate:-14deg;opacity:.5}
+
+/* ============ ПОЛОСЫ ФОНА: тёмная и мятная, края растворяются ============ */
+.band-dark,.band-mint{padding:clamp(170px,15vw,230px) 0}
+.band-dark{background:linear-gradient(180deg,var(--paper) 0,var(--forest) 170px,var(--forest) calc(100% - 170px),var(--paper) 100%);color:var(--cream)}
+.band-dark .label{color:var(--sage)}
+.band-dark h2{color:var(--cream)}
+.band-dark h2 em,.band-dark p em{color:var(--sage)}
+.band-dark p{color:rgba(244,239,230,.94)}
+.band-dark .ph{box-shadow:0 40px 70px -40px rgba(0,0,0,.6)}
+.band-mint{background:linear-gradient(180deg,var(--paper) 0,var(--mint) 160px,var(--mint) calc(100% - 160px),var(--paper) 100%)}
+.sign{background:linear-gradient(180deg,var(--paper) 0,var(--forest) 170px)!important;padding-top:clamp(190px,16vw,240px)}
+
+/* ============ РЯД ИЗ ТРЁХ ФОТО: спортзал, баня, молельная ============ */
+.trip{position:relative;padding:clamp(72px,8vw,120px) 0}
+.trip-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.6vw,40px);align-items:start}
+.tcol .ph.tall{aspect-ratio:3/4.2;max-width:none;justify-self:stretch;margin-bottom:22px}
+.tcol:nth-child(2){margin-top:72px}
+.tcol .label{display:flex;align-items:center;gap:12px;margin-bottom:14px;font:600 var(--f13)/1.2 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--teal)}
+.tcol .label b{font:italic 500 24px/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--sage)}
+.tcol h2{margin:0 0 12px;font:500 clamp(1.9rem,1.4rem + 1.1vw,2.5rem)/1.05 var(--serif);color:var(--forest)}
+.tcol h2 em{font-style:italic;color:var(--teal)}
+.tcol p{margin:0;font:500 1.18rem/1.5 var(--serif);color:var(--ink)}
+
+@media (max-width:860px){
+  .band-dark,.band-mint{padding:140px 0}
+  .band-dark{background:linear-gradient(180deg,var(--paper) 0,var(--forest) 100px,var(--forest) calc(100% - 100px),var(--paper) 100%)}
+  .band-mint{background:linear-gradient(180deg,var(--paper) 0,var(--mint) 100px,var(--mint) calc(100% - 100px),var(--paper) 100%)}
+  .sign{padding-top:150px;background:linear-gradient(180deg,var(--paper) 0,var(--forest) 100px)!important}
+  .trip-grid{grid-template-columns:1fr;gap:40px}
+  .tcol:nth-child(2){margin-top:0}
+  .rib{opacity:.32}
+  .r1,.r4,.r8{width:110vw;left:-5vw;bottom:-90px}
+  .r5{width:120vw;left:-10vw;top:60px}
+  .r2,.r3,.r9{width:52vw;left:auto;right:-8vw;bottom:-150px}
+  .r6,.r7,.r10{width:50vw;left:-8vw;right:auto;top:20px}
+}
+
+/* телефон: фото сверху, текст главы под ним */
+@media (max-width:860px){
+  .chess{padding:44px 0}
+  .chess-row,.chess-row.rev{grid-template-columns:1fr;gap:26px}
+  .chess-row .ph,.chess-row.rev .ph{order:-1;justify-self:stretch;max-width:none}
+  .chess-row.rev .txt{justify-self:start}
+  .txt{max-width:none}
+  .txt h2{font-size:2.3rem}
+  .txt .row .btn{flex:1 1 100%}
+  .contacts{grid-template-columns:1fr}
+  .doc img{width:84px}
+  .doc.wide img{width:150px}
+}
+/* ============ ПАНЕЛЬ СВЯЗИ: появляется после первого экрана ============ */
+.dock{position:fixed;z-index:30;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));display:flex;gap:8px;padding:6px;border-radius:999px;background:rgba(250,247,241,.96);box-shadow:0 18px 40px -18px rgba(15,46,40,.55),0 0 0 1px rgba(21,61,54,.08);transform:translate(-50%,140%);opacity:0;transition:transform .32s var(--ease),opacity .2s var(--ease)}
+.dock.show{transform:translate(-50%,0);opacity:1}
+@media (min-width:1001px){.dock{left:auto;right:24px;transform:translateY(140%)}.dock.show{transform:none}}
+.dock .btn{min-height:50px;padding:0 22px;font-size:14.5px}
+.dock .btn-line{background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(115deg,#A9C1B3 0%,#356F64 30%,#DCE8DE 50%,#356F64 70%,#A9C1B3 100%) border-box;background-size:100% 100%,280% 100%}
+
+/* ============ ПРОСМОТР ДОКУМЕНТА ============ */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px}
+.modal-bg{position:absolute;inset:0;background:rgba(14,30,26,.62)}
+.modal-box{position:relative;width:100%;max-width:860px;max-height:92vh;overflow:auto;border-radius:24px;background:var(--paper);padding:64px 16px 16px}
+.modal-box img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line)}
+.modal-box p{margin:12px 4px 0;font-size:var(--f13);color:var(--ink-soft)}
+.modal-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+.modal-close svg{width:18px;height:18px}
+
+/* первый экран на планшете и телефоне */
+@media (max-width:1000px){
+  :root{--air:24px}
+  .top .in{padding-left:0}
+  .ch{grid-template-columns:1fr;padding:0}
+  .text{padding:var(--s27) 24px calc(var(--s27) * 2)}
+  .text p{font-size:var(--f20);max-width:none}
+  .open .text{min-height:0;padding-top:var(--s27)}
+  .open h1{font-size:var(--f42)}
+}
+@media (max-width:640px){
+  .top-nav .tn-tel span,.top-nav .tn-tg span{display:none}
+  .top-nav .tn-tel,.top-nav .tn-tg{width:44px;padding:0;justify-content:center}
+  .logo .mk{height:34px}
+  .hero-cta .btn{flex:1 1 100%}
+  .hero-cta .btn-line{flex:1 1 0}
+  .hero-cta .btn-ic{flex:0 0 56px}
+  .dock{width:calc(100% - 24px)}
+  .dock .btn{flex:1;padding:0 12px}
+}
+/* невысокий горизонтальный экран (ноутбук): письмо и кнопки помещаются в первый экран */
+@media (min-aspect-ratio:1/1) and (max-height:860px) and (min-width:1001px){
+  .open .text{padding-top:calc(104px + env(safe-area-inset-top));padding-bottom:20px}
+  .open h1{font-size:56px}
+  .open .text p{font-size:21px;line-height:1.48}
+  .open .text p + p{margin-top:14px}
+  .open .rule{margin:18px 0}
+  .open .label{margin-bottom:14px}
+  .hero-cta{margin-top:20px}
+}
+/* вертикальный экран: ролик сверху, письмо под ним */
+@media (max-aspect-ratio:1/1){
+  .open{display:flex;flex-direction:column;min-height:0}
+  .open::before{display:none}
+  .open .bg{position:relative;inset:auto;height:56svh;flex:none;order:-1}
+  .open .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,247,241,.75) 0%,rgba(250,247,241,0) 22%,rgba(250,247,241,0) 70%,var(--paper) 100%)}
+  .open .text{padding-top:8px}
+  .open .ribbon{left:-30%;width:170%;top:30svh}
+  .scene-tag{bottom:auto;top:calc(56svh - 52px);right:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn-main,.btn-line,.btn-main::after{animation:none}
+  .btn-main::after{display:none}
+  .ph img{transform:none}
+  .dock{transition:opacity .2s}
+}
+
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><defs><linearGradient id="rb-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#A9C1B3" stop-opacity="0"/><stop offset=".22" stop-color="#A9C1B3" stop-opacity=".9"/><stop offset=".7" stop-color="#DCE8DE" stop-opacity=".9"/><stop offset="1" stop-color="#A9C1B3" stop-opacity="0"/></linearGradient><symbol id="ribbon" viewBox="0 0 1000 600" preserveAspectRatio="none"><path d="M-40 520.0C300 640.0 640 110.0 1040 70.0L1040 104.0C640 390.0 300 420.0 -40 560.0Z" fill="url(#rb-g)" opacity=".42"/><path d="M-40 520.0C300 640.0 640 110.0 1040 70.0 M-40 522.4C300 627.1 640 126.5 1040 72.0 M-40 524.7C300 614.1 640 142.9 1040 74.0 M-40 527.1C300 601.2 640 159.4 1040 76.0 M-40 529.4C300 588.2 640 175.9 1040 78.0 M-40 531.8C300 575.3 640 192.4 1040 80.0 M-40 534.1C300 562.4 640 208.8 1040 82.0 M-40 536.5C300 549.4 640 225.3 1040 84.0 M-40 538.8C300 536.5 640 241.8 1040 86.0 M-40 541.2C300 523.5 640 258.2 1040 88.0 M-40 543.5C300 510.6 640 274.7 1040 90.0 M-40 545.9C300 497.6 640 291.2 1040 92.0 M-40 548.2C300 484.7 640 307.6 1040 94.0 M-40 550.6C300 471.8 640 324.1 1040 96.0 M-40 552.9C300 458.8 640 340.6 1040 98.0 M-40 555.3C300 445.9 640 357.1 1040 100.0 M-40 557.6C300 432.9 640 373.5 1040 102.0 M-40 560.0C300 420.0 640 390.0 1040 104.0" fill="none" stroke="url(#rb-g)" stroke-width="1" stroke-opacity=".55" vector-effect="non-scaling-stroke"/></symbol></defs></svg>
+
+<header class="top"><div class="in">
+  <a class="logo" href="#" aria-label="Vector, recovery center">
+    <img class="mk" src="../../../brand/mark-dark.png" alt="" width="66" height="40">
+    <span><img class="wm" src="../../../brand/wordmark-dark.png" alt="Vector" width="180" height="17"><small>recovery center</small></span>
+  </a>
+  <div class="lang" role="navigation" aria-label="Забон"><a href="../" hreflang="ru" lang="ru">RU</a><a href="../uz/" hreflang="uz" lang="uz">UZ</a><a href="./" hreflang="tg" lang="tg" aria-current="page">TJ</a></div>
+  <nav class="top-nav" aria-label="Тамос бо марказ">
+    <a class="tn-ig" href="https://instagram.com/vector.recovery" target="_blank" rel="noopener" aria-label="Instagram vector.recovery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></a>
+    <a class="tn-tg" href="https://t.me/vectorrecovery" target="_blank" rel="noopener" aria-label="Ба Telegram навиштан"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg><span>Навиштан</span></a>
+    <a class="tn-tel" href="tel:+998918110333" aria-label="Занг задан +998 91 811 03 33"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg><span>+998 91 811 03 33</span></a>
+  </nav>
+</div></header>
+
+<main>
+  <!-- Первый экран: письмо (утверждено) -->
+  <section class="ch open" aria-labelledby="h1">
+    <div class="bg" aria-hidden="true"><img id="hero-still" src="../../../media/hA-l.webp" alt="" fetchpriority="high"></div>
+    <div class="ribbon" aria-hidden="true"><svg><use href="#ribbon" width="100%" height="100%"/></svg></div>
+    <div class="text">
+      <span class="label">Мактуб ба касе, ки ҳоло роҳи наҷот меҷӯяд</span>
+      <h1 id="h1">Ассалому алайкум. <em>Роҳи наҷот ҳаст.</em></h1>
+      <span class="rule" aria-hidden="true"></span>
+      <p>Агар шумо ин мактубро мехонед, зеро намедонед, ки ба наздикатон ё ба худатон чӣ гуна кӯмак кунед, — шумо аллакай қадами аввалро гузоштед.</p>
+      <p>Мо — маркази барқарорсозии Vector, аввалин маркази тавонбахшӣ дар Самарқанд бо иҷозатномаи Вазорати тандурустии Ҷумҳурии Ӯзбекистон барои табобати статсионарӣ. Ба одамоне, ки ба машрубот, маводи мухаддир ва қимор вобастаанд, ва ба оилаҳои онҳо кӯмак мерасонем. <em>Мо барои ёфтани роҳи наҷот кӯмак мекунем.</em></p>
+      <div class="hero-cta">
+        <a class="btn btn-main" href="#consult">Ба машварат сабти ном<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Ба Telegram навиштан</a>
+        <a class="btn btn-line btn-ic" href="https://instagram.com/vector.recovery" target="_blank" rel="noopener" aria-label="Instagram vector.recovery"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".9" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+      <ul class="hero-note">
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg>Машварат ройгон аст</li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg>Беном</li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg>Мутахассис метавонад ба хонаатон ояд</li>
+        <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg><a href="#docs">Иҷозатнома №1857962</a></li>
+      </ul>
+    </div>
+    <span class="scene-tag" id="scene-tag">Одамон дар канори шумо</span>
+  </section>
+
+  <section class="chess" id="listen" data-sc-act="flow" aria-labelledby="listen-h">
+    <img class="rib r1" src="../../../brand/ribbon/silk-b.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.16">
+    <div class="wrap chess-row">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>I</b>Сӯҳбати аввал</span>
+        <h2 id="listen-h">Шуморо <em>гӯш мекунанд</em></h2>
+        <p>Ба мо занг занед ё нависед, мо шуморо гӯш мекунем: ором, бе он ки суханатонро бурем ва бе маломат. Мегӯем, ки минбаъд чӣ бояд кард.</p><p>Агар шумо хаста шуда бошед, вале намедонед, ки чӣ тавр бас кунед, — мо кӯмак мекунем.</p><p class="q"><span class="quote">«Ман наметавонам». — «Мо метавонем».</span></p><p>Шояд шумо метарсед, ки шуморо ба қайд мегиранд. Не, мо ба қайди наркологӣ намегирем. <em>Ҳамаи зангҳо беноманд, будубош дар марказ низ беном аст.</em> Номатонро гуфтан шарт нест, маълумотро ба ҳеҷ кас намедиҳем.</p>
+        
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoQABQAPu1iqU2ppaQiMAgBMB2JZQC7ABiYYCMtoY1pz5GAAP3qhHeRr5Wfi7nwws9L7a81S77RZxl49GF8mhWRnK0rj+w54wUXLLhL8PSDKsqmS9rnTD5+HviRXuJWyqtSv186Oaxa0J1A6AA=)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c1-call-800.webp" srcset="../../../img/c/c1-call-480.webp 480w, ../../../img/c/c1-call-800.webp 800w, ../../../img/c/c1-call-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Зан дар назди тиреза бо телефон гап мезанад, дар паси ӯ сӯзанӣ" width="1200" height="1500" decoding="async" loading="lazy"><ul class="pcard"><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Беном</b><small>зангҳо ва будубош дар марказ</small></span></li><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Шабонарӯзӣ</b><small>хатти навбатдор +998 91 811 03 33</small></span></li></ul></figure>
+    </div>
+  </section>
+  <section class="chess" id="consult" data-sc-act="flow" aria-labelledby="consult-h">
+    <img class="rib r2" src="../../../brand/ribbon/lines.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.1">
+    <div class="wrap chess-row rev">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>II</b>Ройгон</span>
+        <h2 id="consult-h">Машварати <em>ройгон</em></h2>
+        <p>Вохӯрии аввал — сӯҳбати ором бо мутахассис аст. Машварат ройгон аст ва ҳеҷ ӯҳдадорӣ намегузорад.</p><p>Дар он мо барнома, тартиби рӯз ва нархро муҳокима мекунем. Онҳо аз ҳолати шахс вобастаанд, бинобар ин онҳоро танҳо шахсан мегӯем.</p><p>Метавонед бе наздикатон биёед. Аксар вақт аввал оила меояд.</p>
+        <div class="row"><a class="btn btn-main" href="tel:+998918110333"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>Занг задан</a><a class="btn btn-line" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Ба Telegram навиштан</a></div>
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JYwCo9CIJrQoyKfwGNAAA8cW+T4PTSUMOhPrX/o0Ovc5qds0w+FVXvRYmMWHAm2aAGtPLJ0Kvh++sGprS67rHKUc3K7lQCosQkKUfyL8AAA==)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c2-door-800.webp" srcset="../../../img/c/c2-door-480.webp 480w, ../../../img/c/c2-door-800.webp 800w, ../../../img/c/c2-door-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Дари утоқ бо лавҳаи «Машваратчӣ»" width="1200" height="1500" decoding="async" loading="lazy"><ul class="pcard"><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Ройгон</b><small>ва ӯҳдадор намекунад</small></span></li><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Дар офис ё дар хона</b><small>мутахассис метавонад ба назди шумо ояд</small></span></li></ul></figure>
+    </div>
+  </section>
+  <section class="chess" id="against" data-sc-act="flow" aria-labelledby="against-h">
+    <img class="rib r3" src="../../../brand/ribbon/silk-c.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    <div class="wrap chess-row">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>III</b>Бе маҷбуркунӣ</span>
+        <h2 id="against-h">Агар наздикатон <em>зид</em> бошад</h2>
+        <p>Агар ӯ мушкилро эътироф накунад, на ӯро ва на худатонро айбдор накунед. Инкор — нишонаи маъмули беморӣ аст, на якравӣ.</p><p>Мутахассиси мо метавонад ба хонаатон ояд ва тавре сӯҳбат кунад, ки шахс худаш ба кӯмак розӣ шавад. <em>Ҳеҷ касро маҷбуран намебаранд:</em> табобат танҳо бо розигии хаттӣ оғоз мешавад, инро қонуни Ӯзбекистон низ талаб мекунад.</p>
+        
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAwCdASoQABQAPu1iqU2ppaQiMAgBMB2JYgCdACPrdDmYtd152AD+d5cUIm7teFMh1m5qy1TaDRRobRkT7zjkP/2qFITzOSuxAWJwpUMDCmbOETSPMo1Sj7JbuRmPO9aJVxun7XElHZr4o45m8XcAAAA=)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c3-gate-800.webp" srcset="../../../img/c/c3-gate-480.webp 480w, ../../../img/c/c3-gate-800.webp 800w, ../../../img/c/c3-gate-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Дарвозаи кандакории хона дар Самарқанд, як табақааш нимкушода" width="1200" height="1500" decoding="async" loading="lazy"><ul class="pcard"><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Танҳо бо розигӣ</b><small>инро қонуни Ӯзбекистон талаб мекунад</small></span></li></ul></figure>
+    </div>
+  </section>
+  <section class="chess" id="home" data-sc-act="flow" aria-labelledby="home-h">
+    <img class="rib r4" src="../../../brand/ribbon/silk-a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.08">
+    <div class="wrap chess-row rev">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>IV</b>Хона</span>
+        <h2 id="home-h">Хона, <em>на беморхона</em></h2>
+        <p>Ин яке аз утоқҳоест, ки шахс дар давоми барнома дар он зиндагӣ мекунад. Мо марказро на ҳамчун беморхона, балки ҳамчун хона ташкил кардем, зеро дар ҷои ором шифо ёфтан осонтар аст.</p><p>Утоқҳо барои 3–4 нафар, дар ҳар кадом ҳаммому ҳоҷатхона ва кондитсионери алоҳида. Се вақт хӯрок дар як рӯз.</p>
+        
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JQBOmUABefkjldKl2VdicAADJbOvxn84/6i71qKl5cEIqgc77V2FlxRlGtL23P3vW7OYHskoIqmMPLMF/tHw1EiQCoXHhHZ6sCLeUJ8IAAA==)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c4-room-800.webp" srcset="../../../img/c/c4-room-480.webp 480w, ../../../img/c/c4-room-800.webp 800w, ../../../img/c/c4-room-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Утоқи марказ барои якчанд нафар" width="1200" height="1500" decoding="async" loading="lazy"><ul class="pcard"><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>3–4 нафар</b><small>дар як утоқ</small></span></li><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Ҳаммоми алоҳида</b><small>ва кондитсионер дар ҳар кадом</small></span></li></ul></figure>
+    </div>
+  </section>
+  <section class="chess band-dark" id="program" data-sc-act="flow" aria-labelledby="program-h">
+    <img class="rib r5" src="../../../brand/ribbon/silk-a-on-dark.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.1">
+    <div class="wrap chess-row">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>V</b>Барномаи «12 қадам»</span>
+        <h2 id="program-h"><em>Барнома</em></h2>
+        <p>Ҳар рӯз — машғулиятҳои гурӯҳӣ ва кори инфиродӣ бо равоншинос аз рӯи барномаи «12 қадам». Дар гурӯҳ шахс дигаронро мешунавад ва мефаҳмад, ки танҳо нест.</p><p>Барномаро мутахассисони даъватшуда аз Қазоқистон мебаранд: равоншиносони клиникӣ, наркологҳо ва аддиктологҳо.</p>
+        
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JYwCAAADQNBYD1gAA/sP5QSdmun4pY0SCoWs1YXJ1ei8QbdU+DGrK5qLxNUF2UNTYWcfL7FugnhtWEKXMkibO5IneYtBQBw/xoJnh1a57GjfKhloBIAAA)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c5-group-800.webp" srcset="../../../img/c/c5-group-480.webp 480w, ../../../img/c/c5-group-800.webp 800w, ../../../img/c/c5-group-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Вохӯрии гурӯҳӣ дар сари миз дар толори равшан" width="1200" height="1500" decoding="async" loading="lazy"><ul class="pcard"><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Гурӯҳҳо ҳар рӯз</b><small>ва кор бо равоншинос</small></span></li><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Мутахассисон</b><small>аз Қазоқистон</small></span></li></ul></figure>
+    </div>
+  </section>
+  <section class="trip" aria-label="Толори варзиш, ҳаммом ва ҳавзча, утоқи намоз" data-sc-act="flow">
+    <img class="rib r6" src="../../../brand/ribbon/lines.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.12">
+    <div class="wrap trip-grid" data-sc-in data-sc-stagger="90">
+      <article class="tcol" id="gym" aria-labelledby="gym-h">
+        <figure class="ph tall" style="background-image:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAwCdASoQABQAPu1kqU2ppaOiMAgBMB2JZQDE2A7D0ydOKQxOAADoeUOR4GYJeOQJ8H9XCKvH0/4ZyxgBvx+s50zV9XfQjK1ZtgL4p/AGYLL9n4zwjhVAnOrd3p4f/cM/0GrHo9Cd4dvZZcYpTKG6V3udcQV8ItWeitDcAAA=)"><img src="../../../img/c/c6-gym-800.webp" srcset="../../../img/c/c6-gym-480.webp 480w, ../../../img/c/c6-gym-800.webp 800w, ../../../img/c/c6-gym-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 368px" alt="Толори варзиши марказ" width="1200" height="1500" decoding="async" loading="lazy"></figure>
+        <span class="label"><b>VI</b>Бадан</span>
+        <h2 id="gym-h"><em>Толори варзиш</em></h2>
+        <p>Вобастагӣ ба бадан низ зарба мезанад, бинобар ин дар тартиби рӯз варзиш ҳаст. Дар толори варзиш шиддатро метавон берун кард, на ин ки дар дил нигоҳ дошт.</p>
+      </article>
+      <article class="tcol" id="bath" aria-labelledby="bath-h">
+        <figure class="ph tall" style="background-image:url(data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JZgCdMoABePX+el6sE0nAAP3fdKUiqjIcnBNKEa8dZNj3zghiifp9/qMnHeRyxd1T/hKhJfAwrBzAB9iRpaszLwC6iuMwobAlIQ2m8JEejn+U9P6AAA==)"><img src="../../../img/c/c7-tub-800.webp" srcset="../../../img/c/c7-tub-480.webp 480w, ../../../img/c/c7-tub-800.webp 800w, ../../../img/c/c7-tub-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 368px" alt="Ҳавзча" width="1200" height="1500" decoding="async" loading="lazy"></figure>
+        <span class="label"><b>VII</b>Истироҳат</span>
+        <h2 id="bath-h">Ҳаммом <em>ва ҳавзча</em></h2>
+        <p>Гармӣ, об ва истироҳат — чизҳои оддие, ки ба барқароршавӣ кӯмак мекунанд.</p>
+      </article>
+      <article class="tcol" id="prayer" aria-labelledby="prayer-h">
+        <figure class="ph tall" style="background-image:url(data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAwCdASoQABQAPu1iqU2ppaQiMAgBMB2JYwC7AAsMrYrXT89/9BzAAP3vAdJ3EiI9rSRCEnU2EeQICIWcIanjsp8NqwfXKAzsTsJ+926/r8b5plakbmt9nRO65QAA)"><img src="../../../img/c/c8-prayer-800.webp" srcset="../../../img/c/c8-prayer-480.webp 480w, ../../../img/c/c8-prayer-800.webp 800w, ../../../img/c/c8-prayer-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 368px" alt="Утоқи намоз бо ҷойнамоз" width="1200" height="1500" decoding="async" loading="lazy"></figure>
+        <span class="label"><b>VIII</b>Оромӣ</span>
+        <h2 id="prayer-h">Утоқи <em>намоз</em></h2>
+        <p>Барои касоне, ки ин муҳим аст, утоқи ороми намоз ҳаст. Дар ин ҷо метавон бо худ танҳо монд.</p>
+      </article>
+    </div>
+  </section>
+  <section class="chess band-mint" id="family" data-sc-act="flow" aria-labelledby="family-h">
+    <img class="rib r7" src="../../../brand/ribbon/silk-b.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    <div class="wrap chess-row rev">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>IX</b>Барои оила</span>
+        <h2 id="family-h">Ба шумо низ <em>дастгирӣ</em> лозим аст</h2>
+        <p>Вобастагии наздик тамоми оиларо хаста мекунад. То даме ки ӯ дар амон аст, шумо низ метавонед кӯмак гиред.</p><p><em>Ҳар шанбе соати 11:00</em> дар офиси мо равоншиносон барои хешовандон вохӯриҳо мегузаронанд. Зангҳо ва вохӯриҳо бо оиларо мо бо тавсияи мутахассисон ташкил мекунем, вақте ки ин барои барқароршавӣ фоиданок аст.</p>
+        <div class="row"><a class="btn btn-line" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Ба вохӯрӣ сабти ном</a></div>
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwBACdASoQABQAPu1oqk6ppiQiMAgBMB2JQBbZBDwBcfL47XQHU4eDtVAA/ui8a8jarpQzMoZsdqP/JrZPvdeU8bA+RvaBjL7CqWVeMngYnzYY0P6aVPZ8bWFIZbij5lIIAA==)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c9-family-800.webp" srcset="../../../img/c/c9-family-480.webp 480w, ../../../img/c/c9-family-800.webp 800w, ../../../img/c/c9-family-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Зан дар назди тиреза" width="1200" height="1500" decoding="async" loading="lazy"><ul class="pcard"><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Шанбе, 11:00</b><small>вохӯриҳо барои хешовандон дар офис</small></span></li></ul></figure>
+    </div>
+  </section>
+  <section class="chess" id="after" data-sc-act="flow" aria-labelledby="after-h">
+    <img class="rib r8" src="../../../brand/ribbon/silk-a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.1">
+    <div class="wrap chess-row">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>X</b>Баъди курс</span>
+        <h2 id="after-h">Баъди <em>курс</em></h2>
+        <p>Дар ҳавлии марказ боғ ва фаввора ҳаст. Дар ин ҷо метавон дар оромӣ нишаст ва дар бораи оянда фикр кард.</p><p>Баъди курс мо хайрухуш намекунем: ҳамроҳӣ мекунем, то ҳушёрӣ дар хона низ нигоҳ дошта шавад.</p>
+        
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JZABTAATE/tARMa0T9YgA/hayMFNk1MfuL5d0sZchkG4rEc7yRtn5UJVHYRXXqgw83/97lopBKQj/9s4iEHD5zfYo8eLNpOOFHseRmmsFmqZgHJxVl72QAAA=)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c10-after-800.webp" srcset="../../../img/c/c10-after-480.webp 480w, ../../../img/c/c10-after-800.webp 800w, ../../../img/c/c10-after-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Ҳавлии марказ бо боғ ва фаввора" width="1200" height="1500" decoding="async" loading="lazy"></figure>
+    </div>
+  </section>
+  <section class="chess" id="team" data-sc-act="flow" aria-labelledby="team-h">
+    <img class="rib r9" src="../../../brand/ribbon/silk-c.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    <div class="wrap chess-row rev">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>XI</b>Даста</span>
+        <h2 id="team-h">Мо <em>кистем</em></h2>
+        <p>Асосгузори марказ ва ҳамоҳангсози барнома — Темирхан Нуржан Кадирханович, таҷрибаи ӯ беш аз 10 сол аст.</p><p>Мо чеҳраҳои дастаро нишон медиҳем, зеро донистан муҳим аст, ки наздикатонро ба кӣ месупоред.</p>
+        
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JYgC06BSixMY8Qk2xkYAA7UKuqUtTQIz1PBe6WgOSF07Jtt0mHTCn1e0a7NdvuI0asa6kOfQ3OHwAAAA=)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c11-founder-800.webp" srcset="../../../img/c/c11-founder-480.webp 480w, ../../../img/c/c11-founder-800.webp 800w, ../../../img/c/c11-founder-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Темирхан Нуржан Кадирханович, асосгузори марказ" width="1200" height="1500" decoding="async" loading="lazy"><ul class="pcard"><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Беш аз 10 сол</b><small>таҷрибаи асосгузор</small></span></li></ul></figure>
+    </div>
+  </section>
+  <section class="chess" id="docs" data-sc-act="flow" aria-labelledby="docs-h">
+    
+    <div class="wrap chess-row">
+      <div class="txt" data-sc-in>
+        <span class="label"><b>XII</b>Ҳуҷҷатҳо</span>
+        <h2 id="docs-h">Иҷозатнома <em>ва ҳуҷҷатҳо</em></h2>
+        <p>Ба сухан бовар кардан душвор аст, бинобар ин ҳуҷҷатҳоро нишон медиҳем.</p><p>Марказ бо иҷозатномаи №1857962-и Вазорати тандурустии Ҷумҳурии Ӯзбекистон барои фаъолияти тиббӣ кор мекунад: равонпизишкӣ, ташхис, машварат ва табобат дар статсионар. Иҷозатнома то 17.09.2031 эътибор дорад. <em>Мо аввалин маркази тавонбахшии Самарқанд бо чунин иҷозатнома ҳастем.</em> Дар он барои санҷиш QR-код ҳаст, суроға дар нусхаҳо пинҳон карда шудааст.</p>
+        <div class="docrow"><button class="doc" type="button" data-doc="../../../docs/license-1.jpg" data-cap="Иҷозатномаи №1857962-и Вазорати тандурустии Ҷумҳурии Ӯзбекистон, саҳ. 1. Суроға пинҳон аст."><img src="../../../docs/license-1-thumb.jpg" alt="" width="332" height="520" loading="lazy"><span>Иҷозатнома, саҳ. 1<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button><button class="doc" type="button" data-doc="../../../docs/license-2.jpg" data-cap="Иҷозатномаи №1857962, саҳ. 2: намуди фаъолият. Суроға пинҳон аст."><img src="../../../docs/license-2-thumb.jpg" alt="" width="332" height="520" loading="lazy"><span>Саҳ. 2<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button><button class="doc wide" type="button" data-doc="../../../docs/cert-amanat.jpg" data-cap="Сертификати машваратчӣ оид ба вобастагӣ, Amanat Rehab, Алмаато, 2023, 59 соат."><img src="../../../docs/cert-amanat-thumb.jpg" alt="" width="900" height="650" loading="lazy"><span>Сертификати машваратчӣ<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2M11 8.5v5M8.5 11h5"/></svg></span></button></div>
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JZwAL4AGBNR7P2v1flMAA2/qWyMstNw+IGQm5ayaRSJAanJbLKIpN3nGtTNz4CAcY4ddnAPVBPjtNnCIXQViOOdZN1Wul/Jpz4bvon/ubzvkNLhMCvld2irA/uT9EYAA=)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c12-docs-800.webp" srcset="../../../img/c/c12-docs-480.webp 480w, ../../../img/c/c12-docs-800.webp 800w, ../../../img/c/c12-docs-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Сертификатҳо дар девори марказ" width="1200" height="1500" decoding="async" loading="lazy"><ul class="pcard"><li><i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.4l3 3L15 6.6"/></svg></i><span><b>Иҷозатнома №1857962</b><small>Вазорати тандурустӣ, то 17.09.2031</small></span></li></ul></figure>
+    </div>
+  </section>
+
+  <section class="chess sign" id="contact" data-sc-act="flow" aria-labelledby="contact-h">
+    <img class="rib r10" src="../../../brand/ribbon/silk-c-on-dark.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.12">
+    <div class="wrap chess-row rev">
+      <div class="txt" data-sc-in>
+        <span class="label">Вақте ки омода бошед</span>
+        <h2 id="contact-h">Занг занед <em>ё нависед</em></h2>
+        <p>Машварат ройгон аст, бе маломат ва бе ӯҳдадорӣ. <em>Мо танҳо гӯш мекунем.</em></p>
+        <div class="row"><a class="btn btn-main on-dark" href="tel:+998918110333"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>Занг задан</a><a class="btn btn-line on-dark" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Ба Telegram навиштан</a></div>
+        <p class="regards">Бо эҳтиром,<br>дастаи маркази Vector</p>
+        <p class="ps"><b>P.S.</b>Занг ҳеҷ ӯҳдадорӣ намегузорад. Мо ба қайд намегирем ва маълумотро ба касе намедиҳем.</p>
+        <ul class="contacts">
+          <li><small>Хатти навбатдор, шабонарӯзӣ</small><a href="tel:+998918110333">+998 91 811 03 33</a></li>
+          <li><small>Telegram</small><a href="https://t.me/vectorrecovery" target="_blank" rel="noopener">@vectorrecovery</a></li>
+          <li><small>Instagram</small><a href="https://instagram.com/vector.recovery" target="_blank" rel="noopener">vector.recovery</a></li>
+          <li><small>Офис дар Самарқанд</small><b>Суроғаро ҳангоми сабти ном мегӯем</b></li>
+        </ul>
+      </div>
+      <figure class="ph" style="background-image:url(data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACQAwCdASoQABQAPu1iqU2ppaOiMAgBMB2JQBOmUAAodJxL3ZAAAP66A38e3ttZKa9QfrmkGh+uxfRHFA/3z2qvyFFvOF1xalYQJQmxZr/EvA0oSknTTybWy+/BNHEhjppGc3tefvt2TLeq20bho34gdsoYB2+O7nxYAA==)" data-sc-reveal="up" data-sc-reveal-at="0.04 0.3"><img src="../../../img/c/c13-garden-800.webp" srcset="../../../img/c/c13-garden-480.webp 480w, ../../../img/c/c13-garden-800.webp 800w, ../../../img/c/c13-garden-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 523px" alt="Мутахассиси марказ дар ҳавлӣ дар назди фаввора бо зан сӯҳбат мекунад" width="1200" height="1500" decoding="async" loading="lazy"></figure>
+    </div>
+  </section>
+</main>
+
+<footer class="foot"><div class="wrap"><p>ҶДММ «VECTOR-CLINIC», иҷозатномаи Вазорати тандурустии Ҷумҳурии Ӯзбекистон №1857962 · © <span id="year">2026</span> Маркази барқарорсозии Vector, Самарқанд</p></div></footer>
+
+<nav class="dock" id="dock" aria-label="Тамоси зуд">
+  <a class="btn btn-main" href="tel:+998918110333"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>Занг задан</a>
+  <a class="btn btn-line" href="https://t.me/vectorrecovery" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M21 4.5 3 11.6l5.8 2 2.2 6 3.3-4 5 3.7z"/><path d="m8.8 13.6 12.2-9.1"/></svg>Навиштан</a>
+</nav>
+
+<div class="modal" id="modal-doc" role="dialog" aria-modal="true" aria-label="Ҳуҷҷат" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box">
+    <button class="modal-close" type="button" aria-label="Пӯшидан" data-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <img id="doc-img" alt="">
+    <p id="doc-cap"></p>
+  </div>
+</div>
+
+<script src="../../../vendor/scrollcraft/scrollcraft.js" defer></script>
+<script>
+(function(){
+  const $ = (s, r=document) => r.querySelector(s), $$ = (s, r=document) => [...r.querySelectorAll(s)];
+  $('#year').textContent = new Date().getFullYear();
+
+  /* Первый экран: настоящие кадры фильма; горизонталь или вертикаль по экрану; без видео при «меньше движения» и экономии трафика */
+  const still = $('#hero-still');
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData);
+  const port = matchMedia('(max-aspect-ratio: 1/1)').matches;
+  const base = port ? '../../../media/hA-p' : '../../../media/hA-l';
+  still.src = base + '.webp';
+  if (!calm) {
+    const v = document.createElement('video');
+    v.muted = true; v.playsInline = true; v.autoplay = true; v.loop = true; v.preload = 'auto'; v.poster = base + '.webp'; v.setAttribute('aria-hidden','true');
+    for (const [k, type] of [['webm','video/webm'],['mp4','video/mp4']]) { const x = document.createElement('source'); x.src = base + '.' + k; x.type = type; v.append(x); }
+    v.addEventListener('canplay', () => { if (!v.isConnected) { still.replaceWith(v); v.play().catch(()=>{}); } }, {once:true});
+    v.load();
+    /* смысл ролика: люди → дом → источник → будущее → первый шаг (дверь консультации); переходы вверх, подпись меняется посередине склейки */
+    const tag = $('#scene-tag'), marks = [[0, "Одамон дар канори шумо"], [1.32, "Хона"], [4.04, "Чашма"], [6.76, "Оянда"], [9.0, "Қадами аввал: машварат"], [13.24, "Одамон дар канори шумо"]];
+    v.addEventListener('timeupdate', () => { let t = marks[0][1]; for (const [at, l] of marks) if (v.currentTime >= at) t = l; if (tag.textContent !== t) tag.textContent = t; });
+  }
+
+  /* scroll-craft (подключён с defer): фото открываются шторкой, ленты плывут, текст глав появляется */
+  addEventListener('DOMContentLoaded', () => {
+    if (window.ScrollCraft) ScrollCraft.mount(document); else document.documentElement.classList.remove('sc-on');
+  });
+
+  /* Панель связи: после первого экрана, прячется у подписи */
+  const dock = $('#dock'), seen = {hero: true, talk: false};
+  const sync = () => dock.classList.toggle('show', !seen.hero && !seen.talk);
+  new IntersectionObserver(es => { es.forEach(e => { seen.hero = e.isIntersecting; }); sync(); }, {threshold: 0.12}).observe($('.open'));
+  new IntersectionObserver(es => { es.forEach(e => { seen.talk = e.isIntersecting; }); sync(); }, {threshold: 0.12}).observe($('#contact'));
+
+  /* Документы */
+  const viewer = $('#modal-doc'); let last = null;
+  const close = () => { viewer.hidden = true; document.body.style.overflow = ''; last && last.focus(); };
+  $$('[data-doc]').forEach(b => b.addEventListener('click', () => {
+    last = b; $('#doc-img').src = b.dataset.doc; $('#doc-img').alt = b.dataset.cap; $('#doc-cap').textContent = b.dataset.cap;
+    viewer.hidden = false; document.body.style.overflow = 'hidden'; setTimeout(() => $('.modal-close', viewer).focus(), 50);
+  }));
+  $$('[data-close]', viewer).forEach(c => c.addEventListener('click', close));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !viewer.hidden) close(); });
+})();
+
+</script>
+</body>
+</html>
