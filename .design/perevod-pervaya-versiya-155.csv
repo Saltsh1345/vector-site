@@ -1,0 +1,156 @@
+﻿№,Ключ,Русский,Узбекский (латиница),Таджикский (Самарканд)
+1,"k1, k8",С чем приходят,Qanday holatlarda,Бо кадом мушкилот
+2,"k2, k9, k69",Программа,Dastur,Барнома
+3,k3,Дом,Uy va sharoit,Хона ва шароит
+4,"k4, k11",Семье,Oila uchun,Барои оила
+5,"k5, k12",Документы,Hujjatlar,Ҳуҷҷатҳо
+6,"k6, k13",Вопросы,Savollar,Саволҳо
+7,k10,Дом и условия,Uy va sharoitlar,Хона ва шароит
+8,k14,Контакты,Bog‘lanish,Тамос
+9,k15,Позвонить: +998 91 811 03 33,Qo‘ng‘iroq qilish: +998 91 811 03 33,Занг занед: +998 91 811 03 33
+10,"k16, k21",Написать в Telegram,Telegram orqali yozish,Дар Telegram нависед
+11,k17,Центр восстановления · Самарканд,Tiklanish markazi · Samarqand,Маркази барқарорсозӣ · Самарқанд
+12,k18,Новый путь начинается _с выбора._,Yangi yo‘l _tanlovdan_ boshlanadi.,Роҳи нав _аз интихоб_ оғоз меёбад.
+13,k19,"Помогаем людям с алкогольной, наркотической и игровой зависимостью и их семьям. Анонимно, на учёт не ставим. Работаем по программе «12 шагов» в доме, а не в больничной палате.","Alkogol, giyohvand moddalar va qimor o‘yinlariga qaram bo‘lgan insonlarga hamda ularning oilalariga yordam beramiz. Barchasi anonim — narkologik hisobga qo‘ymaymiz. Kasalxona palatasida emas, shinam uy sharoitida «12 qadam» dasturi asosida ishlaymiz.","Ба шахсони гирифтори вобастагӣ аз машрубот, маводи мухаддир ва қиморбозӣ, инчунин ба оилаҳои онҳо кумак мерасонем. Пурра махфӣ — ба қайди наркологӣ намегирем. Аз рӯи барномаи «12 қадам» дар шароити бароҳати хона кор мекунем, на дар палатаи беморхона."
+14,k20,Позвонить и рассказать,Qo‘ng‘iroq qilib gaplashish,Занг занед ва суҳбат кунед
+15,k22,Анонимно ‖ имя можно не называть,Anonim ‖ ism aytish shart emas,Махфӣ ‖ гуфтани ном шарт нест
+16,k23,24/7 ‖ дежурная линия,24/7 ‖ navbatchi aloqa liniyasi,24/7 ‖ телефони навбатдор
+17,k24,"3–4 человека ‖ в комнате, свой санузел","3–4 kishi ‖ xonada, alohida yuvinish xonasi","3–4 нафар ‖ дар як ҳуҷра, бо ташноби алоҳида"
+18,k25,№1857962 ‖ лицензия Минздрава РУз,№1857962 ‖ O‘zR SSV litsenziyasi,№1857962 ‖ иҷозатномаи Вазорати тандурустии ҶӮ
+19,k26,С чем к нам приходят,Bizga qanday vaziyatlarda murojaat qilishadi,Ба мо бо кадом мушкилот муроҷиат мекунанд
+20,k27,Выход есть. Мы поможем его найти.,Chorasi bor. Biz uni topishga yordam beramiz.,Роҳи ҳал ҳаст. Мо барои ёфтани он кумак мекунем.
+21,k28,"Нам звонят и сами люди с зависимостью, и их близкие. Чаще всего первые слова звучат так.","Bizga qaramlikka duch kelgan insonlarning o‘zlari ham, ularning yaqinlari ham qo‘ng‘iroq qilishadi. Ko‘pincha birinchi so‘zlar shunday bo‘ladi.",Ба мо ҳам худи шахсони гирифтори вобастагӣ ва ҳам наздикони онҳо занг мезананд. Аксар вақт сухани аввалини онҳо чунин аст.
+22,k29,Первый шаг,Birinchi qadam,Қадами аввал
+23,k30,"«Я не знаю, куда идти»",«Qayerga borishni bilmayman»,«Намедонам ба куҷо равам»
+24,k31,"Позвоните или напишите. Мы выслушаем, спросим только то, что нужно, и подскажем следующий шаг. Консультация бесплатная и ни к чему не обязывает.","Qo‘ng‘iroq qiling yoki yozing. Sizni tinglaymiz, faqat zarur narsalarni so‘raymiz va keyingi qadamni tushuntiramiz. Konsultatsiya bepul va hech qanday majburiyat yuklamaydi.","Занг занед ё нависед. Мо шуморо гӯш мекунем, танҳо чизҳои заруриро мепурсем ва қадами навбатиро нишон медиҳем. Машварат ройгон аст ва шуморо ба чизе уҳдадор намекунад."
+25,k32,Если близкий против,Agar yaqiningiz qarshi bo‘lsa,Агар наздикатон розӣ набошад
+26,k33,«Он не признаёт проблему»,«U muammoni tan olmayapti»,«Ӯ мушкилро тан намегирад»
+27,k34,"Отрицание — частый симптом болезни, а не упрямство. Не давите и не вините себя. Специалист приедет к вам домой и поговорит так, чтобы человек сам согласился на помощь.","Inkor etish — qaysarlik emas, balki kasallikning keng tarqalgan belgisi. Bosim o‘tkazmang va o‘zingizni ayblamang. Mutaxassis uyingizga kelib, insonning o‘zi yordamga rozi bo‘ladigan tarzda suhbatlashadi.","Инкор кардан — якравӣ нест, балки нишонаи маъмули беморӣ аст. Фишор наоред ва худро гунаҳкор накунед. Мутахассис ба хонаи шумо омада, тавре суҳбат мекунад, ки худи шахс ба кумак розӣ шавад."
+28,k35,Для семьи,Oila uchun,Барои оила
+29,k36,«Я больше не выдерживаю»,«Boshqa chiday olmayapman»,«Дигар тоқат карда наметавонам»
+30,k37,"Страх, бессонные ночи, обещания, которые не сбываются. Пока близкий в безопасности, вы тоже получаете поддержку: каждую субботу в 11:00 в офисе психологи проводят встречи для родственников.","Qo‘rquv, bedor tunlar, bajarilmaydigan va’dalar. Yaqiningiz xavfsiz joyda ekan, siz ham ko‘mak olasiz: har shanba soat 11:00 da ofisimizda psixologlar oila a’zolari uchun uchrashuvlar o‘tkazadi.","Тарс, шабҳои бехобӣ, ваъдаҳое, ки иҷро намешаванд. То вақте ки наздикатон дар ҷои бехатар аст, шумо низ дастгирӣ мегиред: ҳар рӯзи шанбе соати 11:00 дар дафтари мо равоншиносон (психологҳо) барои хешовандон вохӯриҳо мегузаронанд."
+31,k38,Анонимность,Anonimlik,Махфият
+32,k39,«Поставят на учёт?»,«Hisobga qo‘yishadimi?»,«Ба қайд мегиранд?»
+33,k40,"Нет. На наркологический учёт мы не ставим. Имя можно не называть, лица резидентов не публикуем, данные никому не передаём.","Yo‘q. Biz narkologik hisobga qo‘ymaymiz. Ismingizni aytmasangiz ham bo‘ladi, markazda davolanayotganlarning yuzini hech qayerda e’lon qilmaymiz, ma’lumotlarni hech kimga bermaymiz.","Не. Мо ба қайди наркологӣ намегирем. Номро нагӯед ҳам мешавад, чеҳраи табобатгирандагонро нашр намекунем ва маълумотро ба ҳеҷ кас намедиҳем."
+34,k41,Согласие,Rozilik,Розигӣ
+35,k42,«Его увезут силой?»,«Uni majburlab olib ketishadimi?»,«Ӯро маҷбурӣ мебаранд?»
+36,k43,"Нет. Лечение начинается только с согласия человека, так требует и закон Узбекистана. Мы помогаем прийти к этому решению, а не принимаем его за него.","Yo‘q. Davolash faqat insonning o‘z roziligi bilan boshlanadi — O‘zbekiston qonunchiligi ham shuni talab qiladi. Biz qarorni uning o‘rniga qabul qilmaymiz, balki shu qarorga kelishiga yordam beramiz.","Не. Табобат танҳо бо розигии худи шахс оғоз мешавад — қонуни Ӯзбекистон низ ҳаминро талаб мекунад. Мо ба ҷои ӯ қарор намебарорем, балки барои ба ин қарор омаданаш кумак мекунем."
+37,k44,Условия и цена,Sharoitlar va narx,Шароит ва нарх
+38,k45,«Сколько это стоит?»,«Narxi qancha?»,«Нархаш чанд пул аст?»
+39,k46,"Стоимость и распорядок зависят от программы. Мы называем их на личной консультации, когда понятна ситуация. [Записаться на консультацию]","Narx va kun tartibi dasturga bog‘liq. Vaziyat aniq bo‘lgach, ularni shaxsiy konsultatsiyada aytamiz. [Konsultatsiyaga yozilish]","Арзиш ва реҷаи рӯз аз барнома вобаста аст. Вақте ки вазъият равшан мешавад, мо онҳоро дар машварати шахсӣ мегӯем. [Барои машварат вақт таъин кунед]"
+40,k47,Поддержка на каждом этапе,Har bir bosqichda ko‘mak,Дастгирӣ дар ҳар марҳила
+41,k48,"Помощь при зависимости, от первого звонка до жизни после курса",Qaramlikda yordam: birinchi qo‘ng‘iroqdan tortib kursdan keyingi hayotgacha,Кумак ҳангоми вобастагӣ — аз занги аввал то ҳаёти пас аз курс
+42,k49,"Программу ведут приглашённые специалисты из Казахстана: клинические психологи, наркологи и аддиктологи. Мы работаем и с самим человеком, и с его семьёй, потому что восстановление идёт легче, когда меняется вся обстановка вокруг.","Dasturni Qozog‘istondan taklif etilgan mutaxassislar — klinik psixologlar, narkologlar va addiktologlar olib boradi. Biz insonning o‘zi bilan ham, oilasi bilan ham ishlaymiz, chunki atrofdagi muhit o‘zgarganda tiklanish ancha yengil kechadi.","Барномаро мутахассисони даъватшуда аз Қазоқистон — равоншиносони клиникӣ (психологҳо), наркологҳо ва аддиктологҳо пеш мебаранд. Мо ҳам бо худи шахс ва ҳам бо оилаи ӯ кор мекунем, зеро вақте ки муҳити атроф тағйир меёбад, барқароршавӣ осонтар мегузарад."
+43,k50,Основатель центра,Markaz asoschisi,Муассиси марказ
+44,"k51, a6",Темирхан Нуржан Кадирханович,Temirxan Nurjan Kadirxanovich,Темирхан Нуржан Кадирханович
+45,k52,Основатель центра и координатор программы.,Markaz asoschisi va dastur koordinatori.,Муассиси марказ ва ҳамоҳангсози барнома.
+46,k53,Опыт больше 10 лет,10 yildan ortiq tajriba,Таҷрибаи зиёда аз 10 сол
+47,k54,Реабилитационная программа,Reabilitatsiya dasturi,Барномаи реабилитатсионӣ
+48,k55,"Проживание, поддержка и работа над собой","Yashash, ko‘mak va o‘z ustida ishlash","Истиқомат, дастгирӣ ва кор бо худ"
+49,k56,Индивидуальная работа,Individual ishlash,Кори инфиродӣ
+50,k57,Внимание к личной истории и трудностям,Shaxsiy tarix va qiyinchiliklarga e’tibor,Таваҷҷуҳ ба таърихи шахсӣ ва душвориҳо
+51,k58,Поддержка семьи,Oilani qo‘llab-quvvatlash,Дастгирии оила
+52,k59,Встречи для близких и рекомендации,Yaqinlar uchun uchrashuvlar va tavsiyalar,Вохӯриҳо барои наздикон ва тавсияҳо
+53,"k60, k71",После курса,Kursdan keyin,Пас аз курс
+54,k61,Сопровождение после основного курса,Asosiy kursdan keyingi kuzatuv va ko‘mak,Ҳамроҳӣ ва дастгирӣ пас аз курси асосӣ
+55,k62,Без давления и обязательств,Bosimsiz va majburiyatlarsiz,Бе фишор ва бе уҳдадорӣ
+56,k63,Что будет после звонка,Qo‘ng‘iroqdan keyin nima bo‘ladi,Пас аз занг чӣ мешавад
+57,k64,"Многие откладывают звонок, потому что боятся, что их начнут уговаривать. Вот как это проходит на самом деле.","Ko‘pchilik «meni ko‘ndirishga tushishadi» deb qo‘rqib, qo‘ng‘iroqni ortga suradi. Aslida esa hammasi mana bunday o‘tadi.","Бисёриҳо занг заданро ба таъхир мегузоранд, зеро метарсанд, ки онҳоро маҷбуран розӣ мекунонанд. Дар асл ин тавр мегузарад."
+58,k65,Разговор,Suhbat,Суҳбат
+59,k66,"Ответит дежурный консультант. Выслушает вас, спросит, что происходит и как давно. Имя и адрес можно не называть.","Navbatchi maslahatchi javob beradi. Sizni tinglaydi, nima bo‘layotgani va qachondan beri davom etayotganini so‘raydi. Ism va manzilni aytmaslik mumkin.","Мушовири навбатдор ҷавоб медиҳад. Шуморо гӯш мекунад, мепурсад, ки чӣ ҳолат аст ва аз кай идома дорад. Ном ва суроғаро нагӯед ҳам мешавад."
+60,k67,Консультация,Konsultatsiya,Машварат
+61,k68,"Встреча со специалистом лично. Здесь обсуждаем программу, распорядок и стоимость. Если близкий пока против, специалист может приехать к вам.","Mutaxassis bilan yuzma-yuz uchrashuv. Unda dastur, kun tartibi va narxni muhokama qilamiz. Agar yaqiningiz hozircha qarshi bo‘lsa, mutaxassis uyingizga borishi mumkin.","Вохӯрии рӯ ба рӯ бо мутахассис. Дар ин ҷо барнома, реҷа ва арзишро муҳокима мекунем. Агар наздикатон ҳоло розӣ набошад, мутахассис метавонад ба хонаи шумо биёяд."
+62,k70,"Человек живёт в центре и проходит программу «12 шагов»: группы, индивидуальная работа, спорт, баня, режим.","Inson markazda yashaydi va «12 qadam» dasturidan o‘tadi: guruh mashg‘ulotlari, individual ishlash, sport, hammom, kun tartibi.","Шахс дар марказ зиндагӣ карда, барномаи «12 қадам»-ро мегузарад: машғулиятҳои гурӯҳӣ, кори инфиродӣ, варзиш, ҳаммом, реҷаи рӯз."
+63,k72,"Постреабилитационное сопровождение, чтобы удержать трезвость дома. Семья продолжает получать поддержку.",Uy sharoitida sog‘lom va hushyor hayotni saqlab qolish uchun reabilitatsiyadan keyingi ko‘mak. Oila ham qo‘llab-quvvatlanishda davom etadi.,Дастгирии пас аз курс барои нигоҳ доштани ҳушёрӣ ва ҳаёти солим дар хона. Оила низ минбаъд кумак мегирад.
+64,k73,Только добровольно. ‖ Лечение начинается с письменного согласия человека. Силу не применяем. На наркологический учёт не ставим.,Faqat ixtiyoriy ravishda. ‖ Davolash insonning yozma roziligi bilan boshlanadi. Kuch ishlatmaymiz. Narkologik hisobga qo‘ymaymiz.,Танҳо ихтиёрӣ. ‖ Табобат бо розигии хаттии худи шахс оғоз мешавад. Зӯроварӣ ба кор намебарем. Ба қайди наркологӣ намегирем.
+65,k74,"Дом, где восстанавливаются тело и душа",Tana va ruh tiklanadigan shinam uy,"Хонае, ки дар он ҷисму рӯҳ ором мегиранд"
+66,k75,"Выздоравливать легче там, где спокойно и уютно, а не в больничных стенах. Поэтому центр устроен как дом.","Kasalxona devorlari orasida emas, tinch va shinam joyda sog‘ayish osonroq kechadi. Shuning uchun markazimiz uy kabi jihozlangan.","Шифо ёфтан дар ҷои орому бароҳат осонтар аст, на дар байни деворҳои беморхона. Аз ин рӯ маркази мо мисли хона сохта шудааст."
+67,k76,"Светлые комнаты на 3–4 человека, в каждой свой санузел и кондиционер","3–4 kishilik yorug‘ xonalar, har birida alohida yuvinish xonasi va konditsioner bor","Ҳуҷраҳои равшани 3–4-нафара, дар ҳар кадомаш ташноби алоҳида ва кондитсионер ҳаст"
+68,k77,Сбалансированное трёхразовое питание,Muvozanatli uch mahal ovqatlanish,Хӯроки мутавозини севақта
+69,k78,"Спортзал, чтобы снимать напряжение",Zo‘riqishni yechish uchun sport zali,Толори варзиш барои рафъи хастагиву шиддат
+70,k79,Настоящая баня,Haqiqiy hammom,Ҳаммоми ҳақиқӣ
+71,k80,Двор с садом и фонтаном для прогулок и бесед,Sayr va suhbatlar uchun bog‘ hamda favvorali hovli,Ҳавлии боғу фавворадор барои сайругашт ва суҳбат
+72,k81,Холл,Xoll,Холл
+73,"k82, a10",Комната на троих,Uch kishilik xona,Ҳуҷраи сенафара
+74,k83,Санузел,Yuvinish xonasi,Ташноб ва ҳоҷатхона
+75,k84,фото скоро ‖ Баня,surat tez orada ‖ Hammom,акс ба наздикӣ ‖ Ҳаммом
+76,k85,фото скоро ‖ Сад и фонтан,surat tez orada ‖ Bog‘ va favvora,акс ба наздикӣ ‖ Боғ ва фаввора
+77,k86,фото скоро ‖ Столовая и спортзал,surat tez orada ‖ Oshxona va sport zali,акс ба наздикӣ ‖ Ошхона ва толори варзиш
+78,"k87, a12",Комната на четверых,To‘rt kishilik xona,Ҳуҷраи чорнафара
+79,k88,Мы заботимся и о вас,Biz siz haqingizda ham qayg‘uramiz,Мо ба шумо низ ғамхорӣ мекунем
+80,k89,"Зависимость близкого выматывает всю семью. Пока он в безопасности, вы возвращаете себе силы и учитесь, как поддерживать его дальше.","Yaqin insonning qaramligi butun oilani holdan toydiradi. U xavfsiz joyda ekan, siz kuchingizni tiklaysiz va kelgusida uni qanday to‘g‘ri qo‘llab-quvvatlashni o‘rganasiz.","Вобастагии шахси наздик тамоми оиларо хаста мекунад. То вақте ки ӯ дар ҷои бехатар аст, шумо қуввати худро барқарор мекунед ва тарзи дурусти дастгирии ӯро дар оянда меомӯзед."
+81,k90,Встречи для родственников,Oila a’zolari uchun uchrashuvlar,Вохӯриҳо барои хешовандон
+82,k91,"Каждую субботу в 11:00 в офисе центра психологи проводят встречи для близких. Можно задать вопросы и услышать тех, кто проходит то же самое.",Har shanba soat 11:00 da markaz ofisida psixologlar yaqinlar uchun uchrashuvlar o‘tkazadi. Savollar berish va xuddi shunday yo‘ldan o‘tayotgan insonlarni eshitish mumkin.,"Ҳар рӯзи шанбе соати 11:00 дар дафтари марказ равоншиносон (психологҳо) барои наздикон вохӯриҳо мегузаронанд. Метавонед савол диҳед ва онҳоеро, ки аз чунин ҳолат мегузаранд, гӯш кунед."
+83,k92,Связь с домом,Uy bilan aloqa,Алоқа бо хона
+84,k93,"Звонки и встречи с семьёй организуем по рекомендации специалистов, когда это полезно и безопасно для восстановления.",Oila bilan qo‘ng‘iroqlar va uchrashuvlarni mutaxassislar tavsiyasiga ko‘ra — tiklanish uchun foydali va xavfsiz bo‘lgan paytda tashkil qilamiz.,"Зангҳо ва вохӯриҳоро бо оила бо тавсияи мутахассисон — вақте ки ин барои барқароршавӣ фоиданок ва бехатар аст, ташкил мекунем."
+85,k94,Лицензия и квалификация,Litsenziya va malaka,Иҷозатнома ва тахассус
+86,k95,"Лица резидентов мы не публикуем. А документы центра и специалистов открыты: нажмите, чтобы увеличить.",Markazda davolanayotganlarning yuzini e’lon qilmaymiz. Biroq markaz va mutaxassislarning hujjatlari ochiq: kattalashtirish uchun ustiga bosing.,Чеҳраи табобатгирандагонро мо нашр намекунем. Аммо ҳуҷҷатҳои марказ ва мутахассисон кушодаанд: барои калон кардан пахш кунед.
+87,k96,"Лицензия, стр. 1 ‖ №1857962, до 17.09.2031","Litsenziya, 1-bet ‖ №1857962, 17.09.2031 gacha","Иҷозатнома, саҳ. 1 ‖ №1857962, то 17.09.2031"
+88,k97,"Лицензия, стр. 2 ‖ Вид деятельности","Litsenziya, 2-bet ‖ Faoliyat turi","Иҷозатнома, саҳ. 2 ‖ Намуди фаъолият"
+89,k98,"Сертификат консультанта ‖ Amanat Rehab, Алматы, 2023","Maslahatchi sertifikati ‖ Amanat Rehab, Olmaota, 2023","Сертификати мушовир ‖ Amanat Rehab, Алмаато, 2023"
+90,k99,скоро ‖ Дипломы специалистов,tez orada ‖ Mutaxassislar diplomlari,ба наздикӣ ‖ Дипломҳои мутахассисон
+91,k100,"Психолог, нарколог, аддиктолог ‖ Добавим сканы","Psixolog, narkolog, addiktolog ‖ Skan nusxalarini qo‘shamiz","Равоншинос, нарколог, аддиктолог ‖ Нусхаҳоро илова мекунем"
+92,k102,Лицензия Минздрава РУз *№1857962*,O‘zR Sog‘liqni saqlash vazirligi litsenziyasi *№1857962*,Иҷозатномаи Вазорати тандурустии ҶӮ *№1857962*
+93,k103,Реестровый номер L-2908517164385,Reyestr raqami L-2908517164385,Рақами феҳрист (реестр) L-2908517164385
+94,k104,Действует до *17.09.2031*,Amal qilish muddati *17.09.2031* gacha,Муҳлати амал то *17.09.2031*
+95,k105,О чём спрашивают чаще всего,Eng ko‘p beriladigan savollar,Саволҳои маъмултарин
+96,k106,Не нашли свой вопрос? Позвоните на дежурную линию: [+998 91 811 03 33].,Savolingizga javob topmadingizmi? Navbatchi liniyaga qo‘ng‘iroq qiling: [+998 91 811 03 33].,Саволи худро наёфтед? Ба телефони навбатдор занг занед: [+998 91 811 03 33].
+97,k107,Поставят ли на учёт?,Narkologik hisobga qo‘yishadimi?,Оё ба қайди наркологӣ мегиранд?
+98,k108,Нет. На наркологический учёт мы не ставим. Обращение в центр остаётся между вами и нами.,Yo‘q. Biz narkologik hisobga qo‘ymaymiz. Markazga murojaat qilganingiz faqat siz va biz o‘rtamizda qoladi.,Не. Мо ба қайди наркологӣ намегирем. Муроҷиат ба марказ танҳо байни шумо ва мо мемонад.
+99,k109,Насколько это анонимно?,Anonimlik qanchalik kafolatlangan?,То чӣ андоза махфият риоя мешавад?
+100,k110,"При звонке имя можно не называть. Лица резидентов не публикуем, данные третьим лицам не передаём. Как устроена анонимность во время программы, подробно расскажем на консультации.","Qo‘ng‘iroq paytida ismni aytmaslik mumkin. Markazda davolanayotganlarning yuzini e’lon qilmaymiz, ma’lumotlarni uchinchi shaxslarga bermaymiz. Dastur davomida maxfiylik qanday ta’minlanishini konsultatsiyada batafsil tushuntiramiz.","Ҳангоми занг номро нагӯед ҳам мешавад. Чеҳраи табобатгирандагонро нашр намекунем, маълумотро ба шахсони сеюм намедиҳем. Дар давоми барнома махфият чӣ гуна таъмин мешавад — дар машварат муфассал мефаҳмонем."
+101,k111,Сколько стоит и как проходит день?,Narxi qancha va kun qanday o‘tadi?,Нархаш чанд аст ва рӯз чӣ гуна мегузарад?
+102,k112,Стоимость и распорядок зависят от программы и ситуации. Мы называем их на личной консультации. Сама консультация бесплатная.,Narx va kun tartibi dastur hamda vaziyatga bog‘liq. Ularni shaxsiy konsultatsiyada aytamiz. Konsultatsiyaning o‘zi bepul.,Арзиш ва реҷаи рӯз аз барнома ва вазъият вобаста аст. Мо онҳоро дар машварати шахсӣ мегӯем. Худи машварат ройгон аст.
+103,k113,"Что делать, если близкий отказывается?","Yaqin inson rad etsa, nima qilish kerak?","Агар шахси наздик рад кунад, чӣ бояд кард?"
+104,k114,"Не давите и не стыдите: так отрицание только крепнет. Позвоните нам. Специалист расскажет, как начать разговор, и при необходимости приедет к вам домой.","Bosim o‘tkazmang va uyaltirmang: bundan inkor yanada kuchayadi. Bizga qo‘ng‘iroq qiling. Mutaxassis suhbatni qanday boshlashni tushuntiradi va zarur bo‘lsa, uyingizga boradi.","Фишор наоред ва шарманда накунед: аз ин инкор танҳо сахттар мешавад. Ба мо занг занед. Мутахассис мефаҳмонад, ки суҳбатро чӣ гуна оғоз кунед ва дар ҳолати зарурӣ ба хонаи шумо меояд."
+105,k115,Могут ли лечить без согласия?,Roziliksiz davolash mumkinmi?,Оё бе розигӣ табобат кардан мумкин аст?
+106,k116,"Нет. Лечение начинается только с письменного согласия человека. Так требует закон Узбекистана о наркологической помощи, и так работаем мы.",Yo‘q. Davolash faqat insonning yozma roziligi bilan boshlanadi. O‘zbekistonning narkologik yordam to‘g‘risidagi qonuni ham shuni talab qiladi va biz ham aynan shunday ishlaymiz.,Не. Табобат танҳо бо розигии хаттии худи шахс оғоз мешавад. Қонуни Ӯзбекистон дар бораи кумаки наркологӣ ҳаминро талаб мекунад ва мо низ ҳамин тавр кор мекунем.
+107,k117,Можно ли навещать и звонить?,Ko‘rgani borish va qo‘ng‘iroq qilish mumkinmi?,Оё ба дидорбинӣ омадан ва занг задан мумкин аст?
+108,k118,"Да. Звонки и встречи с семьёй организуем по рекомендации специалистов, когда это полезно для восстановления. Для родственников каждую субботу в 11:00 в офисе проходят встречи с психологами.","Ha. Oila bilan qo‘ng‘iroqlar va uchrashuvlarni mutaxassislar tavsiyasiga ko‘ra, tiklanish uchun foydali bo‘lgan vaqtda tashkil qilamiz. Oila a’zolari uchun esa har shanba soat 11:00 da ofisda psixologlar bilan uchrashuvlar o‘tkaziladi.","Бале. Зангҳо ва вохӯриҳоро бо оила бо тавсияи мутахассисон, вақте ки барои барқароршавӣ фоиданок аст, ташкил мекунем. Барои хешовандон ҳар рӯзи шанбе соати 11:00 дар дафтар вохӯриҳо бо равоншиносон (психологҳо) мегузаранд."
+109,k119,Кто работает с людьми?,Insonlar bilan kim ishlaydi?,Бо одамон кӣ кор мекунад?
+110,k120,"Программу курирует команда приглашённых специалистов из Казахстана: клинические психологи, наркологи и аддиктологи. Основатель центра — Темирхан Нуржан Кадирханович, опыт больше 10 лет.","Dasturni Qozog‘istondan taklif etilgan mutaxassislar jamoasi — klinik psixologlar, narkologlar va addiktologlar olib boradi. Markaz asoschisi — Temirxan Nurjan Kadirxanovich, tajribasi 10 yildan ortiq.","Барномаро гурӯҳи мутахассисони даъватшуда аз Қазоқистон — равоншиносони клиникӣ (психологҳо), наркологҳо ва аддиктологҳо назорат мекунанд. Муассиси марказ — Темирхан Нуржан Кадирханович, таҷрибаи корӣ зиёда аз 10 сол."
+111,k121,С какими зависимостями помогаете?,Qanday qaramlik turlarida yordam berasiz?,Ҳангоми кадом намудҳои вобастагӣ кумак мекунед?
+112,k122,"С алкогольной, наркотической и игровой зависимостью. Если не уверены, подходит ли вам центр, просто позвоните и расскажите о ситуации.","Alkogol, giyohvand moddalar va qimor o‘yinlariga qaramlikda. Markaz sizga to‘g‘ri kelish-kelmasligiga ikkilanayotgan bo‘lsangiz, shunchaki qo‘ng‘iroq qilib, vaziyatni tushuntiring.","Ҳангоми вобастагӣ аз машрубот, маводи мухаддир ва қиморбозӣ. Агар мутмаин набошед, ки марказ ба шумо мувофиқ аст ё не, танҳо занг занед ва вазъиятро бигӯед."
+113,k123,Мы на связи,Biz aloqadamiz,Мо дар алоқаем
+114,k124,Сделайте первый шаг. _Мы просто выслушаем._,Birinchi qadamni qo‘ying. _Biz shunchaki tinglaymiz._,Қадами аввалро гузоред. _Мо танҳо гӯш мекунем._
+115,k125,"Позвоните или напишите. Консультация бесплатная, без осуждения и без обязательств.",Qo‘ng‘iroq qiling yoki yozing. Konsultatsiya bepul — hech qanday malomat va majburiyatsiz.,Занг занед ё нависед. Машварат ройгон аст — бе маломат ва бе ҳеҷ уҳдадорӣ.
+116,k126,Дежурная линия 24/7,24/7 navbatchi aloqa liniyasi,Телефони навбатдор 24/7
+117,k128,Можно не называть имя,Ism aytish shart emas,Гуфтани ном шарт нест
+118,k131,Если пока трудно говорить вслух,Agar hozircha og‘zaki gapirish qiyin bo‘lsa,Агар ҳоло бо овоз гап задан душвор бошад
+119,k132,Офис для консультаций,Konsultatsiyalar ofisi,Дафтар барои машваратҳо
+120,k133,г. Самарканд,Samarqand shahri,ш. Самарқанд
+121,k134,Точный адрес сообщим при записи,Aniq manzilni qabulga yozilishda aytamiz,Суроғаи дақиқро ҳангоми таъини вохӯрӣ мегӯем
+122,k135,"ООО «VECTOR-CLINIC», лицензия Минздрава РУз №1857962 ‖ © {год} Центр восстановления Vector, Самарканд","«VECTOR-CLINIC» MChJ, O‘zR SSV litsenziyasi №1857962 ‖ © {год} Vector tiklanish markazi, Samarqand","ҶДММ «VECTOR-CLINIC», иҷозатномаи Вазорати тандурустии ҶӮ №1857962 ‖ © {год} Маркази барқарорсозии Vector, Самарқанд"
+123,k136,Позвонить,Qo‘ng‘iroq qilish,Занг занед
+124,k138,Перезвоним сами,O‘zimiz qayta qo‘ng‘iroq qilamiz,Мо худамон занг мезанем
+125,k139,Оставьте имя и номер. Имя можно указать любое.,Ismingiz va telefon raqamingizni qoldiring. Istalgan ismni yozishingiz mumkin.,Ном ва рақами телефонро гузоред. Метавонед ҳар гуна номро нависед.
+126,k140,Как к вам обращаться,Sizga qanday murojaat qilaylik,Ба шумо чӣ гуна муроҷиат кунем
+127,k141,Номер телефона,Telefon raqami,Рақами телефон
+128,k142,Проверьте номер: нужно не меньше 9 цифр.,Raqamni tekshiring: kamida 9 ta raqam bo‘lishi kerak.,Рақамро санҷед: на камтар аз 9 рақам лозим аст.
+129,k143,Как удобнее связаться,Qanday bog‘lanish qulayroq,Чӣ тавр тамос гирифтан қулайтар аст
+130,k144,Звонок,Qo‘ng‘iroq,Занги телефонӣ
+131,k146,Отправить заявку,Ariza yuborish,Дархост фиристед
+132,k147,Номер увидит только дежурный консультант. Мы не передаём данные третьим лицам.,Raqamingizni faqat navbatchi maslahatchi ko‘radi. Ma’lumotlarni uchinchi shaxslarga bermaymiz.,Рақамро танҳо мушовири навбатдор мебинад. Мо маълумотро ба шахсони сеюм намедиҳем.
+133,k148,"Спасибо, что решились",Jur’at qilganingiz uchun rahmat,"Ташаккур, ки ҷуръат кардед"
+134,title,Vector — центр восстановления в Самарканде,Vector — Samarqanddagi tiklanish markazi,Vector — маркази барқарорсозӣ дар Самарқанд
+135,a1,"Центр восстановления Vector в Самарканде: помощь при алкогольной, наркотической и игровой зависимости и поддержка семьи. Анонимно, на учёт не ставим. Лицензия Минздрава РУз №1857962.","Samarqanddagi Vector tiklanish markazi: alkogol, giyohvandlik va qimorga qaramlikda yordam. Anonim, hisobga qo‘ymaymiz. O‘zR SSV litsenziyasi №1857962.","Маркази Vector дар Самарқанд: кумак ҳангоми вобастагӣ аз машрубот, мухаддир ва қимор. Махфӣ, бе қайд. Иҷозатномаи Вазорати тандурустии ҶӮ №1857962."
+136,a2,Vector — на главный экран,Vector — bosh sahifaga,Vector — ба экрани асосӣ
+137,a3,Разделы,Bo‘limlar,Бахшҳо
+138,"a4, js.menuOpen",Открыть меню,Menyuni ochish,Кушодани меню
+139,a5,Меню,Menyu,Меню
+140,a7,Комната центра на четыре человека,Markazning to‘rt kishilik xonasi,Ҳуҷраи чорнафараи марказ
+141,a8,Фото центра,Markaz surati,Акси марказ
+142,a9,Холл второго этажа,Ikkinchi qavat xolli,Холли ошёнаи дуюм
+143,a11,Санузел при комнате,Xona ichidagi yuvinish xonasi,Ташноб ва ҳоҷатхонаи дохили ҳуҷра
+144,a13,"Лицензия Минздрава Республики Узбекистан №1857962, стр. 1. Адрес скрыт.","O‘zbekiston Respublikasi Sog‘liqni saqlash vazirligi litsenziyasi №1857962, 1-bet. Manzil yashirilgan.","Иҷозатномаи Вазорати тандурустии Ҷумҳурии Ӯзбекистон №1857962, саҳ. 1. Суроға пинҳон аст."
+145,a14,"Лицензия №1857962, стр. 2: вид деятельности. Адрес скрыт.","№1857962 litsenziya, 2-bet: faoliyat turi. Manzil yashirilgan.","Иҷозатномаи №1857962, саҳ. 2: намуди фаъолият. Суроға пинҳон аст."
+146,a15,"Сертификат консультанта по зависимости, Amanat Rehab, Алматы, 2023, 59 часов.","Qaramlik bo‘yicha maslahatchi sertifikati, Amanat Rehab, Olmaota, 2023, 59 soat.","Сертификати мушовир оид ба вобастагӣ, Amanat Rehab, Алмаато, 2023, 59 соат."
+147,a16,Vector — выбери свой вектор,Vector — o‘z vektoringizni tanlang,Vector — вектори худро интихоб кунед
+148,a17,Заявка,Ariza,Дархост
+149,"a18, a20",Закрыть,Yopish,Пӯшидан
+150,a19,Документ,Hujjat,Ҳуҷҷат
+151,a21,"Например, Алия","Masalan, Aziza","Масалан, Азиза"
+152,js.menuClose,Закрыть меню,Menyuni yopish,Пӯшидани меню
+153,js.sent,"Заявка у дежурного консультанта. Мы свяжемся с вами так, как вы выбрали. Разговор останется между нами.",Arizangiz navbatchi maslahatchiga yetib bordi. Siz tanlagan usulda bog‘lanamiz. Suhbatimiz o‘rtamizda qoladi.,Дархост ба мушовири навбатдор расид. Мо бо тарзи интихобкардаи шумо тамос мегирем. Суҳбат махфӣ мемонад.
+154,js.fallback,Онлайн-заявки скоро заработают. Пока позвоните на дежурную линию +998 91 811 03 33 или напишите в Telegram @vectorrecovery.,Onlayn arizalar tez orada ishga tushadi. Hozircha +998 91 811 03 33 navbatchi liniyasiga qo‘ng‘iroq qiling yoki Telegram orqali @vectorrecovery manziliga yozing.,Дархостҳои онлайн ба наздикӣ фаъол мешаванд. Ҳоло ба телефони навбатдори +998 91 811 03 33 занг занед ё дар Telegram ба @vectorrecovery нависед.
+155,logo.tagline,выбери свой вектор,o‘z vektoringizni tanlang,вектори худро интихоб кунед
