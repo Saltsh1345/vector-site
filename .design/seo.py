@@ -9,6 +9,7 @@ BASE = 'https://saltsh1345.github.io/vector-site/v3/a/'
 OG_IMAGE = 'https://saltsh1345.github.io/vector-site/brand/og/vector-og.jpg'
 LANGS = [('ru', '', 'ru_RU'), ('uz', 'uz/', 'uz_UZ'), ('tg', 'tg/', 'tg_TJ')]
 CITY = {'ru': 'Самарканд', 'uz': 'Samarqand', 'tg': 'Самарқанд'}   # как в подвале каждой версии
+COUNTRY = {'ru': 'Узбекистан', 'uz': 'Oʻzbekiston', 'tg': 'Ӯзбекистон'}   # как у переводчика: «Oʻzbekiston Respublikasi», «Ҷумҳурии Ӯзбекистон»
 root = sys.argv[1]
 
 def block(code, path, locale, title, desc):
@@ -23,6 +24,12 @@ def block(code, path, locale, title, desc):
         'telephone': '+998918110333',
         'address': {'@type': 'PostalAddress', 'addressLocality': CITY[code], 'addressCountry': 'UZ'},   # улицы нет: адрес сообщают при записи
         'sameAs': ['https://t.me/vectorrecovery', 'https://instagram.com/vector.recovery'],
+        'areaServed': {'@type': 'Country', 'name': COUNTRY[code]},   # ищут по всему Узбекистану, не только в Самарканде (слово владельца)
+        # дежурная линия — круглосуточно, так и написано в подписи страницы
+        'contactPoint': {'@type': 'ContactPoint', 'telephone': '+998918110333', 'contactType': 'customer service',
+                         'hoursAvailable': {'@type': 'OpeningHoursSpecification',
+                                            'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                                            'opens': '00:00', 'closes': '23:59'}},
     }
     return (f'<link rel="canonical" href="{url}">\n' + alt +
             f'<meta property="og:type" content="website">\n<meta property="og:site_name" content="Vector">\n'

@@ -2,12 +2,13 @@
 # Фрагмент ищется в собранной русской странице целиком. Узбекский: оʻ gʻ — U+02BB, тутуқ белгиси — U+02BC.
 T = [
 # --- шапка, служебные надписи
-('<title>Vector — центр восстановления в Самарканде</title>',
- '<title>Vector — Samarqanddagi tiklanish markazi</title>',
- '<title>Vector — маркази барқарорсозӣ дар Самарқанд</title>'),
-('content="Центр восстановления Vector — первый реабилитационный центр в Самарканде с лицензией Минздрава на стационарное лечение: помощь при алкогольной, наркотической и игровой зависимости и поддержка семьи. Бесплатная консультация, анонимно, на учёт не ставим."',
- 'content="Vector tiklanish markazi — Samarqandda Sogʻliqni saqlash vazirligining statsionar davolash litsenziyasiga ega birinchi reabilitatsiya markazi: alkogol, giyohvand moddalar va qimorga qaramlikda yordam hamda oilani qoʻllab-quvvatlash. Bepul konsultatsiya, anonim, hisobga qoʻymaymiz."',
- 'content="Маркази барқарорсозии Vector — аввалин маркази реабилитатсия дар Самарқанд бо иҷозатномаи Вазорати тандурустӣ барои табобати статсионарӣ: кӯмак ҳангоми вобастагӣ аз машрубот, маводи мухаддир ва қиморбозӣ, инчунин дастгирии оила. Машварати ройгон, махфӣ, ба қайд намегирем."'),
+# заголовок и описание для выдачи поиска (2026-10-26): по всему Узбекистану, город вторым; собраны из фраз переводчика, отдать ему на сверку
+('<title>Реабилитационный центр в Узбекистане — Vector, Самарканд</title>',
+ '<title>Oʻzbekistondagi reabilitatsiya markazi — Vector, Samarqand</title>',
+ '<title>Маркази реабилитатсия дар Ӯзбекистон — Vector, Самарқанд</title>'),
+('content="Помощь при алкогольной, наркотической и игровой зависимости: стационар в Самарканде, лицензия Минздрава. Бесплатная консультация, анонимно, на учёт не ставим."',
+ 'content="Alkogol, giyohvand moddalar va qimorga qaramlikda yordam: Samarqandda statsionar, Sogʻliqni saqlash vazirligi litsenziyasi. Bepul konsultatsiya, anonim, hisobga qoʻymaymiz."',
+ 'content="Кӯмак ҳангоми вобастагӣ аз машрубот, маводи мухаддир ва қиморбозӣ: табобати статсионарӣ дар Самарқанд, иҷозатномаи Вазорати тандурустӣ. Машварати ройгон, махфӣ, ба қайд намегирем."'),
 ('aria-label="Связь с центром"',
  'aria-label="Markaz bilan aloqa"',
  'aria-label="Тамос бо марказ"'),
@@ -355,4 +356,8 @@ T = [
 ('Разработка сайта — ТОО «Salem Hybrid»',
  'Sayt ishlab chiquvchisi — TOO «Salem Hybrid»',
  'Таҳиягари сомона — ТОО «Salem Hybrid»'),
+# заранее загружаемые буквы главного заголовка (пути уже с ../../../ — i18n.py переписывает их раньше подстановки): узбекский — латиница, таджикский — кириллица и её расширение (ҳ, ҷ)
+('<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-cyrillic.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-cyrillic.woff2" crossorigin>',
+ '<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-latin.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-latin.woff2" crossorigin>',
+ '<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-cyrillic.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-cyrillic.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-cyrillic-ext.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-cyrillic-ext.woff2" crossorigin>'),
 ]
