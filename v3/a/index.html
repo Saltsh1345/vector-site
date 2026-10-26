@@ -49,8 +49,8 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:8px}
 ::selection{background:var(--mint);color:var(--forest)}
 h1,h2,h3,.num,.lead,.regards{font-variant-numeric:lining-nums}
-.ribbon{position:absolute;pointer-events:none;aspect-ratio:5/3}
-.ribbon svg{width:100%;height:100%;overflow:visible}
+.ribbon{position:absolute;pointer-events:none}
+.ribbon img{display:block;width:100%;height:auto}
 .wrap{width:var(--wrap);margin-inline:auto}
 /* без движка блоки не прячем */
 html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;transform:none}
@@ -115,7 +115,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 .open .bg{position:absolute;inset:0;z-index:-2;background:var(--cream)}
 .open .bg img,.open .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .open::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(250,247,241,.72) 0%,rgba(250,247,241,0) 18%),linear-gradient(90deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.9) 32%,rgba(250,247,241,.45) 50%,rgba(250,247,241,0) 64%)}
-.open .ribbon{left:38%;width:72%;top:34%;z-index:-1;opacity:.9}
+.open .ribbon{left:36%;width:min(66vw,1000px);top:40%;z-index:-1;opacity:.9;--r:-15deg;--t:8s;--x:-26px;--y:12px;--a:2deg}
 .open .text{grid-column:1}
 .open .text p{max-width:22em}
 .scene-tag{position:absolute;right:max(24px,env(safe-area-inset-right));bottom:28px;padding:8px 14px;border-radius:999px;background:rgba(250,247,241,.9);font:600 var(--f13)/1 var(--sans);color:var(--forest)}
@@ -197,17 +197,27 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 
 /* ============ ФИРМЕННЫЕ ЛЕНТЫ: проходят между главами и мягко плывут при прокрутке ============ */
 .chess,.trip{overflow-x:clip}
-.rib{position:absolute;z-index:0;pointer-events:none;height:auto;max-width:none;opacity:.9}
-.r1{width:min(800px,58vw);left:30%;bottom:-170px;rotate:-6deg;opacity:.6}
-.r2{width:250px;left:calc(50% - 125px);bottom:-230px;opacity:.75}
-.r3{width:280px;left:calc(50% - 150px);bottom:-250px;rotate:-8deg;opacity:.6}
-.r4{width:min(900px,70vw);left:6%;bottom:-120px;rotate:-4deg;opacity:.55}
-.r5{width:min(1100px,86vw);left:-4%;top:110px;rotate:4deg;opacity:.42}
-.r6{width:280px;right:6%;top:-80px;rotate:-18deg;opacity:.75}
-.r7{width:300px;left:calc(50% - 150px);top:90px;opacity:.5}
-.r8{width:min(820px,60vw);left:-4%;bottom:-150px;rotate:8deg;opacity:.55}
-.r9{width:300px;left:calc(50% - 150px);bottom:-220px;rotate:-12deg;opacity:.6}
-.r10{width:380px;left:calc(50% - 300px);top:-10px;rotate:-14deg;opacity:.5}
+.rib{position:absolute;z-index:0;pointer-events:none;height:auto;max-width:none;opacity:.9;filter:drop-shadow(0 10px 16px rgba(21,61,54,.14))}
+.band-dark .rib,.sign .rib{filter:none}
+/* Ленты «дышат»: медленно покачиваются, как ткань на сквозняке; у кнопки первого экрана и подписи — тянутся к ней.
+   Только translate и rotate: их рисует видеокарта. transform занят параллаксом движка, поэтому свой поворот ленты — в --r.
+   Вне экрана — пауза (класс .live ставит letter.js), при «меньше движения» — стоят. */
+.rib,.open .ribbon{rotate:var(--r,0deg);animation:breathe var(--t,19s) cubic-bezier(.45,0,.55,1) var(--d,0s) infinite alternate;animation-play-state:paused}
+.rib.live,.open .ribbon.live{animation-play-state:running}
+@keyframes breathe{from{translate:0 0;rotate:var(--r,0deg)}to{translate:var(--x,10px) var(--y,-8px);rotate:calc(var(--r,0deg) + var(--a,2deg))}}
+/* широкие волны */
+.r1{width:min(900px,64vw);left:18%;bottom:-150px;--r:-4deg;opacity:.85;--t:17s;--d:-5s;--x:-14px;--y:8px;--a:1.6deg}
+.r6{width:min(1000px,74vw);left:10%;top:-120px;--r:3deg;opacity:.75;--t:20s;--d:-13s;--x:16px;--y:-6px;--a:-1.4deg}
+.r10{width:min(1000px,80vw);left:10%;top:40px;--r:-3deg;opacity:.5;--t:8s;--x:22px;--y:10px;--a:1.5deg}
+/* вертикальные */
+.r2{width:250px;left:calc(50% - 125px);bottom:-250px;opacity:.9;--t:21s;--d:-11s;--x:10px;--y:-12px;--a:-2.5deg}
+.r4{width:280px;left:calc(50% - 140px);bottom:-230px;--r:8deg;opacity:.85;--t:19s;--d:-9s;--x:12px;--y:10px;--a:-2.4deg}
+.r5{width:300px;right:1%;top:90px;--r:-6deg;opacity:.85;--t:23s;--d:-6s;--x:-10px;--y:-14px;--a:2deg}
+.r7{width:260px;left:calc(50% - 130px);top:60px;opacity:.85;--t:18s;--d:-2s;--x:-10px;--y:12px;--a:2.2deg}
+.r9{width:280px;left:calc(50% - 140px);bottom:-230px;--r:-10deg;opacity:.85;--t:22s;--d:-15s;--x:-12px;--y:-10px;--a:2.6deg}
+/* петли */
+.r3{width:320px;right:4%;bottom:-220px;opacity:.85;--t:15s;--d:-3s;--x:-8px;--y:-10px;--a:3deg}
+.r8{width:360px;left:-2%;bottom:-180px;--r:-6deg;opacity:.85;--t:16s;--d:-8s;--x:10px;--y:8px;--a:-2.8deg}
 
 /* ============ ПОЛОСЫ ФОНА: тёмная и мятная, края растворяются ============ */
 .band-dark,.band-mint{padding:clamp(170px,15vw,230px) 0}
@@ -232,17 +242,19 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 .tcol p{margin:0;font:500 1.18rem/1.5 var(--serif);color:var(--ink)}
 
 @media (max-width:860px){
-  .band-dark,.band-mint{padding:140px 0}
+  .chess.band-dark,.chess.band-mint{padding:140px 0 190px}   /* .chess{padding:44px 0} ниже по файлу иначе перебивает */
   .band-dark{background:linear-gradient(180deg,var(--paper) 0,var(--forest) 100px,var(--forest) calc(100% - 100px),var(--paper) 100%)}
   .band-mint{background:linear-gradient(180deg,var(--paper) 0,var(--mint) 100px,var(--mint) calc(100% - 100px),var(--paper) 100%)}
-  .sign{padding-top:150px;background:linear-gradient(180deg,var(--paper) 0,var(--forest) 100px)!important}
+  .chess.sign{padding-top:150px;background:linear-gradient(180deg,var(--paper) 0,var(--forest) 100px)!important}
   .trip-grid{grid-template-columns:1fr;gap:40px}
   .tcol:nth-child(2){margin-top:0}
-  .rib{opacity:.32}
-  .r1,.r4,.r8{width:110vw;left:-5vw;bottom:-90px}
-  .r5{width:120vw;left:-10vw;top:60px}
-  .r2,.r3,.r9{width:52vw;left:auto;right:-8vw;bottom:-150px}
-  .r6,.r7,.r10{width:50vw;left:-8vw;right:auto;top:20px}
+  .rib{opacity:.42}
+  .r1,.r6,.r10{width:120vw;left:-10vw;right:auto}
+  .r1{bottom:-80px}.r6{top:20px}.r10{top:30px}
+  .r2,.r4,.r7,.r9{width:44vw;left:auto;right:-6vw}
+  .r2,.r4,.r9{bottom:-140px}.r7{top:20px}
+  .r5{width:56vw;left:auto;right:-10vw;top:30px}
+  .r3,.r8{width:56vw;left:-12vw;right:auto;bottom:-120px}
 }
 
 /* телефон: фото сверху, текст главы под ним */
@@ -311,11 +323,11 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   .open .bg{position:relative;inset:auto;height:56svh;flex:none;order:-1}
   .open .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,247,241,.75) 0%,rgba(250,247,241,0) 22%,rgba(250,247,241,0) 70%,var(--paper) 100%)}
   .open .text{padding-top:8px}
-  .open .ribbon{left:-30%;width:170%;top:30svh}
+  .open .ribbon{left:-22%;width:150%;top:28svh;--r:-12deg;--x:-18px;--y:10px}
   .scene-tag{bottom:auto;top:calc(56svh - 52px);right:16px}
 }
 @media (prefers-reduced-motion:reduce){
-  .btn-main,.btn-line,.btn-main::after{animation:none}
+  .btn-main,.btn-line,.btn-main::after,.rib,.open .ribbon{animation:none}
   .btn-main::after{display:none}
   .ph img{transform:none}
   .dock{transition:opacity .2s}
@@ -324,7 +336,6 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><defs><linearGradient id="rb-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#A9C1B3" stop-opacity="0"/><stop offset=".22" stop-color="#A9C1B3" stop-opacity=".9"/><stop offset=".7" stop-color="#DCE8DE" stop-opacity=".9"/><stop offset="1" stop-color="#A9C1B3" stop-opacity="0"/></linearGradient><symbol id="ribbon" viewBox="0 0 1000 600" preserveAspectRatio="none"><path d="M-40 520.0C300 640.0 640 110.0 1040 70.0L1040 104.0C640 390.0 300 420.0 -40 560.0Z" fill="url(#rb-g)" opacity=".42"/><path d="M-40 520.0C300 640.0 640 110.0 1040 70.0 M-40 522.4C300 627.1 640 126.5 1040 72.0 M-40 524.7C300 614.1 640 142.9 1040 74.0 M-40 527.1C300 601.2 640 159.4 1040 76.0 M-40 529.4C300 588.2 640 175.9 1040 78.0 M-40 531.8C300 575.3 640 192.4 1040 80.0 M-40 534.1C300 562.4 640 208.8 1040 82.0 M-40 536.5C300 549.4 640 225.3 1040 84.0 M-40 538.8C300 536.5 640 241.8 1040 86.0 M-40 541.2C300 523.5 640 258.2 1040 88.0 M-40 543.5C300 510.6 640 274.7 1040 90.0 M-40 545.9C300 497.6 640 291.2 1040 92.0 M-40 548.2C300 484.7 640 307.6 1040 94.0 M-40 550.6C300 471.8 640 324.1 1040 96.0 M-40 552.9C300 458.8 640 340.6 1040 98.0 M-40 555.3C300 445.9 640 357.1 1040 100.0 M-40 557.6C300 432.9 640 373.5 1040 102.0 M-40 560.0C300 420.0 640 390.0 1040 104.0" fill="none" stroke="url(#rb-g)" stroke-width="1" stroke-opacity=".55" vector-effect="non-scaling-stroke"/></symbol></defs></svg>
 
 <header class="top"><div class="in">
   <a class="logo" href="#" aria-label="Vector, recovery center">
@@ -343,7 +354,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   <!-- Первый экран: письмо (утверждено) -->
   <section class="ch open" aria-labelledby="h1">
     <div class="bg" aria-hidden="true"><img id="hero-still" src="../../media/hA-l.webp" alt="" fetchpriority="high"></div>
-    <div class="ribbon" aria-hidden="true"><svg><use href="#ribbon" width="100%" height="100%"/></svg></div>
+    <div class="ribbon" aria-hidden="true"><img src="../../brand/ribbon/silk-a.webp" alt="" width="1000" height="310" decoding="async"></div>
     <div class="text">
       <span class="label">Письмо тому, кто сейчас ищет выход</span>
       <h1 id="h1">Здравствуйте. <em>Выход есть.</em></h1>
@@ -366,7 +377,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   </section>
 
   <section class="chess" id="listen" data-sc-act="flow" aria-labelledby="listen-h">
-    <img class="rib r1" src="../../brand/ribbon/silk-b.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.16">
+    <img class="rib r1" src="../../brand/ribbon/silk-a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.10">
     <div class="wrap chess-row">
       <div class="txt" data-sc-in>
         <span class="label"><b>I</b>Первый разговор</span>
@@ -402,7 +413,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess" id="home" data-sc-act="flow" aria-labelledby="home-h">
-    <img class="rib r4" src="../../brand/ribbon/silk-a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.08">
+    <img class="rib r4" src="../../brand/ribbon/silk-b.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label"><b>IV</b>Дом</span>
@@ -414,7 +425,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess band-dark" id="program" data-sc-act="flow" aria-labelledby="program-h">
-    <img class="rib r5" src="../../brand/ribbon/silk-a-on-dark.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.1">
+    <img class="rib r5" src="../../brand/ribbon/glow-on-dark.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.12">
     <div class="wrap chess-row">
       <div class="txt" data-sc-in>
         <span class="label"><b>V</b>Программа «12 шагов»</span>
@@ -426,7 +437,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="trip" aria-label="Спортзал, баня и купель, молельная комната" data-sc-act="flow">
-    <img class="rib r6" src="../../brand/ribbon/lines.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.12">
+    <img class="rib r6" src="../../brand/ribbon/silk-a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.08">
     <div class="wrap trip-grid" data-sc-in data-sc-stagger="90">
       <article class="tcol" id="gym" aria-labelledby="gym-h">
         <figure class="ph tall" style="background-image:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAwCdASoQABQAPu1kqU2ppaOiMAgBMB2JZQDE2A7D0ydOKQxOAADoeUOR4GYJeOQJ8H9XCKvH0/4ZyxgBvx+s50zV9XfQjK1ZtgL4p/AGYLL9n4zwjhVAnOrd3p4f/cM/0GrHo9Cd4dvZZcYpTKG6V3udcQV8ItWeitDcAAA=)"><img src="../../img/c/c6-gym-800.webp" srcset="../../img/c/c6-gym-480.webp 480w, ../../img/c/c6-gym-800.webp 800w, ../../img/c/c6-gym-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 368px" alt="Спортзал центра" width="1200" height="1500" decoding="async" loading="lazy"></figure>
@@ -449,7 +460,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess band-mint" id="family" data-sc-act="flow" aria-labelledby="family-h">
-    <img class="rib r7" src="../../brand/ribbon/silk-b.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    <img class="rib r7" src="../../brand/ribbon/lines.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label"><b>IX</b>Для семьи</span>
@@ -461,7 +472,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess" id="after" data-sc-act="flow" aria-labelledby="after-h">
-    <img class="rib r8" src="../../brand/ribbon/silk-a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.1">
+    <img class="rib r8" src="../../brand/ribbon/silk-c.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.12">
     <div class="wrap chess-row">
       <div class="txt" data-sc-in>
         <span class="label"><b>X</b>После курса</span>
@@ -473,7 +484,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess" id="team" data-sc-act="flow" aria-labelledby="team-h">
-    <img class="rib r9" src="../../brand/ribbon/silk-c.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    <img class="rib r9" src="../../brand/ribbon/silk-b.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label"><b>XI</b>Команда</span>
@@ -498,7 +509,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   </section>
 
   <section class="chess sign" id="contact" data-sc-act="flow" aria-labelledby="contact-h">
-    <img class="rib r10" src="../../brand/ribbon/silk-c-on-dark.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.12">
+    <img class="rib r10" src="../../brand/ribbon/silk-a-on-dark.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.08">
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label">Когда будете готовы</span>
@@ -562,6 +573,10 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   addEventListener('DOMContentLoaded', () => {
     if (window.ScrollCraft) ScrollCraft.mount(document); else document.documentElement.classList.remove('sc-on');
   });
+
+  /* Ленты дышат только на экране: вне его анимация на паузе; при «меньше движения» её нет вовсе (CSS) */
+  const live = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('live', e.isIntersecting)), {rootMargin: '120px 0px'});
+  $$('.rib, .open .ribbon').forEach(r => live.observe(r));
 
   /* Панель связи: после первого экрана, прячется у подписи */
   const dock = $('#dock'), seen = {hero: true, talk: false};
