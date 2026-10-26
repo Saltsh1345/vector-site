@@ -356,8 +356,8 @@ T = [
 ('Разработка сайта — ТОО «Salem Hybrid»',
  'Sayt ishlab chiquvchisi — TOO «Salem Hybrid»',
  'Таҳиягари сомона — ТОО «Salem Hybrid»'),
-# заранее загружаемые буквы главного заголовка (пути уже с ../../../ — i18n.py переписывает их раньше подстановки): узбекский — латиница, таджикский — кириллица и её расширение (ҳ, ҷ)
+# заранее загружаемые буквы главного заголовка (пути уже с ../../../ — i18n.py переписывает их раньше подстановки): узбекский — латиница, таджикский — кириллица и расширение (ҳ, ҷ) только для курсива: в прямой части заголовка этих букв нет
 ('<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-cyrillic.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-cyrillic.woff2" crossorigin>',
  '<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-latin.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-latin.woff2" crossorigin>',
- '<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-cyrillic.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-cyrillic.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-cyrillic-ext.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-cyrillic-ext.woff2" crossorigin>'),
+ '<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500-cyrillic.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-cyrillic.woff2" crossorigin>\n<link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/cormorant/Cormorant-500i-cyrillic-ext.woff2" crossorigin>'),
 ]
