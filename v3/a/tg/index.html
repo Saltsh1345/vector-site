@@ -49,8 +49,6 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:8px}
 ::selection{background:var(--mint);color:var(--forest)}
 h1,h2,h3,.num,.lead,.regards{font-variant-numeric:lining-nums}
-.ribbon{position:absolute;pointer-events:none}
-.ribbon img{display:block;width:100%;height:auto}
 .wrap{width:var(--wrap);margin-inline:auto}
 /* без движка блоки не прячем */
 html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;transform:none}
@@ -115,7 +113,6 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 .open .bg{position:absolute;inset:0;z-index:-2;background:var(--cream)}
 .open .bg img,.open .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .open::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(250,247,241,.72) 0%,rgba(250,247,241,0) 18%),linear-gradient(90deg,rgba(250,247,241,.97) 0%,rgba(250,247,241,.9) 32%,rgba(250,247,241,.45) 50%,rgba(250,247,241,0) 64%)}
-.open .ribbon{left:36%;width:min(66vw,1000px);top:40%;z-index:-1;opacity:.9;--r:-15deg;--t:8s;--x:-26px;--y:12px;--a:2deg}
 .open .text{grid-column:1}
 .open .text p{max-width:22em}
 .scene-tag{position:absolute;right:max(24px,env(safe-area-inset-right));bottom:28px;padding:8px 14px;border-radius:999px;background:rgba(250,247,241,.9);font:600 var(--f13)/1 var(--sans);color:var(--forest)}
@@ -197,27 +194,13 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 
 /* ============ ФИРМЕННЫЕ ЛЕНТЫ: проходят между главами и мягко плывут при прокрутке ============ */
 .chess,.trip{overflow-x:clip}
-.rib{position:absolute;z-index:0;pointer-events:none;height:auto;max-width:none;opacity:.9;filter:drop-shadow(0 10px 16px rgba(21,61,54,.14))}
-.band-dark .rib,.sign .rib{filter:none}
-/* Ленты «дышат»: медленно покачиваются, как ткань на сквозняке; у кнопки первого экрана и подписи — тянутся к ней.
-   Только translate и rotate: их рисует видеокарта. transform занят параллаксом движка, поэтому свой поворот ленты — в --r.
-   Вне экрана — пауза (класс .live ставит letter.js), при «меньше движения» — стоят. */
-.rib,.open .ribbon{rotate:var(--r,0deg);animation:breathe var(--t,19s) cubic-bezier(.45,0,.55,1) var(--d,0s) infinite alternate;animation-play-state:paused}
-.rib.live,.open .ribbon.live{animation-play-state:running}
-@keyframes breathe{from{translate:0 0;rotate:var(--r,0deg)}to{translate:var(--x,10px) var(--y,-8px);rotate:calc(var(--r,0deg) + var(--a,2deg))}}
+/* одна лента через всё письмо (letter.js): холст первого экрана под его текстом и слой страницы над фонами полос, под текстом и фото */
+.thread-hero{position:absolute;inset:0;z-index:-1;width:100%;height:100%;pointer-events:none}
+.thread{position:absolute;left:0;width:100%;z-index:0;overflow:hidden;pointer-events:none}
+.thread canvas{position:absolute;top:0;left:0;display:block}
 /* широкие волны */
-.r1{width:min(900px,64vw);left:18%;bottom:-150px;--r:-4deg;opacity:.85;--t:17s;--d:-5s;--x:-14px;--y:8px;--a:1.6deg}
-.r6{width:min(1000px,74vw);left:10%;top:-120px;--r:3deg;opacity:.75;--t:20s;--d:-13s;--x:16px;--y:-6px;--a:-1.4deg}
-.r10{width:min(1000px,80vw);left:10%;top:40px;--r:-3deg;opacity:.5;--t:8s;--x:22px;--y:10px;--a:1.5deg}
 /* вертикальные */
-.r2{width:250px;left:calc(50% - 125px);bottom:-250px;opacity:.9;--t:21s;--d:-11s;--x:10px;--y:-12px;--a:-2.5deg}
-.r4{width:280px;left:calc(50% - 140px);bottom:-230px;--r:8deg;opacity:.85;--t:19s;--d:-9s;--x:12px;--y:10px;--a:-2.4deg}
-.r5{width:300px;right:1%;top:90px;--r:-6deg;opacity:.85;--t:23s;--d:-6s;--x:-10px;--y:-14px;--a:2deg}
-.r7{width:260px;left:calc(50% - 130px);top:60px;opacity:.85;--t:18s;--d:-2s;--x:-10px;--y:12px;--a:2.2deg}
-.r9{width:280px;left:calc(50% - 140px);bottom:-230px;--r:-10deg;opacity:.85;--t:22s;--d:-15s;--x:-12px;--y:-10px;--a:2.6deg}
 /* петли */
-.r3{width:320px;right:4%;bottom:-220px;opacity:.85;--t:15s;--d:-3s;--x:-8px;--y:-10px;--a:3deg}
-.r8{width:360px;left:-2%;bottom:-180px;--r:-6deg;opacity:.85;--t:16s;--d:-8s;--x:10px;--y:8px;--a:-2.8deg}
 
 /* ============ ПОЛОСЫ ФОНА: тёмная и мятная, края растворяются ============ */
 .band-dark,.band-mint{padding:clamp(170px,15vw,230px) 0}
@@ -248,13 +231,6 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   .chess.sign{padding-top:150px;background:linear-gradient(180deg,var(--paper) 0,var(--forest) 100px)!important}
   .trip-grid{grid-template-columns:1fr;gap:40px}
   .tcol:nth-child(2){margin-top:0}
-  .rib{opacity:.42}
-  .r1,.r6,.r10{width:120vw;left:-10vw;right:auto}
-  .r1{bottom:-80px}.r6{top:20px}.r10{top:30px}
-  .r2,.r4,.r7,.r9{width:44vw;left:auto;right:-6vw}
-  .r2,.r4,.r9{bottom:-140px}.r7{top:20px}
-  .r5{width:56vw;left:auto;right:-10vw;top:30px}
-  .r3,.r8{width:56vw;left:-12vw;right:auto;bottom:-120px}
 }
 
 /* телефон: фото сверху, текст главы под ним */
@@ -323,11 +299,10 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   .open .bg{position:relative;inset:auto;height:56svh;flex:none;order:-1}
   .open .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,247,241,.75) 0%,rgba(250,247,241,0) 22%,rgba(250,247,241,0) 70%,var(--paper) 100%)}
   .open .text{padding-top:8px}
-  .open .ribbon{left:-22%;width:150%;top:28svh;--r:-12deg;--x:-18px;--y:10px}
   .scene-tag{bottom:auto;top:calc(56svh - 52px);right:16px}
 }
 @media (prefers-reduced-motion:reduce){
-  .btn-main,.btn-line,.btn-main::after,.rib,.open .ribbon{animation:none}
+  .btn-main,.btn-line,.btn-main::after{animation:none}
   .btn-main::after{display:none}
   .ph img{transform:none}
   .dock{transition:opacity .2s}
@@ -354,7 +329,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   <!-- Первый экран: письмо (утверждено) -->
   <section class="ch open" aria-labelledby="h1">
     <div class="bg" aria-hidden="true"><img id="hero-still" src="../../../media/hA-l.webp" alt="" fetchpriority="high"></div>
-    <div class="ribbon" aria-hidden="true"><img src="../../../brand/ribbon/silk-a.webp" alt="" width="1000" height="310" decoding="async"></div>
+    <canvas class="thread-hero" aria-hidden="true"></canvas>
     <div class="text">
       <span class="label">Мактуб ба касе, ки ҳоло роҳи наҷот меҷӯяд</span>
       <h1 id="h1">Ассалому алайкум. <em>Роҳи наҷот ҳаст.</em></h1>
@@ -377,7 +352,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   </section>
 
   <section class="chess" id="listen" data-sc-act="flow" aria-labelledby="listen-h">
-    <img class="rib r1" src="../../../brand/ribbon/silk-a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.10">
+    
     <div class="wrap chess-row">
       <div class="txt" data-sc-in>
         <span class="label"><b>I</b>Сӯҳбати аввал</span>
@@ -389,7 +364,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess" id="consult" data-sc-act="flow" aria-labelledby="consult-h">
-    <img class="rib r2" src="../../../brand/ribbon/lines.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.1">
+    
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label"><b>II</b>Ройгон</span>
@@ -401,7 +376,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess" id="against" data-sc-act="flow" aria-labelledby="against-h">
-    <img class="rib r3" src="../../../brand/ribbon/silk-c.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    
     <div class="wrap chess-row">
       <div class="txt" data-sc-in>
         <span class="label"><b>III</b>Бе маҷбурӣ</span>
@@ -413,7 +388,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess" id="home" data-sc-act="flow" aria-labelledby="home-h">
-    <img class="rib r4" src="../../../brand/ribbon/silk-b.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label"><b>IV</b>Хона ва шароит</span>
@@ -425,7 +400,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess band-dark" id="program" data-sc-act="flow" aria-labelledby="program-h">
-    <img class="rib r5" src="../../../brand/ribbon/glow-on-dark.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.12">
+    
     <div class="wrap chess-row">
       <div class="txt" data-sc-in>
         <span class="label"><b>V</b>Барномаи «12 қадам»</span>
@@ -437,7 +412,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="trip" aria-label="Толори варзиш, ҳаммом ва ҳавзча, ҳуҷраи намоз" data-sc-act="flow">
-    <img class="rib r6" src="../../../brand/ribbon/silk-a.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.08">
+    
     <div class="wrap trip-grid" data-sc-in data-sc-stagger="90">
       <article class="tcol" id="gym" aria-labelledby="gym-h">
         <figure class="ph tall" style="background-image:url(data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAwCdASoQABQAPu1kqU2ppaOiMAgBMB2JZQDE2A7D0ydOKQxOAADoeUOR4GYJeOQJ8H9XCKvH0/4ZyxgBvx+s50zV9XfQjK1ZtgL4p/AGYLL9n4zwjhVAnOrd3p4f/cM/0GrHo9Cd4dvZZcYpTKG6V3udcQV8ItWeitDcAAA=)"><img src="../../../img/c/c6-gym-800.webp" srcset="../../../img/c/c6-gym-480.webp 480w, ../../../img/c/c6-gym-800.webp 800w, ../../../img/c/c6-gym-1200.webp 1200w" sizes="(max-width:860px) calc(100vw - 48px), 368px" alt="Толори варзиши марказ" width="1200" height="1500" decoding="async" loading="lazy"></figure>
@@ -460,7 +435,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess band-mint" id="family" data-sc-act="flow" aria-labelledby="family-h">
-    <img class="rib r7" src="../../../brand/ribbon/lines.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label"><b>IX</b>Барои оила</span>
@@ -472,7 +447,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess" id="after" data-sc-act="flow" aria-labelledby="after-h">
-    <img class="rib r8" src="../../../brand/ribbon/silk-c.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.12">
+    
     <div class="wrap chess-row">
       <div class="txt" data-sc-in>
         <span class="label"><b>X</b>Пас аз курс</span>
@@ -484,7 +459,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     </div>
   </section>
   <section class="chess" id="team" data-sc-act="flow" aria-labelledby="team-h">
-    <img class="rib r9" src="../../../brand/ribbon/silk-b.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.14">
+    
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label"><b>XI</b>Ҷамоа</span>
@@ -509,7 +484,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   </section>
 
   <section class="chess sign" id="contact" data-sc-act="flow" aria-labelledby="contact-h">
-    <img class="rib r10" src="../../../brand/ribbon/silk-a-on-dark.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-sc-parallax="-0.08">
+    
     <div class="wrap chess-row rev">
       <div class="txt" data-sc-in>
         <span class="label">Вақте ки омода бошед</span>
@@ -574,10 +549,6 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     if (window.ScrollCraft) ScrollCraft.mount(document); else document.documentElement.classList.remove('sc-on');
   });
 
-  /* Ленты дышат только на экране: вне его анимация на паузе; при «меньше движения» её нет вовсе (CSS) */
-  const live = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('live', e.isIntersecting)), {rootMargin: '120px 0px'});
-  $$('.rib, .open .ribbon').forEach(r => live.observe(r));
-
   /* Панель связи: после первого экрана, прячется у подписи */
   const dock = $('#dock'), seen = {hero: true, talk: false};
   const sync = () => dock.classList.toggle('show', !seen.hero && !seen.talk);
@@ -593,6 +564,237 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   }));
   $$('[data-close]', viewer).forEach(c => c.addEventListener('click', close));
   addEventListener('keydown', e => { if (e.key === 'Escape' && !viewer.hidden) close(); });
+
+  /* Фирменная лента — одна, через всё письмо: из первого экрана вниз до кнопки «Позвонить» в подписи, без разрывов.
+     Как у ленты бренда, она соткана из тонких нитей: перекручивается, на сгибах нити сходятся и светлеют.
+     В каждой главе лента спускается по стороне текста, между главами перетекает на другую сторону — за шахматкой; фото обходит.
+     Шевелится медленно, будто живая. Рисуется на холстах, которые едут вместе со страницей (не fixed — иначе
+     при прокрутке лента отстаёт от текста). Холсты — полоски по 300–360 px высотой и ровно по ширине ленты в этой
+     полоске: дороже всего обходится стереть и передать на экран холст целиком, а лента занимает узкую часть страницы.
+     Полоски переставляются под видимую часть. Перерисовываются только те, что на экране; пока страницу листают,
+     лента не шевелится. Вне экрана и на скрытой вкладке не рисуется, при «меньше движения» стоит. */
+  const hero = $('.open'), main = $('main'), heroCv = $('.thread-hero');
+  if (hero && main && heroCv && heroCv.getContext) {
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches || !!(navigator.connection && navigator.connection.saveData);
+    const box = document.createElement('div'); box.className = 'thread'; box.setAttribute('aria-hidden', 'true');
+    main.after(box);
+    const pool = [];
+    const hx = heroCv.getContext('2d');
+    let G = null;   // геометрия: точки оси, нормали, длины, полосы тёмного фона
+
+    const smooth = (a, b, v) => { const t = Math.min(1, Math.max(0, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
+    const pageY = el => el.getBoundingClientRect().top + scrollY;
+
+    const build = () => {
+      const W = document.documentElement.clientWidth, mob = W <= 860;
+      const H0 = hero.offsetHeight, last = $('#contact');
+      if (!last) return;
+      const H1 = pageY(last) + last.offsetHeight;
+      const secs = $$('main > section').filter(s => s !== hero);
+      const wl = ($('.chess .wrap') || main).getBoundingClientRect().left;
+      const WB = mob ? 62 : Math.max(64, Math.min(92, wl * 0.6));
+      const rect = (s, sel) => { const e = $(sel, s); if (!e) return null; const r = e.getBoundingClientRect(); return { l: r.left, r: r.right, t: r.top + scrollY, b: r.bottom + scrollY }; };
+      // опорные точки оси в координатах страницы
+      let P;
+      if (mob) {
+        // телефон: одна колонка, места сбоку нет — лента идёт вдоль правого края, где строки короче, и чуть покачивается
+        P = [[W * 1.15, H0 * 0.02], [W * 0.7, H0 * 0.16], [W * 0.84, H0 * 0.34], [W * 0.94, H0 * 0.6]];
+        secs.forEach((s, i) => { const y = pageY(s), h = s.offsetHeight;
+          if (s !== last) { P.push([W * (i % 2 ? 0.97 : 0.89), y + h * 0.35], [W * (i % 2 ? 0.9 : 0.97), y + h * 0.8]); return; }
+          const q = rect(s, '.btn-main'), cy = (q.t + q.b) / 2; P.push([W * 0.95, y + h * 0.05], [W * 0.97, q.t - 110], [q.r - 20, cy], [q.l + (q.r - q.l) * 0.5, cy + 2]); });
+      } else {
+        // компьютер: лента спускается по полю со стороны фото (текст не задевает), между главами перетекает на другую сторону
+        // через просвет между нижним краем одного фото и верхним краем следующего
+        const lane = { L: wl * 0.5, R: W - wl * 0.5 };
+        const ph = secs.map(s => rect(s, '.trip-grid') || rect(s, '.ph'));
+        let side = secs.map((s, i) => (ph[i] && !$('.trip-grid', s) ? ((ph[i].l + ph[i].r) / 2 < W / 2 ? 'L' : 'R') : null));
+        for (let i = 0; i < side.length; i++) if (!side[i]) side[i] = side[i - 1] || 'R';
+        side[side.length - 1] = side[side.length - 2];   // в подписи — дальше по тому же полю, к кнопке со стороны текста
+        P = [[W * 1.05, H0 * 0.04], [W * 0.86, H0 * 0.3], [W * 0.76, H0 * 0.6], [W * 0.88, H0 * 0.88], [lane[side[0]], H0 + 190]];
+        secs.forEach((s, i) => {
+          const q = ph[i], x = lane[side[i]];
+          if (s === last) {
+            const bt = rect(s, '.btn-main'), cy = (bt.t + bt.b) / 2, row = rect(s, '.row') || bt, d = side[i] === 'R' ? 1 : -1;
+            P.push([x, q.t + 40], [x - d * 10, cy - 120], [d > 0 ? row.r + 60 : row.l - 60, cy], [(bt.l + bt.r) / 2, cy + 2]); return;
+          }
+          P.push([x, q.t + (q.b - q.t) * 0.3], [x, q.t + (q.b - q.t) * 0.78]);
+          const n = ph[i + 1]; if (!n || side[i + 1] === side[i]) return;
+          const g = (q.b + n.t) / 2, d = side[i] === 'R' ? 1 : -1;
+          P.push([W / 2 + d * W * 0.27, g - 26], [W / 2 - d * W * 0.27, g + 26]);
+        });
+      }
+      // ось — сплайн Катмулла — Рома через опорные точки, затем шаг ~5 px по длине
+      const pts = [P[0], ...P, P[P.length - 1]], raw = [];
+      for (let i = 1; i < pts.length - 2; i++) {
+        const [p0, p1, p2, p3] = [pts[i - 1], pts[i], pts[i + 1], pts[i + 2]];
+        const n = Math.ceil(Math.hypot(p2[0] - p1[0], p2[1] - p1[1]) / 2) + 1;
+        for (let j = 0; j < n; j++) {
+          const t = j / n, t2 = t * t, t3 = t2 * t;
+          raw.push([0, 1].map(k => 0.5 * (2 * p1[k] + (p2[k] - p0[k]) * t + (2 * p0[k] - 5 * p1[k] + 4 * p2[k] - p3[k]) * t2 + (3 * p1[k] - p0[k] - 3 * p2[k] + p3[k]) * t3)));
+        }
+      }
+      raw.push(P[P.length - 1]);
+      const step = 7, X = [], Y = [], L = [];
+      let acc = 0, need = 0;
+      for (let i = 0; i < raw.length; i++) {
+        if (i) acc += Math.hypot(raw[i][0] - raw[i - 1][0], raw[i][1] - raw[i - 1][1]);
+        if (acc >= need) { X.push(raw[i][0]); Y.push(raw[i][1]); L.push(acc); need = acc + step; }
+      }
+      const N = X.length, NX = new Float32Array(N), NY = new Float32Array(N), CAP = new Float32Array(N);
+      for (let i = 0; i < N; i++) {
+        const a = Math.max(0, i - 2), b = Math.min(N - 1, i + 2), dx = X[b] - X[a], dy = Y[b] - Y[a], d = Math.hypot(dx, dy) || 1;
+        NX[i] = -dy / d; NY[i] = dx / d;
+      }
+      // на крутом повороте лента не шире радиуса поворота — иначе внутренний край складывается в острый крючок
+      const K0 = new Float32Array(N);
+      for (let i = 3; i < N - 3; i++) { let da = Math.atan2(NY[i + 3], NX[i + 3]) - Math.atan2(NY[i - 3], NX[i - 3]); da = Math.atan2(Math.sin(da), Math.cos(da)); K0[i] = Math.abs(da) / (L[i + 3] - L[i - 3]); }
+      for (let i = 0; i < N; i++) { let k = 0; for (let j = Math.max(0, i - 12); j <= Math.min(N - 1, i + 12); j++) k = Math.max(k, K0[j]); CAP[i] = k > 0 ? 0.85 / k : 1e4; }
+      // тёмный фон: тёмная полоса и подпись; переход — по краю-градиенту полосы
+      const R = mob ? 100 : 170;
+      const bands = $$('.band-dark, .sign').map(s => ({ a: pageY(s), b: pageY(s) + s.offsetHeight, open: s.classList.contains('sign') }));
+      const dark = y => bands.reduce((m, q) => Math.max(m, smooth(q.a, q.a + R, y) * (q.open ? 1 : 1 - smooth(q.b - R, q.b, y))), 0);
+      const TH = mob ? 300 : 450, m = Math.ceil(WB / 2 + (mob ? 12 : 18) + 6), nT = Math.ceil((H1 - H0) / TH);
+      // для каждой полоски — где по ширине проходит лента (с запасом на ширину и покачивание)
+      const tb = Array.from({ length: nT }, () => [Infinity, -Infinity]), hb = [Infinity, -Infinity, Infinity, -Infinity];
+      for (let i = 0; i < N; i++) {
+        for (let k = Math.max(0, Math.floor((Y[i] - m - H0) / TH)); k <= Math.min(nT - 1, Math.floor((Y[i] + m - H0) / TH)); k++) {
+          tb[k][0] = Math.min(tb[k][0], X[i] - m); tb[k][1] = Math.max(tb[k][1], X[i] + m);
+        }
+        if (Y[i] - m < H0) { hb[0] = Math.min(hb[0], X[i] - m); hb[1] = Math.max(hb[1], X[i] + m); hb[2] = Math.min(hb[2], Y[i] - m); hb[3] = Math.max(hb[3], Y[i] + m); }
+      }
+      const clip = ([a, b]) => { a = Math.max(0, Math.floor(a)); b = Math.min(W, Math.ceil(b)); return b > a ? { x: a, w: b - a } : null; };
+      G = { W, mob, H0, H1, X, Y, L, N, NX, NY, CAP, total: acc, dark, WB, lines: mob ? 56 : 84, dpr: Math.min(devicePixelRatio || 1, mob ? 1.25 : 1.5), TH, tiles: tb.map(clip) };
+      const hx0 = clip([hb[0], hb[1]]), hy0 = Math.max(0, Math.floor(hb[2])), hy1 = Math.min(H0, Math.ceil(hb[3]));
+      G.hero = hx0 && hy1 > hy0 ? { x: hx0.x, w: hx0.w, y: hy0, h: hy1 - hy0 } : null;
+      if (G.hero) {
+        Object.assign(heroCv.style, { inset: 'auto', left: G.hero.x + 'px', top: G.hero.y + 'px', width: G.hero.w + 'px', height: G.hero.h + 'px' });
+        heroCv.width = Math.round(G.hero.w * G.dpr); heroCv.height = Math.round(G.hero.h * G.dpr);
+      }
+      box.style.top = H0 + 'px'; box.style.height = Math.max(0, H1 - H0) + 'px';
+      frameT = -1;   // лента построена заново — посчитанная на кадр геометрия устарела
+      const slots = Math.ceil((innerHeight * 1.6) / TH) + 2;
+      while (pool.length < slots) { const c = document.createElement('canvas'); c.hidden = true; box.append(c); pool.push({ c, x: c.getContext('2d'), k: -1 }); }
+      pool.forEach(p => { p.k = -1; p.c.hidden = true; });
+    };
+
+    // цвет нитей по высоте страницы: на светлом — шалфей и белые блики, на тёмном — светлые нити, как у ленты бренда на чёрном
+    const mix = (a, b, d) => a.map((v, i) => v + (b[i] - v) * d);
+    const C = { line: [[112, 150, 134, 0.2], [206, 228, 210, 0.2]], edge: [[104, 142, 127, 0.5], [226, 240, 226, 0.5]] };
+    // на первом экране лента лежит на ролике: там она светлая, как в постах бренда на фото
+    const CH = { line: [[246, 251, 244, 0.4], [246, 251, 244, 0.4]], edge: [[255, 255, 252, 0.5], [255, 255, 252, 0.5]] };
+    const rgba = c => `rgba(${c[0] | 0},${c[1] | 0},${c[2] | 0},${c[3].toFixed(3)})`;
+    // градиент вдоль нитей дорог для растеризации — он нужен только там, где лента пересекает край тёмной полосы
+    const paint1 = (ctx, y0, h, pair) => {
+      const n = Math.max(2, Math.ceil(h / 40)), ds = Array.from({ length: n + 1 }, (_, i) => G.dark(y0 + (h * i) / n));
+      if (Math.max(...ds) - Math.min(...ds) < 0.02) return rgba(mix(pair[0], pair[1], ds[0]));
+      const g = ctx.createLinearGradient(0, y0, 0, y0 + h);
+      ds.forEach((d, i) => g.addColorStop(i / n, rgba(mix(pair[0], pair[1], d))));
+      return g;
+    };
+
+    // геометрия ленты на кадр: центр с покачиванием, нормаль, ширина и перекрут — один раз на все холсты кадра
+    let GX, GY, GC, GK, US, frameT = -1, lo = 0, hi = -1;
+    const shape = (t, a, b) => {
+      const { X, L, N, NX, NY, WB, CAP, total, mob } = G;
+      if (!GX || GX.length !== N) { GX = new Float32Array(N); GY = new Float32Array(N); GC = new Float32Array(N); GK = new Float32Array(N); }
+      if (!US || US.length !== G.lines) US = Float32Array.from({ length: G.lines }, (_, j) => 2 * j / (G.lines - 1) - 1);
+      if (t === frameT && a >= lo && b <= hi) return;
+      frameT = t; lo = a; hi = b;
+      for (let i = a; i <= b; i++) {
+        const s = L[i], th = (s / (mob ? 520 : 700)) * 2 * Math.PI + 0.8 * Math.sin(s / 610 - t * 0.35) + t * 0.1;
+        const sw = (mob ? 8 : 12) * Math.sin(s / 430 - t * 0.55) + (mob ? 4 : 6) * Math.sin(s / 190 + t * 0.8);
+        // к кнопке лента сужается в кончик и уходит под неё
+        const tip = 1 - 0.94 * smooth(total - (mob ? 520 : 760), total, s);
+        const wd = Math.min(WB * (0.9 + 0.1 * Math.sin(s / 800 + t * 0.25)) * 0.5, CAP[i]) * tip;
+        GX[i] = X[i] + NX[i] * sw; GY[i] = G.Y[i] + NY[i] * sw; GC[i] = Math.cos(th) * wd; GK[i] = 0.26 * Math.sin(th) * wd;
+      }
+    };
+    // участки оси, которые попадают в прямоугольник холста (по высоте, с запасом на ширину ленты)
+    const runsIn = (y0, h) => {
+      const { Y, N, WB } = G, a = y0 - WB, b = y0 + h + WB, runs = [];
+      let st = -1;
+      for (let i = 0; i < N; i++) { const inn = Y[i] >= a && Y[i] <= b; if (inn && st < 0) st = i; if (!inn && st >= 0) { runs.push([st, i - 1]); st = -1; } }
+      if (st >= 0) runs.push([st, N - 1]);
+      return runs;
+    };
+    const draw = (ctx, x0, y0, w, h, t, pal = C) => {
+      const { NX, NY, WB, lines, dpr } = G;
+      ctx.setTransform(dpr, 0, 0, dpr, -x0 * dpr, -y0 * dpr);
+      ctx.clearRect(x0, y0, w, h);
+      const runs = runsIn(y0, h);
+      if (!runs.length) return;
+      shape(t, runs[0][0], runs[runs.length - 1][1]);
+      // нить на доле ширины u ∈ [-1, 1]: сечение ленты слегка выгнуто, поэтому на перекруте нити сходятся не в точку
+      // тонкие нити — плавными кривыми через каждую третью точку оси: втрое меньше команд, вид тот же
+      const trace = (u, st) => {
+        const q = 1 - u * u;
+        for (const [a, b] of runs) {
+          let o = GC[a] * u + GK[a] * q, px = GX[a] + NX[a] * o, py = GY[a] + NY[a] * o;
+          ctx.moveTo(px, py);
+          for (let i = a + st; i <= b; i += st) {
+            o = GC[i] * u + GK[i] * q; const x = GX[i] + NX[i] * o, y = GY[i] + NY[i] * o;
+            ctx.quadraticCurveTo(px, py, (px + x) / 2, (py + y) / 2); px = x; py = y;
+          }
+          ctx.lineTo(px, py);
+        }
+      };
+      // как у ленты бренда: только тонкие нити, без заливки; прозрачность и блеск — из того, как нити сходятся на перекруте
+      const y1 = y0 - WB, h1 = h + 2 * WB, ls = paint1(ctx, y1, h1, pal.line), es = paint1(ctx, y1, h1, pal.edge);
+      ctx.lineWidth = 0.6; ctx.strokeStyle = ls;
+      for (let j = 1; j < lines - 1; j++) { ctx.beginPath(); trace(US[j], 3); ctx.stroke(); }
+      ctx.strokeStyle = es; ctx.lineWidth = 0.8;
+      ctx.beginPath(); trace(-1, 2); ctx.stroke(); ctx.beginPath(); trace(1, 2); ctx.stroke();
+    };
+
+    let heroOn = true, dirty = true, fresh = [], scrolling = 0, T = 0;
+    const onScreen = p => { const y = G.H0 + p.k * G.TH - scrollY; return y < innerHeight && y + G.TH > 0; };
+    const tile = (p, t) => { const b = G.tiles[p.k]; draw(p.x, b.x, G.H0 + p.k * G.TH, b.w, G.TH, t); };
+    const paint = (t, all) => {
+      if (!G) return;
+      if (G.hero && heroOn && (all || scrollY < G.H0)) draw(hx, G.hero.x, G.hero.y, G.hero.w, G.hero.h, t, CH);
+      for (const p of pool) if (p.k >= 0 && (all || onScreen(p) || fresh.includes(p))) tile(p, t);
+      fresh = [];
+    };
+    const place = () => {
+      if (!G) return false;
+      const a = scrollY - innerHeight * 0.3 - G.H0, b = scrollY + innerHeight * 1.3 - G.H0;
+      const want = []; for (let k = Math.max(0, Math.floor(a / G.TH)); k <= Math.min(G.tiles.length - 1, Math.floor(b / G.TH)); k++) if (G.tiles[k]) want.push(k);
+      let moved = false;
+      pool.forEach(p => { if (p.k >= 0 && !want.includes(p.k)) { p.k = -1; p.c.hidden = true; } });
+      want.forEach(k => { if (pool.some(p => p.k === k)) return; const p = pool.find(q => q.k < 0); if (!p) return;
+        const bx = G.tiles[k]; p.k = k;
+        p.c.width = Math.round(bx.w * G.dpr); p.c.height = Math.round(G.TH * G.dpr);
+        Object.assign(p.c.style, { width: bx.w + 'px', height: G.TH + 'px', transform: `translate(${bx.x}px,${k * G.TH}px)` });
+        p.c.hidden = false; fresh.push(p); moved = true; });
+      return moved;
+    };
+    new IntersectionObserver(es => { heroOn = es[0].isIntersecting; }).observe(hero);
+    // при прокрутке лента едет вместе со страницей и не шевелится: прокрутка не тормозит; шевелится, когда человек читает
+    addEventListener('scroll', () => { scrolling = performance.now(); if (place()) { dirty = true; if (still || frozen()) { dirty = false; paint(T); } } }, { passive: true });
+    let frozen = () => false;
+    let rs; const rebuild = () => { build(); place(); dirty = false; paint(T, true); };
+    addEventListener('resize', () => { clearTimeout(rs); rs = setTimeout(rebuild, 150); });
+    addEventListener('load', rebuild);
+    if (document.fonts) document.fonts.ready.then(rebuild);
+    rebuild();
+    if (!still) {
+      // 24 кадра в секунду: для медленной ткани хватает. Если устройство не успевает (кадры страницы запаздывают),
+      // лента шевелится реже, а если и это не помогает — замирает; нарисованной она остаётся
+      let last = 0, prev = performance.now(), gap = 40, seen = 0, late = 0, win = 0;
+      const born = prev;
+      const tick = now => {
+        if (gap < Infinity || dirty) requestAnimationFrame(tick); else return;
+        const dt = now - prev, calm = now - scrolling > 180;
+        if (calm) T += Math.min(dt, 100) / 1000;   // время ленты идёт, только пока страницу не листают
+        prev = now;
+        if (calm && now - born > 2500) { if (!win) win = now; seen++; if (dt > 34) late++; if (now - win > 2000 && seen >= 20) { if (late / seen > 0.25) gap = gap < 80 ? 80 : Infinity; seen = late = 0; win = now; } }
+        if (dirty) { dirty = false; paint(T); last = now; return; }
+        if (calm && now - last >= gap) { last = now; paint(T); }
+      };
+      frozen = () => gap === Infinity;
+      requestAnimationFrame(tick);
+    }
+  }
 })();
 
 </script>
