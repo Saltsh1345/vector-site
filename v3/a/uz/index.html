@@ -171,6 +171,10 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 .contacts a{text-decoration:underline;text-decoration-color:rgba(169,193,179,.5);text-underline-offset:5px}
 .foot{background:var(--forest-2);color:var(--sage);font-size:var(--f13);padding:var(--s27) 0 calc(110px + env(safe-area-inset-bottom))}
 .foot p{margin:0}
+.foot .made{margin-top:8px;opacity:.82}
+.foot .made a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.foot .made a:hover{color:var(--cream)}
+@media (max-width:520px){.foot .made .sep{display:none}.foot .made a{display:table;margin-top:2px}}   /* на телефоне почта отдельной строкой, без повисшей точки */
 
 
 
@@ -505,7 +509,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   </section>
 </main>
 
-<footer class="foot"><div class="wrap"><p>«VECTOR-CLINIC» MChJ, Oʻzbekiston Respublikasi Sogʻliqni saqlash vazirligi litsenziyasi №1857962 · © <span id="year">2026</span> Vector tiklanish markazi, Samarqand</p></div></footer>
+<footer class="foot"><div class="wrap"><p>«VECTOR-CLINIC» MChJ, Oʻzbekiston Respublikasi Sogʻliqni saqlash vazirligi litsenziyasi №1857962 · © <span id="year">2026</span> Vector tiklanish markazi, Samarqand</p><p class="made">Sayt ishlab chiquvchisi — TOO «Salem Hybrid»<span class="sep" aria-hidden="true"> · </span><a href="mailto:mussinaskat@gmail.com">mussinaskat@gmail.com</a></p></div></footer>
 
 <nav class="dock" id="dock" aria-label="Tezkor aloqa">
   <a class="btn btn-main" href="tel:+998918110333"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1"/></svg>Qoʻngʻiroq qilish</a>
