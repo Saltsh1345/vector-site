@@ -1,0 +1,13 @@
+
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/v3/a/"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/v3/a/:path*"
+    }
+  ]
+}
