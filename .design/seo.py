@@ -9,6 +9,10 @@ BASE = 'https://saltsh1345.github.io/vector-site/v3/a/'
 OG_IMAGE = 'https://saltsh1345.github.io/vector-site/brand/og/vector-og.jpg'
 LANGS = [('ru', '', 'ru_RU'), ('uz', 'uz/', 'uz_UZ'), ('tg', 'tg/', 'tg_TJ')]
 CITY = {'ru': 'Самарканд', 'uz': 'Samarqand', 'tg': 'Самарқанд'}   # как в подвале каждой версии
+STREET = {'ru': 'ул. Арутюнова, 7', 'uz': 'Arutyunov koʻchasi, 7', 'tg': 'кӯчаи Арутюнов, 7'}   # как в подписи каждой версии (слово владельца 2026-10-27)
+# офис на карте: дом найден геокодером Яндекса («Самарканд, улица Михаила Арутюнова, 7»), точка лежит на той же улице в OpenStreetMap
+MAP = 'https://yandex.uz/maps/?text=%D0%A1%D0%B0%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%D0%BD%D0%B4%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB%D0%B0%20%D0%90%D1%80%D1%83%D1%82%D1%8E%D0%BD%D0%BE%D0%B2%D0%B0%2C%207'
+GEO = {'@type': 'GeoCoordinates', 'latitude': 39.64496, 'longitude': 66.94453}
 COUNTRY = {'ru': 'Узбекистан', 'uz': 'Oʻzbekiston', 'tg': 'Ӯзбекистон'}   # как у переводчика: «Oʻzbekiston Respublikasi», «Ҷумҳурии Ӯзбекистон»
 root = sys.argv[1]
 
@@ -22,7 +26,8 @@ def block(code, path, locale, title, desc):
         'name': 'Vector', 'legalName': 'ООО «VECTOR-CLINIC»', 'url': url, 'inLanguage': code,
         'description': desc, 'image': OG_IMAGE, 'logo': 'https://saltsh1345.github.io/vector-site/brand/logo-dark.png',
         'telephone': '+998918110333',
-        'address': {'@type': 'PostalAddress', 'addressLocality': CITY[code], 'addressCountry': 'UZ'},   # улицы нет: адрес сообщают при записи
+        'address': {'@type': 'PostalAddress', 'streetAddress': STREET[code], 'addressLocality': CITY[code], 'addressCountry': 'UZ'},
+        'geo': GEO, 'hasMap': MAP,
         'sameAs': ['https://t.me/vectorrecovery', 'https://instagram.com/vector.recovery'],
         'areaServed': {'@type': 'Country', 'name': COUNTRY[code]},   # ищут по всему Узбекистану, не только в Самарканде (слово владельца)
         # дежурная линия — круглосуточно, так и написано в подписи страницы
