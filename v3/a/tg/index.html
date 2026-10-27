@@ -28,7 +28,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MedicalClinic", "name": "Vector", "legalName": "ООО «VECTOR-CLINIC»", "url": "https://saltsh1345.github.io/vector-site/v3/a/tg/", "inLanguage": "tg", "description": "Кӯмак ҳангоми вобастагӣ аз машрубот, маводи мухаддир ва қиморбозӣ: табобати статсионарӣ дар Самарқанд, иҷозатномаи Вазорати тандурустӣ. Машварати ройгон, махфӣ, ба қайд намегирем.", "image": "https://saltsh1345.github.io/vector-site/brand/og/vector-og.jpg", "logo": "https://saltsh1345.github.io/vector-site/brand/logo-dark.png", "telephone": "+998918110333", "address": {"@type": "PostalAddress", "streetAddress": "кӯчаи Арутюнов, 7", "addressLocality": "Самарқанд", "addressCountry": "UZ"}, "geo": {"@type": "GeoCoordinates", "latitude": 39.64496, "longitude": 66.94453}, "hasMap": "https://yandex.uz/maps/?text=%D0%A1%D0%B0%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%D0%BD%D0%B4%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB%D0%B0%20%D0%90%D1%80%D1%83%D1%82%D1%8E%D0%BD%D0%BE%D0%B2%D0%B0%2C%207", "sameAs": ["https://t.me/vectorrecovery", "https://instagram.com/vector.recovery"], "areaServed": {"@type": "Country", "name": "Ӯзбекистон"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+998918110333", "contactType": "customer service", "hoursAvailable": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59"}}}</script>
 <!-- /seo -->
+<script>try{if(sessionStorage.getItem('vx-intro')||location.hash)document.documentElement.classList.add('no-intro')}catch(e){}</script>
 <link rel="icon" href="../../../brand/mark-dark.png" type="image/png">
+<link rel="preload" as="image" fetchpriority="high" href="../../../brand/intro/mark.webp">
+<link rel="preload" as="image" fetchpriority="high" href="../../../brand/intro/vector.webp">
 <link rel="preload" as="image" fetchpriority="high" href="../../../media/hA-l.webp" media="(min-aspect-ratio: 1/1)">
 <link rel="preload" as="image" fetchpriority="high" href="../../../media/hA-p.webp" media="(max-aspect-ratio: 1/1)">
 <link rel="preload" as="font" type="font/woff2" href="../../../brand/fonts/ManropeVector-600.woff2" crossorigin>
@@ -347,10 +350,90 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   .dock{transition:opacity .2s}
 }
 
+/* Заставка (разметка и управление — в начале body): знак проступает снизу вверх, под ним VECTOR и нить загрузки;
+   уходит вверх, растворяясь. Только движение и прозрачность — их рисует видеокарта, пока основной поток занят загрузкой. */
+.intro{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:var(--paper);
+  animation:intro-safe .4s 5s forwards}                 /* страховка: скрипт не ожил — через 5 с заставки нет */
+.intro[data-live]{animation:none}
+.no-intro .intro{display:none}
+.intro-in{--iw:clamp(124px,24vw,184px);display:grid;justify-items:center}
+.intro-mk{--soft:calc(var(--iw) * .3);--run:calc(var(--iw) * .897);   /* мягкий фронт и путь окна: высота знака (.597 ширины) + фронт */
+  width:var(--iw);margin-top:calc(var(--soft) * -1);padding-top:var(--soft);overflow:hidden;
+  -webkit-mask-image:linear-gradient(transparent,#000 var(--soft));mask-image:linear-gradient(transparent,#000 var(--soft));
+  transform:translateY(var(--run))}   /* окно едет вверх, знак стоит: проступает от острия. Фронт — маска самого окна:
+                                         полоса-накладка поверх знака давала на стыке слоёв тёмную строку */
+.intro-mk img{display:block;width:100%;height:auto;transform:translateY(calc(var(--run) * -1))}
+.intro-wm{display:block;width:calc(var(--iw) * 1.05);height:auto;margin-top:calc(var(--iw) * .08);opacity:0;transform:translateY(8px)}
+.intro-line{display:block;width:calc(var(--iw) * 1.05);height:1px;margin-top:22px;background:linear-gradient(90deg,rgba(169,193,179,0),var(--sage) 50%,rgba(169,193,179,0));transform:scaleX(0)}
+.go .intro-mk{animation:intro-win .85s cubic-bezier(.5,.05,.25,1) forwards}   /* плавный разгон: видно, как знак растёт от острия */
+.go .intro-mk img{animation:intro-win .85s cubic-bezier(.5,.05,.25,1) forwards}
+.go .intro-wm{animation:intro-wm .55s .3s cubic-bezier(.2,.7,.2,1) forwards}
+.go .intro-line{animation:intro-line 3.2s .75s cubic-bezier(.15,.6,.25,1) forwards}   /* нить растёт, пока ждём; до конца — никогда */
+.intro.out{transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1);opacity:0;transform:translateY(-40px)}
+.intro.out .intro-in{transition:transform .5s cubic-bezier(.4,0,.2,1);transform:translateY(-24px)}
+.intro.fast{transition:opacity .25s;opacity:0}
+@keyframes intro-win{to{transform:none}}
+@keyframes intro-wm{to{opacity:1;transform:none}}
+@keyframes intro-line{to{transform:scaleX(.88)}}
+@keyframes intro-safe{to{opacity:0;visibility:hidden}}
+@media (prefers-reduced-motion:reduce){.intro{display:none}}
+
 </style>
 </head>
 <body>
-
+<div class="intro" id="intro" aria-hidden="true"><div class="intro-in"><div class="intro-mk"><img src="../../../brand/intro/mark.webp" alt="" width="380" height="227"></div><img class="intro-wm" src="../../../brand/intro/vector.webp" alt="" width="400" height="37"><i class="intro-line"></i></div></div>
+<noscript><style>.intro{display:none}</style></noscript>
+<script>
+/* Заставка: пока грузится первый экран, знак проступает снизу вверх, под ним — VECTOR и нить загрузки.
+   Уходит вверх, растворяясь, когда фото первого экрана и шрифт заголовка готовы, но не раньше, чем знак дорисован.
+   Не показывается: второй раз за сеанс, по ссылке с якорем, при «меньше движения». Первый экран готов раньше 0,45 с —
+   знак не рисуется, заставка просто гаснет (быстрой странице ждать нечего). Касание, колесо или клавиша — уходит сразу.
+   Дольше 4 с не держит. Знак начинает рисоваться только на видимом кадре (requestAnimationFrame), а не до первой отрисовки. */
+(function () {
+  var el = document.getElementById('intro'), html = document.documentElement;
+  if (!el) return;
+  if (html.classList.contains('no-intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) { el.parentNode.removeChild(el); return; }
+  el.setAttribute('data-live', '');                       // скрипт взял управление: CSS-страховка не нужна
+  var now = function () { return performance.now(); };   // от начала перехода на страницу
+  var DRAW = 850, HOLD = 200, CAP = 4000, EARLY = 450;    // знак и VECTOR рисуются 0,85 с; раньше 0,45 с не начинать
+  var started = 0, gone = false, ready = false, watching = false, loaded = 0;
+  var imgs = el.getElementsByTagName('img');
+  function start() { if (started || gone || ready || loaded < imgs.length || now() < EARLY) return; started = now(); el.className += ' go'; }
+  for (var i = 0; i < imgs.length; i++) {
+    if (imgs[i].complete) loaded++;
+    else imgs[i].onload = imgs[i].onerror = function () { loaded++; };
+  }
+  setTimeout(function () { loaded = imgs.length; }, 900);  // знак задержался в сети — рисуем всё равно
+  function leave(fast) {
+    if (gone) return; gone = true;
+    try { sessionStorage.setItem('vx-intro', '1'); } catch (e) {}
+    el.className += fast ? ' fast' : ' out';
+    setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, fast ? 320 : 700);
+  }
+  function watch() {                                      // готовность первого экрана: фото на месте, шрифт заголовка загружен
+    var still = document.getElementById('hero-still'), h1 = document.getElementById('h1');
+    if (!still || !h1) return;
+    watching = true;
+    var pic = new Promise(function (r) { if (still.complete && still.naturalWidth) r(); else { still.addEventListener('load', r); still.addEventListener('error', r); } });
+    var letters = h1.textContent.replace(/[\s.,!?:;«»"'—–-]/g, '');   // только буквы: ради пробела и точки ждать латинский файл шрифта незачем
+    var font = document.fonts && document.fonts.load
+      ? Promise.all([document.fonts.load('500 40px "Cormorant Garamond"', letters), document.fonts.load('italic 500 40px "Cormorant Garamond"', letters)]).catch(function () {})
+      : null;
+    Promise.all([pic, font]).then(function () { ready = true; });
+  }
+  (function tick() {
+    if (gone) return;
+    if (!watching) watch();
+    if (!started) requestAnimationFrame(start);          // кадр рисуется — значит, заставку уже видно
+    var t = now();
+    if (ready && !started) return leave(true);
+    if ((ready && t >= started + DRAW + HOLD) || t >= CAP) return leave(false);
+    setTimeout(tick, 50);
+  })();
+  var skip = function () { leave(!started); };
+  ['pointerdown', 'keydown', 'wheel', 'touchstart'].forEach(function (e) { addEventListener(e, skip, { once: true, passive: true }); });
+})();
+</script>
 <header class="top"><div class="in">
   <a class="logo" href="#" aria-label="Vector, recovery center">
     <img class="mk" src="../../../brand/mark-dark.png" alt="" width="66" height="40">
@@ -367,7 +450,7 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
 <main>
   <!-- Первый экран: письмо (утверждено) -->
   <section class="ch open" aria-labelledby="h1">
-    <div class="bg" aria-hidden="true"><img id="hero-still" src="../../../media/hA-l.webp" alt="" fetchpriority="high"></div>
+    <div class="bg" aria-hidden="true"><picture><source media="(max-aspect-ratio: 1/1)" srcset="../../../media/hA-p.webp"><img id="hero-still" src="../../../media/hA-l.webp" alt="" fetchpriority="high"></picture></div>
     <canvas class="thread-hero" aria-hidden="true"></canvas>
     <div class="text">
       <span class="label">Мактуб ба касе, ки ҳоло роҳи наҷот меҷӯяд</span>
@@ -571,12 +654,11 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData);
   const port = matchMedia('(max-aspect-ratio: 1/1)').matches;
   const base = port ? '../../../media/hA-p' : '../../../media/hA-l';
-  still.src = base + '.webp';
   if (!calm) {
     const v = document.createElement('video');
     v.muted = true; v.playsInline = true; v.autoplay = true; v.loop = true; v.preload = 'auto'; v.poster = base + '.webp'; v.setAttribute('aria-hidden','true');
     for (const [k, type] of [['webm','video/webm'],['mp4','video/mp4']]) { const x = document.createElement('source'); x.src = base + '.' + k; x.type = type; v.append(x); }
-    v.addEventListener('canplay', () => { if (!v.isConnected) { still.replaceWith(v); v.play().catch(()=>{}); } }, {once:true});
+    v.addEventListener('canplay', () => { if (!v.isConnected) { (still.closest('picture') || still).replaceWith(v); v.play().catch(()=>{}); } }, {once:true});
     v.load();
     /* смысл ролика: люди → дом → источник → будущее → первый шаг (дверь консультации); переходы вверх, подпись меняется посередине склейки */
     const tag = $('#scene-tag'), marks = [[0, "Инсонҳо дар паҳлӯи шумо"], [1.32, "Хона"], [4.04, "Чашма"], [6.76, "Оянда"], [9.0, "Қадами аввал: машварат"], [13.24, "Инсонҳо дар паҳлӯи шумо"]];
