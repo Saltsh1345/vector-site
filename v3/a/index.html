@@ -656,9 +656,11 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   if (!calm) {
     const v = document.createElement('video');
     v.muted = true; v.playsInline = true; v.autoplay = true; v.loop = true; v.preload = 'auto'; v.poster = base + '.webp'; v.setAttribute('aria-hidden','true');
-    for (const [k, type] of [['webm','video/webm'],['mp4','video/mp4']]) { const x = document.createElement('source'); x.src = base + '.' + k; x.type = type; v.append(x); }
     v.addEventListener('canplay', () => { if (!v.isConnected) { (still.closest('picture') || still).replaceWith(v); v.play().catch(()=>{}); } }, {once:true});
-    v.load();
+    // ролик (2 МБ) качается только после фото первого экрана: иначе на медленной сети он отбирает канал у фото
+    // и первый экран появляется позже. Источники — тоже после: добавленный <source> сам запускает загрузку
+    const load = () => { for (const [k, type] of [['webm','video/webm'],['mp4','video/mp4']]) { const x = document.createElement('source'); x.src = base + '.' + k; x.type = type; v.append(x); } v.load(); };
+    if (still.complete && still.naturalWidth) load(); else { still.addEventListener('load', load, {once:true}); still.addEventListener('error', load, {once:true}); }
     /* смысл ролика: люди → дом → источник → будущее → первый шаг (дверь консультации); переходы вверх, подпись меняется посередине склейки */
     const tag = $('#scene-tag'), marks = [[0, "Люди рядом"], [1.32, "Дом"], [4.04, "Источник"], [6.76, "Будущее"], [9.0, "Первый шаг: консультация"], [13.24, "Люди рядом"]];
     v.addEventListener('timeupdate', () => { let t = marks[0][1]; for (const [at, l] of marks) if (v.currentTime >= at) t = l; if (tag.textContent !== t) tag.textContent = t; });
@@ -688,7 +690,9 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
   /* Фирменная лента — одна, через всё письмо: из первого экрана вниз до кнопки «Позвонить» в подписи, без разрывов.
      Как у ленты бренда, она соткана из тонких нитей: перекручивается, на сгибах нити сходятся и светлеют.
      В каждой главе лента спускается по стороне текста, между главами перетекает на другую сторону — за шахматкой; фото обходит.
-     Шевелится медленно, будто живая. Рисуется на холстах, которые едут вместе со страницей (не fixed — иначе
+     Шевелится медленно, будто живая, — ниже первого экрана. На первом экране лежит неподвижно: поверх ролика второе
+     движение двоится, а холст первого экрана тогда рисуется один раз и больше не перерисовывается. Ниже первого экрана
+     движение нарастает плавно, на отрезке 420–600 px, — лента остаётся одной, без шва. Рисуется на холстах, которые едут вместе со страницей (не fixed — иначе
      при прокрутке лента отстаёт от текста). Холсты — полоски по 300–360 px высотой и ровно по ширине ленты в этой
      полоске: дороже всего обходится стереть и передать на экран холст целиком, а лента занимает узкую часть страницы.
      Полоски переставляются под видимую часть. Перерисовываются только те, что на экране; пока страницу листают,
@@ -786,13 +790,18 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
       G = { W, mob, H0, H1, X, Y, L, N, NX, NY, CAP, total: acc, dark, WB, lines: mob ? 56 : 84, dpr: Math.min(devicePixelRatio || 1, mob ? 1.25 : 1.5), TH, tiles: tb.map(clip) };
       const hx0 = clip([hb[0], hb[1]]), hy0 = Math.max(0, Math.floor(hb[2])), hy1 = Math.min(H0, Math.ceil(hb[3]));
       G.hero = hx0 && hy1 > hy0 ? { x: hx0.x, w: hx0.w, y: hy0, h: hy1 - hy0 } : null;
+      // на телефоне ролик занимает только верх первого экрана, ниже — светлый фон с текстом: там нити шалфейные,
+      // иначе белые нити на светлом фоне не видны и лента обрывается у края ролика
+      const bg = $('.bg', hero);
+      if (mob && bg) { const vb = pageY(bg) + bg.offsetHeight, vf = bg.offsetHeight * 0.3; G.heroDark = y => 1 - smooth(vb - vf, vb, y); }
+      else G.heroDark = () => 1;
       if (G.hero) {
         // место — сдвигом transform, не left/top: перенос холста в раскладке поиск засчитывает как сдвиг страницы (CLS)
         Object.assign(heroCv.style, { width: G.hero.w + 'px', height: G.hero.h + 'px', transform: `translate(${G.hero.x}px,${G.hero.y}px)` });
         heroCv.width = Math.round(G.hero.w * G.dpr); heroCv.height = Math.round(G.hero.h * G.dpr);
       }
       box.style.top = H0 + 'px'; box.style.height = Math.max(0, H1 - H0) + 'px';
-      frameT = -1;   // лента построена заново — посчитанная на кадр геометрия устарела
+      frameT = -1; heroDrawn = false;   // лента построена заново — посчитанная на кадр геометрия устарела, холсты пустые
       const slots = Math.ceil((innerHeight * 1.6) / TH) + 2;
       while (pool.length < slots) { const c = document.createElement('canvas'); c.hidden = true; box.append(c); pool.push({ c, x: c.getContext('2d'), k: -1 }); }
       pool.forEach(p => { p.k = -1; p.c.hidden = true; });
@@ -801,33 +810,45 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
     // цвет нитей по высоте страницы: на светлом — шалфей и белые блики, на тёмном — светлые нити, как у ленты бренда на чёрном
     const mix = (a, b, d) => a.map((v, i) => v + (b[i] - v) * d);
     const C = { line: [[112, 150, 134, 0.2], [206, 228, 210, 0.2]], edge: [[104, 142, 127, 0.5], [226, 240, 226, 0.5]] };
-    // на первом экране лента лежит на ролике: там она светлая, как в постах бренда на фото
-    const CH = { line: [[246, 251, 244, 0.4], [246, 251, 244, 0.4]], edge: [[255, 255, 252, 0.5], [255, 255, 252, 0.5]] };
+    // на первом экране лента лежит на ролике: там она светлая, как в постах бренда на фото; ниже ролика — шалфей
+    const CH = { line: [C.line[0], [246, 251, 244, 0.4]], edge: [C.edge[0], [255, 255, 252, 0.5]] };
     const rgba = c => `rgba(${c[0] | 0},${c[1] | 0},${c[2] | 0},${c[3].toFixed(3)})`;
     // градиент вдоль нитей дорог для растеризации — он нужен только там, где лента пересекает край тёмной полосы
-    const paint1 = (ctx, y0, h, pair) => {
-      const n = Math.max(2, Math.ceil(h / 40)), ds = Array.from({ length: n + 1 }, (_, i) => G.dark(y0 + (h * i) / n));
+    const paint1 = (ctx, y0, h, pair, dark = G.dark) => {
+      const n = Math.max(2, Math.ceil(h / 40)), ds = Array.from({ length: n + 1 }, (_, i) => dark(y0 + (h * i) / n));
       if (Math.max(...ds) - Math.min(...ds) < 0.02) return rgba(mix(pair[0], pair[1], ds[0]));
       const g = ctx.createLinearGradient(0, y0, 0, y0 + h);
       ds.forEach((d, i) => g.addColorStop(i / n, rgba(mix(pair[0], pair[1], d))));
       return g;
     };
 
+    // поза ленты в точке i в момент t: покачивание оси и сечение (cos и sin перекрута × ширина) — в P
+    const P = new Float32Array(3), T0 = 0;   // T0 — момент, в котором лента стоит на первом экране
+    const pose = (i, t) => {
+      const { L, WB, CAP, total, mob } = G, s = L[i];
+      const th = (s / (mob ? 520 : 700)) * 2 * Math.PI + 0.8 * Math.sin(s / 610 - t * 0.35) + t * 0.1;
+      const sw = (mob ? 8 : 12) * Math.sin(s / 430 - t * 0.55) + (mob ? 4 : 6) * Math.sin(s / 190 + t * 0.8);
+      // к кнопке лента сужается в кончик и уходит под неё
+      const tip = 1 - 0.94 * smooth(total - (mob ? 520 : 760), total, s);
+      const wd = Math.min(WB * (0.9 + 0.1 * Math.sin(s / 800 + t * 0.25)) * 0.5, CAP[i]) * tip;
+      P[0] = sw; P[1] = Math.cos(th) * wd; P[2] = 0.26 * Math.sin(th) * wd;
+    };
     // геометрия ленты на кадр: центр с покачиванием, нормаль, ширина и перекрут — один раз на все холсты кадра
     let GX, GY, GC, GK, US, frameT = -1, lo = 0, hi = -1;
     const shape = (t, a, b) => {
-      const { X, L, N, NX, NY, WB, CAP, total, mob } = G;
+      const { X, N, NX, NY, mob, H0 } = G;
       if (!GX || GX.length !== N) { GX = new Float32Array(N); GY = new Float32Array(N); GC = new Float32Array(N); GK = new Float32Array(N); }
       if (!US || US.length !== G.lines) US = Float32Array.from({ length: G.lines }, (_, j) => 2 * j / (G.lines - 1) - 1);
       if (t === frameT && a >= lo && b <= hi) return;
       frameT = t; lo = a; hi = b;
       for (let i = a; i <= b; i++) {
-        const s = L[i], th = (s / (mob ? 520 : 700)) * 2 * Math.PI + 0.8 * Math.sin(s / 610 - t * 0.35) + t * 0.1;
-        const sw = (mob ? 8 : 12) * Math.sin(s / 430 - t * 0.55) + (mob ? 4 : 6) * Math.sin(s / 190 + t * 0.8);
-        // к кнопке лента сужается в кончик и уходит под неё
-        const tip = 1 - 0.94 * smooth(total - (mob ? 520 : 760), total, s);
-        const wd = Math.min(WB * (0.9 + 0.1 * Math.sin(s / 800 + t * 0.25)) * 0.5, CAP[i]) * tip;
-        GX[i] = X[i] + NX[i] * sw; GY[i] = G.Y[i] + NY[i] * sw; GC[i] = Math.cos(th) * wd; GK[i] = 0.26 * Math.sin(th) * wd;
+        // 0 — первый экран (поза T0), 1 — ниже, где лента шевелится; между ними позы смешиваются — шва нет,
+        // и ничего не копится со временем (смешиваются положения, а не фаза перекрута)
+        const m = smooth(H0, H0 + (mob ? 420 : 600), G.Y[i]);
+        let sw = 0, c = 0, k = 0;
+        if (m > 0) { pose(i, t); sw = P[0]; c = P[1]; k = P[2]; }
+        if (m < 1) { pose(i, T0); sw = P[0] + (sw - P[0]) * m; c = P[1] + (c - P[1]) * m; k = P[2] + (k - P[2]) * m; }
+        GX[i] = X[i] + NX[i] * sw; GY[i] = G.Y[i] + NY[i] * sw; GC[i] = c; GK[i] = k;
       }
     };
     // участки оси, которые попадают в прямоугольник холста (по высоте, с запасом на ширину ленты)
@@ -860,19 +881,20 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
         }
       };
       // как у ленты бренда: только тонкие нити, без заливки; прозрачность и блеск — из того, как нити сходятся на перекруте
-      const y1 = y0 - WB, h1 = h + 2 * WB, ls = paint1(ctx, y1, h1, pal.line), es = paint1(ctx, y1, h1, pal.edge);
+      const dk = pal === CH ? G.heroDark : G.dark;
+      const y1 = y0 - WB, h1 = h + 2 * WB, ls = paint1(ctx, y1, h1, pal.line, dk), es = paint1(ctx, y1, h1, pal.edge, dk);
       ctx.lineWidth = 0.6; ctx.strokeStyle = ls;
       for (let j = 1; j < lines - 1; j++) { ctx.beginPath(); trace(US[j], 3); ctx.stroke(); }
       ctx.strokeStyle = es; ctx.lineWidth = 0.8;
       ctx.beginPath(); trace(-1, 2); ctx.stroke(); ctx.beginPath(); trace(1, 2); ctx.stroke();
     };
 
-    let heroOn = true, dirty = true, fresh = [], scrolling = 0, T = 0;
+    let heroDrawn = false, dirty = true, fresh = [], scrolling = 0, T = 0;
     const onScreen = p => { const y = G.H0 + p.k * G.TH - scrollY; return y < innerHeight && y + G.TH > 0; };
     const tile = (p, t) => { const b = G.tiles[p.k]; draw(p.x, b.x, G.H0 + p.k * G.TH, b.w, G.TH, t); };
     const paint = (t, all) => {
       if (!G) return;
-      if (G.hero && heroOn && (all || scrollY < G.H0)) draw(hx, G.hero.x, G.hero.y, G.hero.w, G.hero.h, t, CH);
+      if (G.hero && (all || !heroDrawn)) { draw(hx, G.hero.x, G.hero.y, G.hero.w, G.hero.h, T0, CH); heroDrawn = true; }   // стоит: один раз
       for (const p of pool) if (p.k >= 0 && (all || onScreen(p) || fresh.includes(p))) tile(p, t);
       fresh = [];
     };
@@ -889,7 +911,6 @@ html:not(.sc-on) [data-sc-in],html:not(.sc-on) [data-sc-stagger]>*{opacity:1;tra
         p.c.hidden = false; fresh.push(p); moved = true; });
       return moved;
     };
-    new IntersectionObserver(es => { heroOn = es[0].isIntersecting; }).observe(hero);
     // при прокрутке лента едет вместе со страницей и не шевелится: прокрутка не тормозит; шевелится, когда человек читает
     addEventListener('scroll', () => { scrolling = performance.now(); if (place()) { dirty = true; if (still || frozen()) { dirty = false; paint(T); } } }, { passive: true });
     let frozen = () => false;
