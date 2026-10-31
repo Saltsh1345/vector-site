@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/v3/a/",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "/v3/a/:path*"
+    }
+  ]
+}
