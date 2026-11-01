@@ -1,10 +1,18 @@
+
 {
   "trailingSlash": true,
-  "redirects": [
-    { "source": "/", "destination": "/v3/a/", "permanent": false },
-    { "source": "/uz", "destination": "/v3/a/uz/", "permanent": false },
-    { "source": "/uz/", "destination": "/v3/a/uz/", "permanent": false },
-    { "source": "/tg", "destination": "/v3/a/tg/", "permanent": false },
-    { "source": "/tg/", "destination": "/v3/a/tg/", "permanent": false }
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/v3/a/"
+    },
+    {
+      "source": "/uz",
+      "destination": "/v3/a/uz/"
+    },
+    {
+      "source": "/tg",
+      "destination": "/v3/a/tg/"
+    }
   ]
 }
