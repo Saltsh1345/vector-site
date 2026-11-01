@@ -1,5 +1,5 @@
 // design-loop: одна лента через всё письмо (холсты .thread-hero и .thread canvas).
-// Проверяет: лента нарисована, шевелится со временем, холсты переставляются под прокрутку, страница не шире окна,
+// Проверяет: лента нарисована; на первом экране стоит (холст не меняется), в главах шевелится со временем; холсты переставляются под прокрутку, страница не шире окна,
 // цена для основного потока (с лентой и при «меньше движения», где цикла нет), на телефоне — с процессором ×4 медленнее,
 // при «меньше движения» лента стоит, но нарисована. Запуск: node .design/checks/thread.mjs [uz/|tg/]
 import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
@@ -30,7 +30,7 @@ for (const [w, h, cpu] of [[1440, 900, 1], [390, 844, 4]]) {
     const S = R[reduce ? 'reduced' : 'moving'] = { errors: errs };
     // 1. первый экран: лента есть и шевелится (или стоит при «меньше движения»)
     const a0 = await ink(p, '.thread-hero'); await wait(1500); const a1 = await ink(p, '.thread-hero');
-    S.hero = { inked: a1.inked, changes: a0.hash !== a1.hash };
+    S.hero = { inked: a1.inked, still: a0.hash === a1.hash };   // на первом экране лента стоит: still — true и с движением
     // 2. в главах: холсты стоят там, где экран, лента на них есть
     const where = {};
     for (const sel of ['#consult', '#program', '#family', '#contact']) {
