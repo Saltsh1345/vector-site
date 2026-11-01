@@ -1,17 +1,24 @@
-
 {
   "trailingSlash": true,
   "rewrites": [
     {
       "source": "/",
-      "destination": "/v3/a/"
+      "destination": "/v3/a/index.html"
     },
     {
       "source": "/uz",
       "destination": "/v3/a/uz/"
     },
     {
+      "source": "/uz/",
+      "destination": "/v3/a/uz/"
+    },
+    {
       "source": "/tg",
+      "destination": "/v3/a/tg/"
+    },
+    {
+      "source": "/tg/",
       "destination": "/v3/a/tg/"
     }
   ]
