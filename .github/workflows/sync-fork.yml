@@ -1,0 +1,25 @@
+# Обновление форка из Saltsh1345/vector-site — для копии сайта у клиента (www.vectorecovery.uz, Vercel на бесплатном тарифе).
+# Vercel Hobby публикует только из своего репозитория, поэтому клиент держит форк, а этот файл каждые 15 минут
+# подтягивает в форк ветку main отсюда. Обновился форк — Vercel сам публикует сайт. В самом Saltsh1345/vector-site не работает.
+# Один раз в форке: Actions → «I understand my workflows, go ahead and enable them».
+# GitHub не даёт автоматике менять файлы в .github/workflows: если когда-нибудь поменяется этот файл, форк один раз
+# обновить вручную (Sync fork → Update branch).
+name: Обновить форк из Saltsh1345/vector-site
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    if: github.repository != 'Saltsh1345/vector-site'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Подтянуть main из Saltsh1345/vector-site
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api --method POST "repos/${{ github.repository }}/merge-upstream" -f branch=main
