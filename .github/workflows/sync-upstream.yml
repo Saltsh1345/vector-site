@@ -1,4 +1,3 @@
-
 name: Sync from upstream
 
 on:
@@ -36,9 +35,15 @@ jobs:
 
           git merge --no-commit --no-ff upstream/main || true
 
+          # Use the current upstream Vercel configuration
           git show upstream/main:vercel.json > vercel.json
           git add vercel.json
 
+          # Keep the fork's own workflow
+          git checkout HEAD -- .github/workflows/sync-fork.yml
+          git add .github/workflows/sync-fork.yml
+
+          # Check for unresolved merge conflicts
           unresolved="$(git diff --name-only --diff-filter=U)"
 
           if [ -n "$unresolved" ]; then
@@ -47,10 +52,12 @@ jobs:
             exit 1
           fi
 
+          # Create merge commit if needed
           if git rev-parse -q --verify MERGE_HEAD >/dev/null; then
             git commit -m "Merge upstream main"
           else
             echo "Already up to date."
           fi
 
+          # Push synchronized main branch
           git push origin HEAD:main
