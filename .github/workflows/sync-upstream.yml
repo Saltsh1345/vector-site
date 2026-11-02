@@ -16,6 +16,7 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out fork
         uses: actions/checkout@v4
@@ -23,11 +24,36 @@ jobs:
           fetch-depth: 0
           ref: main
 
-      - name: Merge upstream updates
+      - name: Merge upstream safely
         run: |
           git remote add upstream https://github.com/Saltsh1345/vector-site.git
           git fetch upstream main
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git merge --no-edit upstream/main
+
+          if git merge --no-commit --no-ff upstream/main; then
+            echo "Merge prepared."
+          else
+            echo "Checking merge conflicts..."
+
+            if git diff --name-only --diff-filter=U | grep -Fxq "vercel.json"; then
+              echo "Keeping the fork's vercel.json"
+              git checkout --ours -- vercel.json
+              git add vercel.json
+            fi
+
+            unresolved="$(git diff --name-only --diff-filter=U)"
+
+            if [ -n "$unresolved" ]; then
+              echo "Other conflicts require manual review:"
+              echo "$unresolved"
+              exit 1
+            fi
+          fi
+
+          if git rev-parse -q --verify MERGE_HEAD >/dev/null; then
+            git commit -m "Merge upstream updates, preserve fork Vercel config"
+          else
+            echo "Already up to date."
+            exit 0
+          fi
+
           git push origin HEAD:main
