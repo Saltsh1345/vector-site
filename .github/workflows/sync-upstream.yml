@@ -1,3 +1,4 @@
+
 name: Sync from upstream
 
 on:
@@ -38,10 +39,6 @@ jobs:
           # Use the current upstream Vercel configuration
           git show upstream/main:vercel.json > vercel.json
           git add vercel.json
-
-          # Keep the fork's own workflow
-          git checkout HEAD -- .github/workflows/sync-fork.yml
-          git add .github/workflows/sync-fork.yml
 
           # Check for unresolved merge conflicts
           unresolved="$(git diff --name-only --diff-filter=U)"
