@@ -34,7 +34,7 @@ jobs:
           git remote add upstream https://github.com/Saltsh1345/vector-site.git
           git fetch upstream main
 
-          git merge --no-commit --no-ff upstream/main
+          git merge --no-commit --no-ff upstream/main || true
 
           git show upstream/main:vercel.json > vercel.json
           git add vercel.json
