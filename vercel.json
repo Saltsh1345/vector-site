@@ -1,13 +1,10 @@
 {
   "trailingSlash": true,
-  "redirects": [
+  "rewrites": [
     {
       "source": "/",
-      "destination": "/v3/a/",
-      "permanent": false
-    }
-  ],
-  "rewrites": [
+      "destination": "/v3/a/"
+    },
     {
       "source": "/uz",
       "destination": "/v3/a/uz/"
