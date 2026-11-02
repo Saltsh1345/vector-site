@@ -1,12 +1,12 @@
 # Поисковая разметка /v3/a/ и языковых версий — после сборки русской страницы и i18n.py:
 #   python3 .design/seo.py /home/user/vector-site/v3/a
-# Добавляет в <head> каждой версии: canonical на себя, связку языков полными адресами + x-default,
+# Добавляет в <head> каждой версии: canonical на основной адрес языка, связку языков + x-default,
 # Open Graph (превью ссылки в Telegram и др.), JSON-LD MedicalClinic с данными, которые видны на странице.
-# Адрес сайта — BASE: при переезде на свой домен поменять здесь и пересобрать.
+# Основные адреса — /, /uz/, /tg/ на домене клиента. /v3/a/ остаётся совместимой копией.
 # Закрыта ли страница от поиска (meta robots), этот шаг НЕ меняет — это решение владельца.
 import json, re, sys, html as H
-BASE = 'https://saltsh1345.github.io/vector-site/v3/a/'
-OG_IMAGE = 'https://saltsh1345.github.io/vector-site/brand/og/vector-og.jpg'
+BASE = 'https://www.vectorecovery.uz/'
+OG_IMAGE = BASE + 'brand/og/vector-og.jpg'
 LANGS = [('ru', '', 'ru_RU'), ('uz', 'uz/', 'uz_UZ'), ('tg', 'tg/', 'tg_TJ')]
 CITY = {'ru': 'Самарканд', 'uz': 'Samarqand', 'tg': 'Самарқанд'}   # как в подвале каждой версии
 STREET = {'ru': 'ул. Арутюнова, 7', 'uz': 'Arutyunov koʻchasi, 7', 'tg': 'кӯчаи Арутюнов, 7'}   # как в подписи каждой версии (слово владельца 2026-10-27)
@@ -24,7 +24,7 @@ def block(code, path, locale, title, desc):
     ld = {
         '@context': 'https://schema.org', '@type': 'MedicalClinic',
         'name': 'Vector', 'legalName': 'ООО «VECTOR-CLINIC»', 'url': url, 'inLanguage': code,
-        'description': desc, 'image': OG_IMAGE, 'logo': 'https://saltsh1345.github.io/vector-site/brand/logo-dark.png',
+        'description': desc, 'image': OG_IMAGE, 'logo': BASE + 'brand/logo-dark.png',
         'telephone': '+998918110333',
         'address': {'@type': 'PostalAddress', 'streetAddress': STREET[code], 'addressLocality': CITY[code], 'addressCountry': 'UZ'},
         'geo': GEO, 'hasMap': MAP,
