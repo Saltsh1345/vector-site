@@ -40,16 +40,8 @@ jobs:
           git show upstream/main:vercel.json > vercel.json
           git add vercel.json
 
-          # Preserve this fork's own GitHub Actions workflows
-          for file in \
-            .github/workflows/sync-upstream.yml \
-            .github/workflows/sync-fork.yml
-          do
-            if git cat-file -e "HEAD:$file" 2>/dev/null; then
-              git checkout HEAD -- "$file"
-              git add "$file"
-            fi
-          done
+          # Keep all workflows from this fork unchanged
+          git restore --source=HEAD --staged --worktree .github/workflows/
 
           # Check for unresolved merge conflicts
           unresolved="$(git diff --name-only --diff-filter=U)"
