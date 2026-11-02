@@ -26,29 +26,31 @@ jobs:
 
       - name: Merge upstream safely
         run: |
-          cp vercel.json "$RUNNER_TEMP/vercel.json"
+          set -e
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git remote add upstream https://github.com/Saltsh1345/vector-site.git
           git fetch upstream main
 
-          git merge --no-commit --no-ff upstream/main || true
+          git merge --no-commit --no-ff upstream/main
 
-          cp "$RUNNER_TEMP/vercel.json" vercel.json
+          git show upstream/main:vercel.json > vercel.json
           git add vercel.json
 
           unresolved="$(git diff --name-only --diff-filter=U)"
 
           if [ -n "$unresolved" ]; then
-            echo "Other conflicts require manual review:"
+            echo "Other conflicts require manual resolution:"
             echo "$unresolved"
             exit 1
           fi
 
           if git rev-parse -q --verify MERGE_HEAD >/dev/null; then
-            git commit -m "Merge upstream updates, preserve fork Vercel config"
+            git commit -m "Merge upstream main"
           else
             echo "Already up to date."
-            exit 0
           fi
 
           git push origin HEAD:main
