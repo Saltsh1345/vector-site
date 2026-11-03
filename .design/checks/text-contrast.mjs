@@ -7,6 +7,7 @@ const b = await chromium.launch();
 for (const [w, h] of [[390, 844], [1440, 900]]) {
   const p = await b.newPage({ viewport: { width: w, height: h }, reducedMotion: 'reduce' });
   await p.goto('http://127.0.0.1:8765/v3/a/' + lang, { waitUntil: 'networkidle' });
+  await p.evaluate(() => document.querySelectorAll('details').forEach(d => { d.open = true; }));   // ответы главы «Вопросы» — открыть, иначе у текста нет размера
   const n = await p.evaluate(() => document.querySelectorAll('main .txt p, main .txt h2').length);
   const out = [];
   for (let i = 0; i < n; i++) {

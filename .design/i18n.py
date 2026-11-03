@@ -37,7 +37,8 @@ def texts(html):
     return p.out
 
 CYR = re.compile('[А-Яа-яЁё]')
-KEEP = {'Темирхан Нуржан Кадирханович'}   # имя пишется одинаково по-таджикски
+KEEP = {'Темирхан Нуржан Кадирханович',   # имена пишутся одинаково по-таджикски
+        'Эминем', 'Эрик Клэптон', 'Тони Адамс', 'Пол Мерсон'}
 ru_texts = {t for t in texts(ru) if CYR.search(t)}
 
 for code, col, html_lang, label in (('uz', 1, 'uz-Latn', 'Til'), ('tg', 2, 'tg', 'Забон')):

@@ -4,7 +4,7 @@ import fs from 'fs';
 const URL = 'http://127.0.0.1:8765/v3/a/' + (process.argv[2]||''), OUT = '/home/user/vector-site/.design/shots/' + (process.argv[2]||'ru/'); fs.mkdirSync(OUT, {recursive:true});
 const probe = fs.readFileSync('/home/user/Skill/skills/refero-design/scripts/slop-probe.js', 'utf8');
 const WIDTHS = [[390, 844], [1440, 900]];
-const scenes = ['hero', '#listen', '#consult', '#against', '#home', '#program', '#gym', '#bath', '#prayer', '#family', '#after', '#team', '#docs', '#contact'];
+const scenes = ['hero', '#listen', '#consult', '#against', '#home', '#program', '#gym', '#bath', '#prayer', '#family', '#after', '#team', '#docs', '#faq', '#contact'];
 const b = await chromium.launch();
 const report = {};
 for (const [w, h] of WIDTHS) {
@@ -43,7 +43,7 @@ for (const [w, h] of WIDTHS) {
     return { docW: document.documentElement.scrollWidth, over, brokenImgs: imgs, hiddenChapters: hidden, sides: sides.join(''), photoW: [Math.min(...photoW), Math.max(...photoW)] };
   }, w);
   // доступные имена
-  R.names = await p.evaluate(() => [...document.querySelectorAll('a,button')].filter(e => { const r = e.getBoundingClientRect(); return r.width && !(e.innerText.trim() || e.getAttribute('aria-label') || e.querySelector('img[alt]:not([alt=""])')); }).map(e => e.outerHTML.slice(0, 80)));
+  R.names = await p.evaluate(() => [...document.querySelectorAll('a,button')].filter(e => { const r = e.getBoundingClientRect(); return r.width && !e.closest('details:not([open])') && !(e.innerText.trim() || e.getAttribute('aria-label') || e.querySelector('img[alt]:not([alt=""])')); }).map(e => e.outerHTML.slice(0, 80)));
   // контраст по формуле
   R.contrast = await p.evaluate(() => {
     const parse = c => { const m = c.match(/[\d.]+/g).map(Number); return { r: m[0], g: m[1], b: m[2], a: m[3] ?? 1 }; };

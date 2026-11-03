@@ -1,7 +1,7 @@
 # Поисковая разметка /v3/a/ и языковых версий — после сборки русской страницы и i18n.py:
 #   python3 .design/seo.py /home/user/vector-site/v3/a
 # Добавляет в <head> каждой версии: canonical на основной адрес языка, связку языков + x-default,
-# Open Graph и связанный JSON-LD: организация, публичный офис, сайт и языковая страница.
+# Open Graph и связанный JSON-LD: организация, публичный офис, сайт, языковая страница и вопросы (глава XIII).
 # Основные адреса — /, /uz/, /tg/ на домене клиента. /v3/a/ остаётся совместимой копией.
 # Актуальные страницы открыты для индексации; старые варианты этот скрипт не обрабатывает.
 import json, re, sys, html as H
@@ -16,7 +16,21 @@ OFFICE = {'ru': 'Офис Vector Recovery в Самарканде', 'uz': 'Vecto
 COUNTRY = {'ru': 'Узбекистан', 'uz': 'Oʻzbekiston', 'tg': 'Ӯзбекистон'}   # как у переводчика: «Oʻzbekiston Respublikasi», «Ҷумҳурии Ӯзбекистон»
 root = sys.argv[1]
 
-def block(code, path, locale, title, desc):
+def plain(h):
+    """Текст ответа для разметки: тот же, что на странице, без тегов (строчные теги — без пробела, блочные — пробелом)."""
+    h = re.sub(r'</?(?:p|li|ul)\b[^>]*>', ' ', h)
+    t = H.unescape(re.sub(r'<[^>]+>', '', h))
+    return re.sub(r'\s+([,.:;!?)])', r'\1', re.sub(r'\s+', ' ', t)).strip()
+
+def faq(s):
+    """Вопросы и ответы главы XIII — ровно то, что видит человек (Google: разметка должна совпадать с видимым текстом)."""
+    sec = re.search(r'<section class="chess faq" id="faq".*?</section>', s, re.S)
+    if not sec: return []
+    items = re.findall(r'<details class="qa"[^>]*>\s*<summary>(.*?)</summary>\s*<div class="qa-a">(.*?)</div>\s*</details>', sec.group(0), re.S)
+    assert items, 'глава вопросов без вопросов'
+    return [{'@type': 'Question', 'name': plain(q), 'acceptedAnswer': {'@type': 'Answer', 'text': plain(a)}} for q, a in items]
+
+def block(code, path, locale, title, desc, qa):
     url = BASE + path
     alt = ''.join(f'<link rel="alternate" hreflang="{c}" href="{BASE + p}">\n' for c, p, _ in LANGS)
     alt += f'<link rel="alternate" hreflang="x-default" href="{BASE}">\n'
@@ -47,7 +61,11 @@ def block(code, path, locale, title, desc):
     page = {'@type': 'WebPage', '@id': url + '#webpage', 'url': url,
             'name': title, 'description': desc, 'inLanguage': code,
             'isPartOf': {'@id': BASE + '#website'}, 'about': {'@id': BASE + '#organization'}}
-    graph = {'@context': 'https://schema.org', '@graph': [ld, office, website, page]}
+    nodes = [ld, office, website, page]
+    if qa:   # FAQPage — часть языковой страницы, ответы дословно с неё
+        nodes.append({'@type': 'FAQPage', '@id': url + '#faq', 'url': url + '#faq', 'inLanguage': code,
+                      'isPartOf': {'@id': url + '#webpage'}, 'mainEntity': qa})
+    graph = {'@context': 'https://schema.org', '@graph': nodes}
     return ('<meta name="msvalidate.01" content="4F3E44C07FF31C59F0D8C8C4557FF5A1" />\n' +
             '<meta name="yandex-verification" content="97ec3f3dec84a26f" />\n' +
             '<meta name="google-site-verification" content="dD0a5wc2kFRqR10i0Mn7ZbaBhaB4PTEu-lCOon5hFwM" />\n' +
@@ -86,6 +104,6 @@ for code, path, locale in LANGS:
     desc = H.unescape(re.search(r'<meta name="description" content="([^"]*)"', s).group(1))
     anchor = re.search(r'<meta name="theme-color"[^>]*>\n', s)
     assert anchor, f
-    s = s[:anchor.end()] + '<!-- seo -->\n' + block(code, path, locale, title, desc) + '<!-- /seo -->\n' + s[anchor.end():]
+    s = s[:anchor.end()] + '<!-- seo -->\n' + block(code, path, locale, title, desc, faq(s)) + '<!-- /seo -->\n' + s[anchor.end():]
     open(f, 'w', encoding='utf-8', newline='\n').write(s)
     print(code, 'ok', title)
