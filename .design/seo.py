@@ -36,7 +36,8 @@ def block(code, path, locale, title, desc):
                                             'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
                                             'opens': '00:00', 'closes': '23:59'}},
     }
-    return ('<meta name="google-site-verification" content="dD0a5wc2kFRqR10i0Mn7ZbaBhaB4PTEu-lCOon5hFwM" />\n' +
+    return ('<meta name="yandex-verification" content="97ec3f3dec84a26f" />\n' +
+            '<meta name="google-site-verification" content="dD0a5wc2kFRqR10i0Mn7ZbaBhaB4PTEu-lCOon5hFwM" />\n' +
             f'<link rel="canonical" href="{url}">\n' + alt +
             f'<meta property="og:type" content="website">\n<meta property="og:site_name" content="Vector">\n'
             f'<meta property="og:title" content="{H.escape(title)}">\n<meta property="og:description" content="{H.escape(desc)}">\n'
