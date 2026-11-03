@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /.design/
 
 Sitemap: https://www.vectorecovery.uz/sitemap.xml
