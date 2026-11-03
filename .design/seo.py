@@ -48,7 +48,8 @@ def block(code, path, locale, title, desc):
             'name': title, 'description': desc, 'inLanguage': code,
             'isPartOf': {'@id': BASE + '#website'}, 'about': {'@id': BASE + '#organization'}}
     graph = {'@context': 'https://schema.org', '@graph': [ld, office, website, page]}
-    return ('<meta name="yandex-verification" content="97ec3f3dec84a26f" />\n' +
+    return ('<meta name="msvalidate.01" content="4F3E44C07FF31C59F0D8C8C4557FF5A1" />\n' +
+            '<meta name="yandex-verification" content="97ec3f3dec84a26f" />\n' +
             '<meta name="google-site-verification" content="dD0a5wc2kFRqR10i0Mn7ZbaBhaB4PTEu-lCOon5hFwM" />\n' +
             f'<link rel="canonical" href="{url}">\n' + alt +
             f'<meta property="og:type" content="website">\n<meta property="og:site_name" content="Vector Recovery">\n'
