@@ -3,7 +3,7 @@
 # Добавляет в <head> каждой версии: canonical на основной адрес языка, связку языков + x-default,
 # Open Graph (превью ссылки в Telegram и др.), JSON-LD MedicalClinic с данными, которые видны на странице.
 # Основные адреса — /, /uz/, /tg/ на домене клиента. /v3/a/ остаётся совместимой копией.
-# Закрыта ли страница от поиска (meta robots), этот шаг НЕ меняет — это решение владельца.
+# Актуальные страницы открыты для индексации; старые варианты этот скрипт не обрабатывает.
 import json, re, sys, html as H
 BASE = 'https://www.vectorecovery.uz/'
 OG_IMAGE = BASE + 'brand/og/vector-og.jpg'
@@ -58,6 +58,9 @@ for code, path, locale in LANGS:
     f = f'{root}/{path}index.html'
     s = open(f, encoding='utf-8').read()
     # убрать прежнюю разметку (относительные hreflang и блок прошлого прогона)
+    s, robots_count = re.subn(r'<meta\s+name="robots"\s+content="[^"]*"\s*/?>', '<meta name="robots" content="index, follow">', s, flags=re.I)
+    if not robots_count:
+        s = s.replace('</head>', '<meta name="robots" content="index, follow">\n</head>', 1)
     s = re.sub(r'<!-- seo -->.*?<!-- /seo -->\n', '', s, flags=re.S)
     s = re.sub(r'<link rel="alternate" hreflang="[^"]+" href="[^"]*">\n', '', s)
     title = H.unescape(re.search(r'<title>(.*?)</title>', s, re.S).group(1))
