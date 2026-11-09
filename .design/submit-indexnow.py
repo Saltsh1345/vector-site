@@ -19,7 +19,7 @@ assert get(BASE + KEY + '.txt').strip() == KEY, 'Production key is not published
 urls = [BASE + path for path in ('', 'uz/', 'tg/')]
 for url in urls:
     page = get(url)
-    assert '"@type": "MedicalOrganization"' in page and '"@id": "' + BASE + '#organization"' in page, url
+    assert '"@type": "MedicalClinic"' in page and 'Вектор Рекавери' in page and '"@id": "' + BASE + '#organization"' in page, url
     assert 'content="index, follow"' in page, url
     assert '"@type": "FAQPage"' in page and 'id="faq"' in page, url + ': на домене ещё нет главы «Вопросы» (2026-11-03)'
 payload = {'host': 'www.vectorecovery.uz', 'key': KEY,
