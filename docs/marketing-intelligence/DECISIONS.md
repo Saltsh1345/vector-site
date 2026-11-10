@@ -21,3 +21,9 @@
 - Confirm Telegram bot identity/name and authorized user IDs.
 - Confirm exact CRM/lead source and qualification definition.
 - Confirm monthly operating budget after the inventory and API requirements are known.
+
+## 2026-11-10 — Healthcare measurement privacy gate
+
+- Instagram organic Insights API is in scope; Meta Pixel and Conversions API are not part of the initial implementation.
+- Do not send health/treatment-related website behavior, URLs, event labels, form data or audience definitions to Meta Business Tools. Revisit only after documented legal/privacy review.
+- GA4 must not receive PII or sensitive information. Review URL/title/event collection and consent before enabling tags on this healthcare website.
