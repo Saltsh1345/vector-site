@@ -64,6 +64,8 @@ Unverified: PostgreSQL/server availability, Google accounts and property ownersh
 - Exit: ownership and profile completeness documented.
 
 ### Phase 3 — Meta / Instagram
+- Connect organic Instagram Insights first; this does not require installing a website pixel.
+- Do not deploy Meta Pixel or Conversions API on Vector pages during the initial rollout. Meta Business Tools Terms restrict sharing data that includes or is based on health information; page paths, event names and custom audiences can reveal sensitive treatment interest. Reconsider only after a documented privacy/legal review and a design that prevents sensitive data from being transmitted.
 - Verify Instagram account is Professional (Business or Creator).
 - Confirm connection to the correct Facebook Page and Meta Business Portfolio.
 - Create or select Meta Developer App; configure use case, app roles, OAuth redirect URIs and required permissions.
@@ -72,6 +74,7 @@ Unverified: PostgreSQL/server availability, Google accounts and property ownersh
 - Exit: n8n can retrieve a small, reproducible Insights sample and the figures match Meta UI.
 
 ### Phase 4 — Data platform and n8n
+- Before enabling GA4 or any third-party web tracker, review whether page URLs, page titles, form interactions or event names can reveal sensitive health/treatment information. Google Analytics policies prohibit sending PII and data that reveals sensitive information. Use privacy review, data minimization and consent controls; do not send form contents, names, phone numbers, email addresses, diagnoses or treatment details.
 - Confirm PostgreSQL exists and can be safely reused; otherwise select a minimal hosted/self-hosted option and document backups.
 - Define normalized schema and KPI dictionary before creating collectors.
 - Build separate workflows: health monitor; Google collector; Yandex collector; Bing collector; Meta collector; website analytics; normalizer/storage; anomaly monitor; AI analyst; Telegram reporter.
