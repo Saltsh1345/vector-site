@@ -37,3 +37,13 @@ All timestamps use Asia/Tashkent (UTC+5). Add a new dated entry for every meanin
 3. Verify platform account ownership and access.
 4. Start GA4/Search Console and Meta onboarding checklists.
 5. Agree data schema and KPI dictionary before collectors are built.
+
+## 2026-11-10 — Privacy guardrails and setup runbook
+
+**Type:** Architecture / implementation planning  
+**Status:** Documentation prepared; no platform accounts connected.
+
+- Added step-by-step setup instructions for Google, Meta/Instagram, Yandex, Bing, Telegram, n8n and Codex MCP/skills.
+- Added a privacy gate: Instagram organic Insights first; no Meta Pixel/Conversions API on the healthcare website by default; GA4 and other tracking require review of URLs, titles, events and consent.
+- Added official-platform OAuth and verification steps, with tokens stored only in n8n Credentials.
+- No production site, active workflow, account permission or advertising setting changed.
